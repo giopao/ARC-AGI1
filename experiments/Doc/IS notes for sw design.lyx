@@ -1,0 +1,3769 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\begin_preamble
+\usepackage{pdfsync}
+\usepackage{graphics}
+\usepackage{epstopdf}
+\usepackage[all]{xy}
+\usepackage{amscd}
+\setlist[enumerate]{leftmargin=*,label=(\roman*),align=left}
+\setlist[itemize]{leftmargin=*,align=left}
+
+
+
+%%%%% Paolo's macro %%%%%%%
+
+\newcommand{\xyR}[1]{ \makeatletter
+\xydef@\xymatrixrowsep@{#1} \makeatother} % end of \xyR
+% command \xyC to have more space between colums in diagrams
+\newcommand{\xyC}[1]{ \makeatletter
+\xydef@\xymatrixcolsep@{#1} \makeatother} % end of \xyC
+\entrymodifiers={++[ ][F]} % to have more space around objects in diagrams
+
+                                                     % ARROWS %
+\newcommand{\ra}{\longrightarrow}
+\newcommand{\xra}[1]{\xrightarrow{\ \ #1\ \ }} % extendible arrow
+\newcommand{\xrad}[1]{\xrightarrow{\displaystyle\ \ #1\ \ }} % extensible arrow in displaystyle
+
+    % MATHBBB %
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\R}{\field{R}} % reals
+\newcommand{\N}{\field{N}} % naturals
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}} % integers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}} % rationals
+
+% MATHCAL %
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\mC}{\mathcal{C}}
+%\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+
+
+                                            % MATHEMATICAL SIMBOLS %
+
+\newcommand{\eps}{\varepsilon} % for the sake of brevity only
+\renewcommand{\phi}{\varphi}
+\newcommand{\diff}[1]{\,\hbox{\rm d}#1} % dt,dx,... for integrals
+\newcommand{\h}[1]{\hspace{#1 truein}}  % to leave horizontal space
+\newcommand{\sss}{\scriptscriptstyle} % for the sake of brevity
+\newcommand{\Iso}{{}^{\displaystyle\sim}}
+%\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+%\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\corners}[1]{\ulcorner{#1}\urcorner}
+
+
+                                                 % CATEGORIES AND FUNCTORS %
+
+\DeclareMathOperator*{\colim}{colim} % colimit
+\newcommand{\Coo}{\mbox{\ensuremath{\mathcal{C}}}^{\infty}} % C infinity
+\DeclareMathOperator*{\Man}{{\bf Man}} % category of smooth manifolds
+\DeclareMathOperator{\Set}{{\bf Set}} % category of Sets
+\newcommand{\OR}{{\mathcal{O}}\mbox{$\R^\infty$}} % category of open sets in numerical spaces
+\newcommand{\FDiff}{\ext{\Coo}} %category of Fermat spaces
+\newcommand{\SFR}{{\bf S}\mbox{$\FR^\infty$}} % category of subsets of Fermat reals \FR and smooth maps
+\newcommand{\SRtil}{\text{\bf Set}_{\sss{\Rtil}}^\infty\!} % category of subsets of CGN
+\newcommand{\Top}{{\bf Top}} % category of topological spaces
+\newcommand{\Diff}{{\bf Dlg}} % diffeological spaces
+\newcommand{\Fr}{{\bf Fr}} % Froelicher spaces
+\newcommand{\HFr}{{\bf HFr}} % Hausdorff Froelicher spaces
+\newcommand{\LCS}{\text{\bf LCS}} % locally convex vector spaces and continuous linear maps
+\newcommand{\Con}{\text{\bf Con}} % convenient vector spaces and continuous linear maps
+\newcommand{\ConInf}{\Con{}^\infty} % convenient vector spaces and smooth maps
+\newcommand{\Fgen}{{\bf F}\Diff} % functionally generated diffeological spaces
+\newcommand{\TD}{\text{\rm T}_\text{\rm D}} % functor \Diff -> \Top "topological from diffeol"
+\newcommand{\DT}{\text{\rm D}_\text{\rm T}} % functor \Top -> \Diff "diffeol from topological"
+\newcommand{\DF}{\text{\rm D}_\text{\rm F}} % functor \Fr -> \Diff "diffeol from Frolicher"
+\newcommand{\FD}{\text{\rm F}_\text{\rm D}} % functor \Diff -> \Fr "Frolicher from diffeol"
+\newcommand{\FFG}{\text{\rm F}_\text{\rm FG}} % functor \Fgen -> \Fr "Frolicher from Fgen"
+\newcommand{\FGF}{\text{\rm FG}_\text{\rm F}} % functor \Fr -> \Fgen "Fgen from Frolicher"
+\newcommand{\DFG}{\text{\rm D}_\text{\rm FG}} % functor \Fgen -> \Diff "diffeol from Fgen"
+\newcommand{\FGD}{\text{\rm FG}_\text{\rm D}} % functor \Diff -> \Fgen "Fgen from diffeol"
+\newcommand{\FGM}{\text{\rm FG}_\text{\rm M}} % functor \Man -> \Fgen "Fgen from man"
+\newcommand{\Gcinf}{\mathcal{G}\cinfty} % generalized smooth functions
+\newcommand{\GDK}[1]{\mathcal{GD}_{#1}} % genearlized diffeological spaces
+\newcommand{\GD}{\mathcal{GD}}
+\newcommand{\Fs}[1]{\mathcal{F}_{\sss #1}} % hom set for the category of known functions
+\newcommand{\Ds}[1]{\mathcal{D}_{\sss #1}} % generalized elements or figures with specified space
+\newcommand{\GDiff}{\mathcal{G}\Diff}
+\DeclareMathOperator*{\ORn}{{\bf O}\mbox{$\R^n$}}
+
+    % FERMAT THEORY %
+
+\newcommand{\FR}{{{}^\bullet\R}} % Fermat reals
+\newcommand{\st}[1]{{#1^\circ}} % standard part map
+\newcommand{\In}[1]{\in_{_{\scriptscriptstyle{#1}}}} % \in for generalized elements
+\newcommand{\InUp}[1]{\in^{\scriptscriptstyle{#1}}} % \in for observables
+\newcommand{\Nil}{\mathcal{N}} % nilpotent functions
+\newcommand{\ext}[1]{{}^\bullet #1} % extension functor
+\newcommand{\equp}[1]{\displaystyle \mathop {\,=\,}^{ \sss{#1}}} % equality up to infinitesimal
+\newcommand{\hyperR}{{{}^*\R}} % hyperreals
+\newcommand{\extFR}{{}^\bullet\bar{\R}} % extended Fermat reals
+\newcommand{\existsext}[1]{\exists_{\,{}^{\ext{\!}#1}}}
+\newcommand{\forallext}[1]{\forall_{\,{}^{\ext{\!}#1}}}
+
+
+     % COLOMBEAU THEORY %
+
+\newcommand{\Rtil}{\widetilde \R} % real Colombeau generalized number
+\newcommand{\Ctil}{\widetilde \CC} % complex Colombeau generalized number
+\newcommand{\otilc}{\widetilde \Omega_c} % compactly supported points in Omega
+\newcommand{\gs}{\mathcal{G}^s} % special Colombeau algebra
+\newcommand{\Gs}{\boldsymbol{\mathcal{G}}^s} % special CA as a diffeological space
+\newcommand{\gf}{\mathcal{G}^e} % full CA
+\newcommand{\Gf}{\boldsymbol{\mathcal{G}}^e} % full CA as a diffeological space
+\newcommand{\ems}{\mathcal{E}^s_M} % moderate nets for the special CA
+\newcommand{\Ems}{\boldsymbol{\mathcal{E}}^s_M} % moderate nets for the special CA as a diffeological space
+\newcommand{\ns}{\mathcal{N}^s} % negligible nets for the special CA
+\newcommand{\emf}{\mathcal{E}^e_M} % moderate nets for the full CA
+\newcommand{\Emf}{\boldsymbol{\mathcal{E}}^e_M} % moderate nets for the full CA as a diffeological space
+\newcommand{\nf}{\mathcal{N}^e} % negligible nets for the full CA
+\newcommand{\gss}{{\mathcal G}^{\text{\rm s}}} % special CA with roman s
+\newcommand{\gse}{{\mathcal G}^{\text{\rm e}}} % full CA with roman e
+\newcommand{\gsd}{{\mathcal G}^{\text{\rm d}}} % diffeomorphism invariant CA with roman d
+\newcommand{\gsh}{\hat{\mathcal{G}}} % algebra of asymptotic functions (NSA)
+\newcommand{\erm}{\text{\rm e}} % for having roman superscript in CAs
+\newcommand{\srm}{\text{\rm s}}
+\newcommand{\drm}{\text{\rm d}}
+\newcommand{\crm}{\text{\rm c}}
+\newcommand{\brm}{\text{\rm b}}
+\newcommand{\thick}{\text{\rm th}} % thickening
+\newcommand{\sint}[1]{\langle#1\rangle} % strong internal set
+\newcommand{\Eball}{B^{{\scriptscriptstyle \text{\rm E}}}} % ordinary Euclidean ball
+\newcommand{\Fball}{B^{{\scriptscriptstyle \text{\rm F}}}} % ball in Fermat top
+\newcommand{\sintF}[1]{\sint{#1}_{\scriptscriptstyle\text{\rm F}}}
+\newcommand{\RC}[1]{{}^{\scriptscriptstyle #1}\Rtil}
+\newcommand{\rcrho}{\RC{\rho}}
+\newcommand{\csp}[1]{{\text{\rm c}}({#1})}
+%\newcommand{\csp}[1]{{}^{\scriptscriptstyle \rho}\widetilde{{#1}_{\text{\rm c}}}}
+\newcommand{\fcmp}{\Subset_{\text{f}}}
+
+
+                                              % LOGICAL SYMBOLS %
+
+\newcommand{\ptind}{\displaystyle \mathop {\ldots\ldots\,}} % marks with smth over. Usage: \ptind^{...}
+\newcommand{\then}{\quad \Longrightarrow \quad} % implication
+\newcommand{\DIff}{ \quad\;\; :\!\iff \quad } % :iff by definition
+\newcommand{\IffD}{ \quad\;\; \iff \!\! \colon \quad } % iff: by definition
+\newcommand{\eqUp}{\displaystyle \mathop {=}} % = with something above
+\newcommand{\leUp}{\displaystyle \mathop {\le}} % <= with something above
+\newcommand{\geUp}{\displaystyle \mathop {\ge}} % >= with something above
+
+%% Interaction spaces %%
+
+\DeclareMathOperator{\act}{ac}
+\DeclareMathOperator{\stateNeigh}{n}
+\DeclareMathOperator{\stateAgents}{ag}
+\newcommand{\tst}{t_{\rm st}}
+\newcommand{\tend}{t_{\rm end}}
+\newcommand{\creationTime}[1]{t^{#1}_{\rm c}}
+\newcommand{\destructionTime}[1]{t^{#1}_{\rm d}}
+\newcommand{\ag}[1]{{\rm ag}(#1)}
+\newcommand{\pa}[1]{{\rm pa}(#1)}
+\newcommand{\pr}[1]{{\rm pr}(#1)}
+\newcommand{\tist}[1]{t_{#1}^{\rm s}}
+\newcommand{\tong}[1]{t_{#1}^{\rm o}}
+\newcommand{\tarr}[1]{t_{#1}^{\rm a}}
+\newcommand{\tfirst}{t^{\rm 1}}
+\newcommand{\tsubs}{t_{\rm s}}
+\newcommand{\tsuba}{t_{\rm a}}
+\newcommand{\tsubo}{t_{\rm o}}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+enumitem
+\end_modules
+\maintain_unincluded_children no
+\begin_local_layout
+Format 66
+Style Subjectclass
+    CopyStyle             Address
+    LatexName             subjclass[2020]
+    LabelString           "2020 Mathematics Subject Classification:"
+End
+\end_local_layout
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\notefontcolor #ffaa00
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side right
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Interaction spaces:
+ notes for software design
+\end_layout
+
+\begin_layout Section
+Interaction spaces
+\end_layout
+
+\begin_layout Standard
+We refer to 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~2"
+key "IS2"
+literal "false"
+
+\end_inset
+
+ for the most updated definition of IS.
+\end_layout
+
+\begin_layout Standard
+We have to distinguish when an interacting entity (e.g.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+a rectangle
+\begin_inset Quotes erd
+\end_inset
+
+) or an interaction (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+is internal
+\begin_inset Quotes erd
+\end_inset
+
+) belongs to an IS or another one.
+ E.g.
+\begin_inset space ~
+\end_inset
+
+it can belong to one training left grid in ARC-AGI 1,
+ or to the right grid,
+ or being the mental representation in another IS.
+ Learning to think at them as different interacting entities helps in the construction of CEF,
+ which maps these entities among each other.
+ For this reasons,
+ it seems better to use UML's composition (black rhombus,
+ call with parameters and instantiation internal to 
+\family typewriter
+InteractionSpace
+\family default
+) and not aggregation (empty rhombus,
+ call directly with the entity object,
+ e.g.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+InteractingEntity
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+In the class 
+\begin_inset Formula $\texttt{InteractionSpace}$
+\end_inset
+
+ we surely set as attributes all the variables and quantities that are parameters for the considered IS.
+ For example,
+ the time 
+\begin_inset Formula $t$
+\end_inset
+
+ of all the time-depending functions,
+ such as 
+\begin_inset Formula $\tist{i}(t)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\tong{i}(t)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\act_{i}^{r}(t)$
+\end_inset
+
+ has to be implemented in the code with asynchronous or synchronous steps depending on the model (see the dynamics of an IS in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~2.8"
+key "IS1"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+In the following notes,
+ sometimes we use the customary 
+\family typewriter
+self
+\family default
+ and sometimes another more meaningful name.
+\end_layout
+
+\begin_layout Standard
+Open problem:
+ create a parent class 
+\family typewriter
+StaticInteractionSpace
+\family default
+ of 
+\family typewriter
+InteractionSpace
+\family default
+ for static interaction spaces where all the interactions are static (
+\begin_inset Formula $\tist{i}(t)=\tong{i}(t)=\tst$
+\end_inset
+
+ for all 
+\begin_inset Formula $t$
+\end_inset
+
+,
+ which is the 
+\family typewriter
+default
+\family default
+ value below).
+\end_layout
+
+\begin_layout Standard
+In the following,
+ Type Hints are used only 
+\emph on
+informally
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Attributes and methods of 
+\family typewriter
+InteractionSpace
+\end_layout
+
+\begin_layout Enumerate
+Attributes:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+id:
+ str
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+t_st:
+ float
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\tst$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+t_end:
+ float
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\tend$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+t:
+ float
+\family default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Corresponds to the last value of time 
+\begin_inset Formula $t\in[\tst,\tend]$
+\end_inset
+
+,
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~2.8"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+E:
+ dict[id:
+ str,
+ e:InteractingEntity]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This corresponds to the set 
+\begin_inset Formula $E$
+\end_inset
+
+ of all the interacting entities of the IS.
+\end_layout
+
+\begin_layout Itemize
+We first have to recognize an interacting entity and collect the values of its attributes.
+ Then we pass these values to the corresponding IS,
+ which internally (composition) instantiate the corresponding 
+\family typewriter
+InteractingEntity
+\family default
+ and add it to 
+\family typewriter
+self.E
+\family default
+.
+ When we finished this process for all the interacting entities,
+ the attribute 
+\family typewriter
+self.E
+\family default
+ is complete.
+\end_layout
+
+\begin_layout Itemize
+Keys and values of 
+\family typewriter
+E
+\family default
+ are 
+\family typewriter
+(e.id:
+ e
+\family default
+),
+ for each 
+\family typewriter
+InteractingEntity
+\family default
+ 
+\family typewriter
+e
+\family default
+,
+ therefore:
+ 
+\family typewriter
+self.E[e.id] == e
+\family default
+ iff 
+\begin_inset Formula $e\in E$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+I:
+ dict[id:
+ str,
+ i:Interaction]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This corresponds to the set 
+\begin_inset Formula $I$
+\end_inset
+
+ of all the interactions of the IS.
+\end_layout
+
+\begin_layout Itemize
+We first have to recognize an interaction and collect the values of its attributes.
+ Then we pass these values to the corresponding IS,
+ which internally (composition) instantiate the corresponding 
+\family typewriter
+Interaction
+\family default
+ and add it to 
+\family typewriter
+self.
+\family default
+I.
+ When we finished this process for all the interacting entity,
+ the attribute 
+\family typewriter
+self.I
+\family default
+ is complete.
+\end_layout
+
+\begin_layout Itemize
+Keys and values of 
+\family typewriter
+I
+\family default
+ are 
+\family typewriter
+(i.id:
+ 
+\family default
+i),
+ for each 
+\family typewriter
+Interaction
+\family default
+ 
+\family typewriter
+i
+\family default
+,
+ therefore:
+
+\family typewriter
+ self.I[i.id] == i
+\family default
+ iff 
+\begin_inset Formula $i\in I$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+Delta:
+ float
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+self.Delta
+\family default
+ corresponds to 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ (in the evolution equation).
+\end_layout
+
+\begin_layout Itemize
+Open problem:
+ it would be computationally more efficient to have 
+\begin_inset Formula $\Delta_{p}$
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+depending on the patient 
+\begin_inset Formula $p$
+\end_inset
+
+,
+ in the evolution equation (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Def.~8"
+key "IS2"
+literal "false"
+
+\end_inset
+
+).
+ However,
+ the corresponding algorithm for the dynamics of an IS 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~2.8"
+key "IS1"
+literal "false"
+
+\end_inset
+
+ would probably be more involved.
+ Can you understand this algorithm?
+ Start thinking at only two patients having different 
+\begin_inset Formula $\Delta_{p}$
+\end_inset
+
+,
+ e.g.
+\begin_inset space ~
+\end_inset
+
+two moving balls having an elastic collision.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Methods:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+t_first_arrival(t:
+ float = IS.t) -> float
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+IS.t_first_arrival(t) = min(i.ta[t] for i in IS.I.values() if i.ts[t] == t,
+ default = 
+\begin_inset Quotes eld
+\end_inset
+
+inf
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+it corresponds to:
+ 
+\begin_inset Formula $t^{1}(t)=\min\left\{ \tarr{i}(t)\mid i\in I,\ \tist{i}(t)=t\right\} $
+\end_inset
+
+,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "(2.4)"
+key "IS2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+run() -> dict
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Set all the needed initial conditions:
+ proper state variables 
+\begin_inset Formula $x_{e}(\tst)$
+\end_inset
+
+,
+ activations 
+\begin_inset Formula $\act_{i}^{e}(\tst)$
+\end_inset
+
+,
+ goods 
+\begin_inset Formula $\gamma_{i}(\tst)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\tist{i}(\tst)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\tong{i}(\tst)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\tarr{i}(\tst)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{N}_{i}(\tst)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Follows the dynamics explained in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~2.8"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+execution_log() -> BinaryIO
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Save in a file all the interesting variables of the IS.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+load_system_state() -> BinaryIO
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Load from a file all the IS variables (e.g.
+\begin_inset space ~
+\end_inset
+
+load an entire initial condition)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Interacting entities
+\end_layout
+
+\begin_layout Standard
+Every interacting entity 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ is an object in the class 
+\begin_inset Formula $\texttt{InteractingEntity}$
+\end_inset
+
+.
+ These are classified (as we prefer) into subclasses:
+ in the design phase of the problem (e.g.
+\begin_inset space ~
+\end_inset
+
+ARC-AGI 1),
+ we decide what are the subclasses and what are the sub-subclasses (e.g.
+ 
+\begin_inset Formula $\texttt{Rectangle}$
+\end_inset
+
+ is a subclass of 
+\begin_inset Formula $\texttt{ClosedLine}$
+\end_inset
+
+),
+ etc.
+\end_layout
+
+\begin_layout Standard
+Each attribute,
+ from the mathematical point of view,
+ is a function 
+\begin_inset Formula $t\mapsto x_{e}(t)$
+\end_inset
+
+.
+ We can implement this using two methods of the form 
+\family typewriter
+get_state(t:
+ float)
+\family default
+ and 
+\family typewriter
+set_state(t:
+ float)
+\family default
+ like in Guntur's UML diagram 
+\begin_inset Quotes eld
+\end_inset
+
+PlantUML IS
+\begin_inset Quotes erd
+\end_inset
+
+.
+ On the other hand,
+ it would be more natural to see 
+\begin_inset Formula $x_{e}(t)$
+\end_inset
+
+ as the value of an attribute of 
+\begin_inset Formula $e$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ We can therefore implement them as dictionaries of the form 
+\family typewriter
+e.x[t]
+\family default
+.
+ In this way,
+ we obtain a notation more similar to the mathematical one and having read and write properties.
+ Moreover,
+ in the entire dictionary 
+\family typewriter
+e.x
+\family default
+ we have all the pairs (key,
+ value) of the form 
+\family typewriter
+t:
+ e.x[t]
+\family default
+,
+ i.e.
+ each time event and the related value of the state (i.e.
+\begin_inset space ~
+\end_inset
+
+the history of the state 
+\begin_inset Formula $x_{e}(t)$
+\end_inset
+
+,
+ or the graph of the function 
+\begin_inset Formula $t\mapsto x_{e}(t)$
+\end_inset
+
+).
+ This can be useful to study the dynamics of 
+\begin_inset Formula $e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In a first implementation,
+ we can avoid to implement the state space.
+ In fact,
+ the state space is useful as a 
+\begin_inset Quotes eld
+\end_inset
+
+stand alone object
+\begin_inset Quotes erd
+\end_inset
+
+,
+ e.g.
+\begin_inset space ~
+\end_inset
+
+in the following case:
+\end_layout
+
+\begin_layout Enumerate
+We model all the possible states of all the interacting entities with the space 
+\begin_inset Formula $\bar{M}$
+\end_inset
+
+ (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~3"
+key "IS2"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+We wan to study the GEP in 
+\begin_inset Formula $\bar{M}$
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+what are good possible global configuration of our IS.
+\end_layout
+
+\begin_layout Standard
+\noindent
+This 
+\begin_inset Quotes eld
+\end_inset
+
+static
+\begin_inset Quotes erd
+\end_inset
+
+ approach is different from a dynamical/runtime calculation of the GEP at time 
+\begin_inset Formula $t$
+\end_inset
+
+,
+ where we consider only the state 
+\begin_inset Formula $x_{e}(t)$
+\end_inset
+
+ of each interacting entity 
+\begin_inset Formula $e$
+\end_inset
+
+ (in order to evaluate costs/unification) at time 
+\begin_inset Formula $t$
+\end_inset
+
+,
+ and the goods 
+\begin_inset Formula $\gamma_{i}(t)$
+\end_inset
+
+ of each interaction 
+\begin_inset Formula $i$
+\end_inset
+
+ at the same time (in order to evaluate entropy/diversification).
+ Up to now,
+ we are more interested to the dynamical approach.
+\end_layout
+
+\begin_layout Standard
+\noindent
+On the contrary,
+ the space of all the resources 
+\begin_inset Formula $R_{i}\ni\gamma_{i}(t)$
+\end_inset
+
+ (for each interaction) can be useful in order to consider phenomena such as 
+\begin_inset Quotes eld
+\end_inset
+
+depletion of resources
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+for normalizing the spaces of resources in order to obtain a meaningful probability for the diversification of the GEP
+\begin_inset Quotes erd
+\end_inset
+
+,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~8.3.2"
+key "IS2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For these motivations,
+ and only in case we are interested in the static approach,
+ among the attributes of each entity 
+\begin_inset Formula $e$
+\end_inset
+
+,
+ we can simply implement the proper state space 
+\begin_inset Formula $S_{e}$
+\end_inset
+
+ as a tuple of 
+\family typewriter
+types
+\family default
+ of the form (e.g.)
+\begin_inset Formula 
+\[
+\texttt{(numpy.ndarray, str, numpy.ndarray, int)}
+\]
+
+\end_inset
+
+which mathematically correspond to 
+\begin_inset Formula $\R^{d_{1}}\times\text{Str}\times\R^{d_{2}}\times\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In case we need to consider e.g.
+\begin_inset space ~
+\end_inset
+
+a subspace of 
+\begin_inset Formula $\R^{d}$
+\end_inset
+
+,
+ e.g.
+\begin_inset space ~
+\end_inset
+
+an interval,
+ we can implement the corresponding state space as a pair (2-tuple) given by a 
+\family typewriter
+type
+\family default
+ (as above) and a boolean condition on that type 
+\family typewriter
+T
+\family default
+,
+ i.e.
+ a function 
+\family typewriter
+f(x:
+ T) -> bool
+\family default
+.
+ This pair represents the set
+\begin_inset Formula 
+\begin{equation}
+\left\{ x\in\text{\texttt{T}}\mid f(x)=\text{\texttt{True}}\right\} ,\label{eq:set}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $x\in\texttt{T}$
+\end_inset
+
+ means 
+\family typewriter
+isinstance(x,
+ T) == True
+\family default
+.
+ For example,
+ 
+\family typewriter
+f = lambda x:
+ 0 <= x <= 1
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Finally,
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Def.~6"
+key "IS2"
+literal "false"
+
+\end_inset
+
+,
+ the neighborhood 
+\begin_inset Formula $\mathcal{N}_{p}(t)$
+\end_inset
+
+ of a patient 
+\begin_inset Formula $p\in E$
+\end_inset
+
+ is needed only as a domain of the neighborhood state function 
+\begin_inset Formula $\stateNeigh_{p}x_{s}:(\tau,\eps)\in\mathcal{N}_{p}(t),\ \tau\le s\mapsto x_{\eps}(\tau)\in S_{\eps}$
+\end_inset
+
+.
+ For this reason,
+ we do not implement 
+\begin_inset Formula $\mathcal{N}_{p}(t)$
+\end_inset
+
+ as an attribute of the subclass 
+\family typewriter
+Patient(InteractingEntity)
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Attributes and methods of 
+\family typewriter
+InteractingEntity
+\end_layout
+
+\begin_layout Enumerate
+Attributes:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+id:
+ str
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+proper_state_dim:
+ int
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+states_description:
+ list[str]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+for each component 
+\begin_inset Formula $x_{e}(t)^{j}$
+\end_inset
+
+ a string 
+\family typewriter
+e.states_description[j]
+\family default
+ describing the meaning of the 
+\begin_inset Formula $j$
+\end_inset
+
+-th state.
+ This description does not depend on 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+ac:
+ dict[tuple[i:
+ Interaction,
+ t:
+ float = IS.t],
+ v:
+ float]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+e.ac[i,
+ t]
+\family default
+ corresponds to 
+\begin_inset Formula $\act_{i}^{e}(t)\in[0,1]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+x:
+ dict[t:
+ float = IS.t,
+ v:
+ numpy.ndarray]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+e.x[t]
+\family default
+ corresponds to 
+\begin_inset Formula $x_{e}(t)\in S_{e}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+We use this notation only for proper state variables,
+ but we have to recall that also activation and goods are dynamical state variables.
+ For example,
+ in general,
+ both are included in the evolution equation (EE).
+\end_layout
+
+\begin_layout Itemize
+Assume that we need to use the speed features of Numpy for a numerical array 
+\family typewriter
+e.x[t]
+\family default
+.
+ However,
+ we also need other state variables such as 
+\family typewriter
+str
+\family default
+ or more generic objects.
+ In that case,
+ it could be convenient to introduce a subclass of 
+\family typewriter
+InteractingEntity
+\family default
+ having these new state variables.
+ In the present version,
+ we always consider 
+\family typewriter
+e.x[t]
+\family default
+ as a numerical array.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+methods:
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+
+\family typewriter
+Propagator
+\family default
+ as subclass of 
+\family typewriter
+InteractingEntity
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+Propagator(InteractingEntity)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+attributes:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+interactions:
+ list[Interaction]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The list of all the interactions 
+\begin_inset Formula $i$
+\end_inset
+
+ such that 
+\begin_inset Formula $\text{pr}(i)=r$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+type:
+ str
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+r.type = r.id
+\family default
+,
+ so that it is only another name.
+\end_layout
+
+\begin_layout Itemize
+It corresponds with the old 
+\begin_inset Quotes eld
+\end_inset
+
+type of an interaction
+\begin_inset Quotes erd
+\end_inset
+
+,
+ and now equals the string 
+\family typewriter
+id
+\family default
+ of the interaction.
+ Therefore,
+ if 
+\begin_inset Formula $\text{pr}(i)=r$
+\end_inset
+
+,
+ then 
+\family typewriter
+r.type == i.id
+\end_layout
+
+\begin_layout Itemize
+If we are thinking at two interactions intuitively having 
+\begin_inset Quotes eld
+\end_inset
+
+the same entities
+\begin_inset Quotes erd
+\end_inset
+
+,
+ but actually of different 
+\begin_inset Quotes eld
+\end_inset
+
+types
+\begin_inset Quotes erd
+\end_inset
+
+,
+ this means that they must have different propagators because 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+
+\family typewriter
+.type == 
+\begin_inset Quotes eld
+\end_inset
+
+doing this
+\begin_inset Quotes erd
+\end_inset
+
+ == i_1.id
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ and 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+and 
+\begin_inset Formula $r_{2}$
+\end_inset
+
+
+\family typewriter
+.type == 
+\begin_inset Quotes eld
+\end_inset
+
+doing that
+\begin_inset Quotes erd
+\end_inset
+
+ == i_2.id
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+gamma:
+ dict[tuple[i:
+ Interaction,
+ t:
+ float = IS.t],
+ v:
+ i.type_of_resources]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+r.gamma[i,
+ t]
+\family default
+ corresponds to 
+\begin_inset Formula $\gamma_{i}(t)\in R_{i}$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $\text{pr}(i)=r$
+\end_inset
+
+,
+ i.e.
+ if:
+ 
+\family typewriter
+i in r.interactions == True
+\end_layout
+
+\begin_layout Itemize
+We also have:
+ 
+\family typewriter
+type(r.gamma[i,
+ t]) == i.resources_type
+\family default
+ (see below Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Attributes-and-methods-Interaction"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+methods:
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+
+\family typewriter
+Patient
+\family default
+ as subclass of 
+\family typewriter
+InteractingEntity
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+Patient(InteractingEntity)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+attributes:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+interactions:
+ list[Interactions]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The list of all the interactions 
+\begin_inset Formula $i$
+\end_inset
+
+ such that 
+\begin_inset Formula $\text{pa}(i)=p$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+I:
+ dict[t:
+ float = IS.t,
+ I_list:
+ list[Interaction]]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+p.I[t]
+\family default
+ is a list having the same elements of 
+\begin_inset Formula $I_{p}(t)$
+\end_inset
+
+ (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~2.4"
+key "IS2"
+literal "false"
+
+\end_inset
+
+).
+ In other words,
+ 
+\family typewriter
+set(p.I[t])
+\family default
+ corresponds to 
+\begin_inset Formula $I_{p}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Open problem to discuss:
+ Since 
+\family typewriter
+p.I[t]
+\family default
+ is a list of 
+\family typewriter
+Interaction
+\family default
+,
+ these are hashable and we have to use e.g.
+ 
+\family typewriter
+@dataclass(frozen=True)
+\family default
+ in case we want to directly implement 
+\family typewriter
+p.I[t]
+\family default
+ as a set.
+ However,
+ it seems that we need to use 
+\family typewriter
+p.I[t]
+\family default
+ only to test it is non empty for the implementation of the evolution equation:
+ 
+\family typewriter
+if p.I[t]:
+ EE
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+Omega_type:
+ str
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+p.Omega_type = 
+\begin_inset Quotes eld
+\end_inset
+
+discrete
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+ if 
+\begin_inset Formula $(\Omega_{p},\mathcal{F}_{p},P_{p})$
+\end_inset
+
+ is a discrete probability space.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+p.Omega_type = 
+\begin_inset Quotes eld
+\end_inset
+
+continuous
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+ if 
+\begin_inset Formula $(\Omega_{p},\mathcal{F}_{p},P_{p})$
+\end_inset
+
+ is a continuous probability space.
+\end_layout
+
+\begin_layout Itemize
+In case we need to implement more general probability spaces,
+ we have to use generalized functions as densities.
+ Moreover,
+ up to now,
+ continuous probability spaces are only on a 1-dim.
+ interval.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+Omega_discr_set:
+ set | None
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\family typewriter
+Omega_type = 
+\begin_inset Quotes eld
+\end_inset
+
+continuous
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ then 
+\family typewriter
+Omega_discr_set = None
+\end_layout
+
+\begin_layout Itemize
+Otherwise,
+ if 
+\begin_inset Formula $\Omega_{p}=\{\omega_{1},\ldots,\omega_{K}\}$
+\end_inset
+
+,
+ then 
+\family typewriter
+Omega_discr_set = {omega_1,
+ ...,
+ omega_K}
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+Omega_int_min:
+ float | None
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\family typewriter
+Omega_type = 
+\begin_inset Quotes eld
+\end_inset
+
+discrete
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ then 
+\family typewriter
+Omega_int_min = None
+\end_layout
+
+\begin_layout Itemize
+Otherwise,
+ if 
+\begin_inset Formula $\Omega_{p}=[a,b]$
+\end_inset
+
+,
+ then 
+\family typewriter
+p.Omega_int_min = a
+\family default
+.
+ Recall that we can take 
+\family typewriter
+a = float(
+\begin_inset Quotes eld
+\end_inset
+
+-inf
+\begin_inset Quotes erd
+\end_inset
+
+)
+\family default
+ or 
+\family typewriter
+b = float(
+\begin_inset Quotes eld
+\end_inset
+
+inf
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+Omega_int_max:
+ float | None
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\family typewriter
+Omega_type = 
+\begin_inset Quotes eld
+\end_inset
+
+discrete
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ then 
+\family typewriter
+Omega_int_max = None
+\end_layout
+
+\begin_layout Itemize
+Otherwise,
+ if 
+\begin_inset Formula $\Omega_{p}=[a,b]$
+\end_inset
+
+,
+ then 
+\family typewriter
+p.Omega_int_max = b
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+P_density:
+ FunctionType
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\family typewriter
+Omega_type = 
+\begin_inset Quotes eld
+\end_inset
+
+discrete
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ then 
+\family typewriter
+P_density(omega in Omega_discr_set) -> float
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P_{p}\left(\left\{ \omega\right\} \right)$
+\end_inset
+
+ corresponds to 
+\family typewriter
+p.P_density(omega)
+\end_layout
+
+\begin_layout Itemize
+If 
+\family typewriter
+Omega_type = 
+\begin_inset Quotes eld
+\end_inset
+
+continuous
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ then 
+\family typewriter
+P_density(Omega_int_min <= omega <= Omega_int_max) -> float
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $\Omega_{p}=[a,b]$
+\end_inset
+
+,
+ the probability 
+\begin_inset Formula $P_{p}$
+\end_inset
+
+ is distributed with density 
+\family typewriter
+p.P_density(omega)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+f:
+ FunctionType
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The function 
+\family typewriter
+p.f
+\family default
+ is implemented in the code and run in the package 
+\family typewriter
+Evolution System
+\family default
+,
+ where we implement the evolution equation.
+ Therefore,
+ it is a function of the form 
+\family typewriter
+p.f(omega,
+ s,
+ p.nx(t,s)).
+\end_layout
+
+\begin_layout Itemize
+In 
+\family typewriter
+Evolution System
+\family default
+,
+ we have to implement 
+\family typewriter
+p.x(s) = p.f(omega,
+ s,
+ p.nx(t,s))
+\family default
+ for all 
+\family typewriter
+IS.t_first_arrival(t) <= s <= IS.t_first_arrival(t) + IS.Delta
+\family default
+ (for a certain number of 
+\family typewriter
+s
+\family default
+ if 
+\family typewriter
+IS.Delta > 0
+\family default
+).
+\end_layout
+
+\begin_layout Itemize
+This implementation has to be realized after extracting an elementary events 
+\family typewriter
+omega
+\family default
+ using the previous probability space 
+\begin_inset Formula $(\Omega_{p},\mathcal{F}_{p},P_{p})$
+\end_inset
+
+ and only if:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+IS.t_first_arrival(t) < inf
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+if p.I[t]:
+
+\family default
+ i.e.
+ if 
+\family typewriter
+p.I[t]
+\family default
+ is not empty.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+methods:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+nx(t:
+ float = IS.t,
+ s:
+ float) -> dict[tuple[tau:
+ float,
+ eps:
+ InteractingEntity],
+ v:
+ numpy.ndarray]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+p.nx(t,
+ s)
+\family default
+ corresponds to the function 
+\begin_inset Formula $(\tau,\eps)\mapsto\stateNeigh_{p}x(\tau,\eps)=x_{\eps}(\tau)\in S_{\eps}$
+\end_inset
+
+,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Def.~6"
+key "IS2"
+literal "false"
+
+\end_inset
+
+ (which actually depends also on 
+\begin_inset Formula $t$
+\end_inset
+
+ because its domain 
+\begin_inset Formula $\mathcal{N}_{p}(t)$
+\end_inset
+
+ depends on 
+\begin_inset Formula $t$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+p.nx(t,
+ s)
+\family default
+ is the dict with keys 
+\family typewriter
+(tau,
+ eps)
+\family default
+ and values 
+\family typewriter
+v = eps.x[tau]
+\family default
+ constructed as follows:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Consider all the interactions having 
+\begin_inset Formula $p$
+\end_inset
+
+ as patient:
+ 
+\family typewriter
+i in p.interactions
+\end_layout
+
+\begin_layout Itemize
+For these interactions 
+\begin_inset Formula $i$
+\end_inset
+
+,
+ consider all the past arrival times 
+\begin_inset Formula $t'=\tarr{i}(t')\le t$
+\end_inset
+
+ of 
+\begin_inset Formula $i$
+\end_inset
+
+:
+ 
+\family typewriter
+t_prime in i.arrival_times() & t_prime <= IS.t
+\end_layout
+
+\begin_layout Itemize
+In the code above,
+ 
+\family typewriter
+IS
+\family default
+ is the IS where we are instantiating the 
+\family typewriter
+Interaction
+\family default
+ 
+\begin_inset Formula $i$
+\end_inset
+
+ (composition).
+\end_layout
+
+\begin_layout Itemize
+Consider all the interacting entities 
+\begin_inset Formula $\eps\in\mathcal{N}_{i}(t')$
+\end_inset
+
+ at these times 
+\begin_inset Formula $t'$
+\end_inset
+
+:
+ 
+\family typewriter
+eps in i.N(t_prime)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tau
+\family default
+ are all the events times of 
+\begin_inset Formula $x_{\eps}(-)$
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+times when the state of 
+\begin_inset Formula $\eps$
+\end_inset
+
+ changes:
+ 
+\family typewriter
+eps.x.keys()
+\family default
+ and such that 
+\family typewriter
+tau <= s
+\end_layout
+
+\begin_layout Itemize
+Pairs (key:
+ value) are:
+ 
+\family typewriter
+(tau,
+ eps):
+ eps.x[tau]
+\end_layout
+
+\begin_layout Itemize
+In this way,
+ we have:
+ 
+\family typewriter
+p.nx(t)[tau,
+ eps] == eps.x[tau]
+\family default
+ for the correct 
+\begin_inset Formula $(\tau,\eps)$
+\end_inset
+
+ as in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "(2.5)"
+key "IS2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Section
+Discr./cont.
+ time events
+\end_layout
+
+\begin_layout Standard
+Sets 
+\begin_inset Formula $T$
+\end_inset
+
+ of discrete or continuous time events (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Def.~3"
+key "IS2"
+literal "false"
+
+\end_inset
+
+) are what is actually generated,
+ depending on the model we are considering,
+ using the general algorithm described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~3.5.1"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+ Intuitively,
+ they are all the times when something occurs:
+ an interaction start,
+ a propagator arrives,
+ the state of an interacting entity changes,
+ the neighborhood of an interaction changes,
+ etc.
+ Each clock function 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is defined by one and only one of these set of time events because 
+\begin_inset Formula $T=\tau([\tst,\tend])$
+\end_inset
+
+.
+ We therefore introduce these 
+\begin_inset Formula $T$
+\end_inset
+
+ as a new class of objects and the corresponding clock function as one of their methods.
+\end_layout
+
+\begin_layout Standard
+We recall that the unions in a set of discr./cont.
+ time events 
+\begin_inset Formula $T=\bigcup_{j\in N}\{t_{j}\}\cup\bigcup_{k\in M}[t_{k}^{1},t_{k}^{2}]$
+\end_inset
+
+ must all be disjoint,
+ so that 
+\begin_inset Formula $t_{j}$
+\end_inset
+
+ are all different,
+ 
+\begin_inset Formula $t_{k}^{1}<t_{k}^{2}$
+\end_inset
+
+,
+ no 
+\begin_inset Formula $t_{j}$
+\end_inset
+
+ lies in some 
+\begin_inset Formula $[t_{k}^{1},t_{k}^{2}]$
+\end_inset
+
+,
+ and all the intervals 
+\begin_inset Formula $[t_{k}^{1},t_{k}^{2}]$
+\end_inset
+
+ are disjoint.
+ The (stochastic) generation of 
+\begin_inset Formula $T$
+\end_inset
+
+ naturally respect these constraints,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~3.5.1"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+On the other hand,
+ 
+\begin_inset Formula $t\mapsto\tarr{i}$
+\end_inset
+
+ is not a clock function (
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~3.4"
+key "IS1"
+literal "false"
+
+\end_inset
+
+).
+ However,
+ we (stochastically) generate 
+\begin_inset Formula $\tarr{i}(t)$
+\end_inset
+
+ using the algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~3.5.1"
+key "IS1"
+literal "false"
+
+\end_inset
+
+ starting from a discrete set of times 
+\begin_inset Formula $T_{i}^{\text{a}}=\bigcup_{j\in N_{\text{a}}}\{t_{j}^{\text{a}}\}$
+\end_inset
+
+.
+ We can therefore include this 
+\begin_inset Formula $T_{i}^{\text{a}}$
+\end_inset
+
+ as a particular case of a set of discr./cont.
+ time events.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+TimeEvents
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+attributes:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+discrete:
+ list[float]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+T.discrete[j]
+\family default
+ corresponds to 
+\begin_inset Formula $t_{j}$
+\end_inset
+
+ if 
+\begin_inset Formula $T=\bigcup_{j\in N}\{t_{j}\}\cup\bigcup_{k\in M}[t_{k}^{1},t_{k}^{2}]$
+\end_inset
+
+.
+ The list 
+\family typewriter
+T.discrete
+\family default
+ is sorted and all time events are different,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $t_{j}<t_{j+1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+continuous:
+ numpy.ndarray | None
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If this attribute 
+\family typewriter
+is not None
+\family default
+,
+ then:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+T.continuous[k,
+ 1]
+\family default
+ corresponds to 
+\begin_inset Formula $t_{k}^{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+T.continuous[k,
+ 2]
+\family default
+ corresponds to 
+\begin_inset Formula $t_{k}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The array represent disjoint intervals,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $t_{k}^{1}<t_{k}^{2}<t_{k+1}^{1}<t_{k+1}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If this attribute 
+\family typewriter
+is None
+\family default
+,
+ then this is the case of the set of time events that generates 
+\begin_inset Formula $t\mapsto\tarr{i}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+If this attribute 
+\family typewriter
+is not None
+\family default
+,
+ it means that we have a set of discr./cont.
+ time events that can generate a clock function,
+ but having no continuous time events.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+infty:
+ bool
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+T.infty == True
+\family default
+ iff 
+\begin_inset Formula $+\infty\in T$
+\end_inset
+
+ (in this case 
+\begin_inset Formula $T=\bigcup_{j\in N}\{t_{j}\}\cup\bigcup_{k\in M}[t_{k}^{1},t_{k}^{2}]\cup\{+\infty\}$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+methods:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+clock(t:
+ float = IS.t) -> float
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It is the clock function generated by the set 
+\begin_inset Formula $T$
+\end_inset
+
+,
+ i.e.
+ 
+\begin_inset Formula $\tau(t)=\min\left\{ s\ge t\mid s\in T\right\} $
+\end_inset
+
+.
+ Recall that 
+\begin_inset Formula $\min(\emptyset)=+\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+It can be implemented as 
+\family typewriter
+T.clock(t) = min(s for s in T if s >= t,
+ default = float(
+\begin_inset Quotes eld
+\end_inset
+
+inf
+\begin_inset Quotes erd
+\end_inset
+
+))
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Section
+Interactions
+\end_layout
+
+\begin_layout Standard
+Firstly think at interactions as 
+\emph on
+formal 
+\begin_inset Formula $n+2$
+\end_inset
+
+-tuples
+\emph default
+ 
+\begin_inset Formula $i=(a_{1},\ldots,a_{n},r,p)$
+\end_inset
+
+ and after as 
+\emph on
+dynamical entities
+\emph default
+ characterized by 
+\begin_inset Formula $\tist{i}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\tong{i}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\act_{i}^{r}$
+\end_inset
+
+...
+ Interactions 
+\begin_inset Formula $i=(a_{1},\ldots,a_{n},r,p)$
+\end_inset
+
+,
+ or 
+\begin_inset Formula $i:a_{1},\ldots,a_{n}\xra{r}p$
+\end_inset
+
+,
+ are objects in the class 
+\begin_inset Formula $\texttt{Interaction}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Attributes-and-methods-Interaction"
+
+\end_inset
+
+Attributes and methods of 
+\family typewriter
+Interaction
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\texttt{Interaction}$
+\end_inset
+
+:
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+attributes:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+id:
+ str
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This 
+\family typewriter
+self.id
+\family default
+ and the old 
+\begin_inset Quotes eld
+\end_inset
+
+type of an interaction
+\begin_inset Quotes erd
+\end_inset
+
+ are the same concept.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+agents:
+ tuple of InteractingEntity
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This is the 
+\begin_inset Formula $n$
+\end_inset
+
+-tuple of agents 
+\begin_inset Formula $a_{1},\ldots,a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+pr:
+ Propagator
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Propagator 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+At each instantiation of an interaction 
+\family typewriter
+i
+\family default
+,
+ we set the attribute 
+\family typewriter
+i.pr.type = self.id
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+pa:
+ Patient 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Patient 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+resources_type:
+ T
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+T
+\family default
+ can be any type:
+ 
+\family typewriter
+float | int | str | FunctionType 
+\family default
+...
+ (or any user define type).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+resource_space_dim:
+ int
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $R_{i}=\R^{d}$
+\end_inset
+
+,
+ then 
+\family typewriter
+resource_space_dim = n
+\family default
+,
+ otherwise 
+\family typewriter
+resource_space_dim = -1
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+R:
+ tuple(T,
+ types.FunctionType) | None = None
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If,
+ at instantiation,
+ this attribute è 
+\family typewriter
+None
+\family default
+,
+ the following is not implemented.
+\end_layout
+
+\begin_layout Itemize
+We must have 
+\family typewriter
+T == self.resources_type
+\end_layout
+
+\begin_layout Itemize
+As we explained above in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:set"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ if we have 
+\family typewriter
+i.R == (T,
+ f)
+\family default
+,
+ then 
+\begin_inset Formula $R_{i}=\{x\in\texttt{T}\mid\texttt{f}(x)==\texttt{True}\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Therefore,
+ 
+\family typewriter
+f
+\family default
+ is of the form:
+ 
+\family typewriter
+f(x:
+ T) -> bool
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+min_resource:
+ float | None = None
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+simple case where 
+\begin_inset Formula $R_{i}=[\texttt{i.min\_resource},\texttt{i.max\_resource]}$
+\end_inset
+
+ is an interval of 
+\begin_inset Formula $\R$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+max_resource:
+ float | None = None
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+T_s:
+ TimeEvents
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+i.T_s
+\family default
+ is the set of discr./cont.
+ time events that generates the clock function 
+\begin_inset Formula $\tist{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Recall that this set 
+\begin_inset Formula $T_{i}^{\text{s}}$
+\end_inset
+
+ increases with 
+\begin_inset Formula $t$
+\end_inset
+
+:
+ see the dynamics of an IS in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~3.5.1"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+T_o:
+ TimeEvents
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+i.T_o 
+\family default
+is the set of discr./cont.
+ time events that generates the clock function 
+\begin_inset Formula $\tong{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Recall that this set 
+\begin_inset Formula $T_{i}^{\text{o}}$
+\end_inset
+
+ increases with 
+\begin_inset Formula $t$
+\end_inset
+
+:
+ see the dynamics of an IS in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~2.8"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+T_a:
+ TimeEvents
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+i.T_a 
+\family default
+is the set of discrete time events that generates the function 
+\begin_inset Formula $\tarr{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Recall that this set 
+\begin_inset Formula $T_{i}^{\text{a}}$
+\end_inset
+
+ increases with 
+\begin_inset Formula $t$
+\end_inset
+
+:
+ see the dynamics of an IS in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~2.8"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+ts:
+ dict[t:
+ float = IS.t,
+ t_start:
+ float]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+i.ts[t]
+\family default
+ corresponds to 
+\begin_inset Formula $\tist{i}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+i.ts[t] = i.T_s.clock(t)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+to:
+ dict[t:
+ float = IS.t,
+ t_ongoing:
+ float]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+i.to[t]
+\family default
+ corresponds to 
+\begin_inset Formula $\tong{i}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+i.to[t] = i.T_o.clock(t)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+ta:
+ dict[t:
+ float = IS.t,
+ t_arrival:
+ float]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+See 
+\family typewriter
+tarr.py
+\family default
+ for a possible implementation.
+ The idea is to set 
+\family typewriter
+i.ta[t] = i.T_a.discrete[j]
+\family default
+ if 
+\family typewriter
+i.T_a.discrete[j] <= IS.t < i.T_a.discrete[j+1]
+\family default
+ which corresponds to 
+\begin_inset Formula $\tarr{i}(t)=t_{j}^{\text{a}}$
+\end_inset
+
+ if 
+\begin_inset Formula $t_{j}^{\text{a}}\le t<t_{j+1}^{\text{a}}$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{i}^{\text{a}}=\bigcup_{j\in N_{\text{a}}}\{t_{j}^{\text{a}}\}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+N:
+ dict[t:
+ float = IS.t,
+ N_list:
+ list[InteractingEntity]]
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+i.N[t]
+\family default
+ corresponds to 
+\begin_inset Formula $\mathcal{N}_{i}(t)$
+\end_inset
+
+ but it is implemented as a list and not as a set.
+ Saying that the neighborhood is a set in an inheritance from cellular automata theory,
+ but it is not completely correct if the evolution function depends on some order of the entities in this neighborhood (e.g.
+\begin_inset space ~
+\end_inset
+
+because the CA is on a spatial grid).
+ Using a list,
+ we can possibly use a meaningful indexing depending on the model of the interacting entities inside 
+\begin_inset Formula $\mathcal{N}_{i}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Open problem to discuss:
+ as above for 
+\family typewriter
+p.I[t]
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+methods:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+arity() -> int
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+arity(i) = len(self.agents)
+\family default
+ is the number 
+\begin_inset Formula $n$
+\end_inset
+
+ of agents 
+\begin_inset Formula $a_{1},\ldots,a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+ag() -> tuple
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+ag(i) = self.agents
+\family default
+.
+ This method simply implement the mathematical notation 
+\begin_inset Formula $\text{ag}(i)=(a_{1},\ldots,a_{n})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+a(j:
+ int) -> InteractingEntity
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+a(i,
+ j) = list(self.agents)[j]
+\family default
+ corresponds to 
+\begin_inset Formula $a_{j}$
+\end_inset
+
+ in the interaction 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+pr() -> InteractingEntity
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+pr(i) = self.pr
+\family default
+.
+ This method simply implement the mathematical notation 
+\begin_inset Formula $\text{pr}(i)=r$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+pa() -> InteractingEntity
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+pa(i) = self.pa
+\family default
+.
+ This method simply implement the mathematical notation 
+\begin_inset Formula $\text{pa}(i)=p$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+gamma(t:
+ float = IS.t) -> self.resource_type
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+gamma(i,
+ t) = pr(i).gamma[i,
+ t] == i.pr.gamma[i,t]
+\family default
+ this is 
+\begin_inset Formula $\gamma_{i}(t)$
+\end_inset
+
+,
+ i.e.
+ the goods of the interaction 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+__str__() -> BinaryIO
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+visualize the LaTeX (png figure) corresponding to 
+\begin_inset Formula $i:a_{1},\ldots,a_{n}\xra{r}p$
+\end_inset
+
+ where instead of 
+\begin_inset Formula $a_{j}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $r$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ we insert 
+\begin_inset Formula $a_{j}\texttt{.id}$
+\end_inset
+
+ and instead of 
+\begin_inset Formula $i$
+\end_inset
+
+ we insert 
+\begin_inset Formula $\texttt{i.id}$
+\end_inset
+
+.
+ Override 
+\begin_inset Formula $\texttt{\_\_str\_\_}$
+\end_inset
+
+ so that it will work with 
+\begin_inset Formula $\texttt{print}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+UML() -> BinaryIO
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+is the UML (png figure) of the interaction:
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/paolo/ARC-AGI1/experiments/interactionUML.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An external function 
+\family typewriter
+khx(list_active_interactions,
+ IS.t)
+\family default
+ will take as input the list of all the active interactions at time 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+nx(t:
+ float = IS.t) -> dict[tuple[tau:
+ float,
+ eps:
+ InteractingEntity],
+ v:
+ numpy.ndarray]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+i.nx(t)
+\family default
+ corresponds to the function 
+\begin_inset Formula $(\tau,\eps)\mapsto\stateNeigh_{i}x(\tau,\eps)=x_{\eps}(\tau)\in S_{\eps}$
+\end_inset
+
+,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "(3.4)"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+i.nx(t)
+\family default
+ is the dict with keys and values constructed as follows:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Consider all the past arrival times 
+\begin_inset Formula $t'=\tarr{i}(t')\le t$
+\end_inset
+
+ of 
+\begin_inset Formula $i$
+\end_inset
+
+:
+ 
+\family typewriter
+t_prime in i.arrival_times() & t_prime <= IS.t
+\end_layout
+
+\begin_layout Itemize
+In the code above,
+ 
+\family typewriter
+IS
+\family default
+ is the IS where we are instantiating this 
+\family typewriter
+Interaction
+\family default
+ (composition).
+\end_layout
+
+\begin_layout Itemize
+Consider all interacting entities 
+\begin_inset Formula $\eps\in\mathcal{N}_{i}(t')$
+\end_inset
+
+ at these times 
+\begin_inset Formula $t'$
+\end_inset
+
+:
+ 
+\family typewriter
+eps in i.N(t_prime)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tau
+\family default
+ are all the events times of 
+\begin_inset Formula $x_{\eps}(-)$
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+times when the state of 
+\begin_inset Formula $\eps$
+\end_inset
+
+ changes:
+ 
+\family typewriter
+eps.x.keys()
+\end_layout
+
+\begin_layout Itemize
+Pairs (key:
+ value) are:
+ 
+\family typewriter
+(tau,
+ eps):
+ eps.x[tau]
+\end_layout
+
+\begin_layout Itemize
+In this way,
+ we have:
+ 
+\family typewriter
+i.nx(t)[tau,
+ eps] == eps.x[tau]
+\family default
+ for the correct 
+\begin_inset Formula $(\tau,\eps)$
+\end_inset
+
+ as in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "(3.4)"
+key "IS1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The formula 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "(3.4)"
+key "IS1"
+literal "false"
+
+\end_inset
+
+ is less formal because the dependence on 
+\begin_inset Formula $t$
+\end_inset
+
+ is implicit.
+\end_layout
+
+\begin_layout Itemize
+The (stochastic) generation of clock functions (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec.~3.5.1"
+key "IS1"
+literal "false"
+
+\end_inset
+
+) in general depends on this neighborhood 
+\begin_inset Formula $\stateNeigh_{i}x=\stateNeigh_{i}x(t)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+starting_times() -> list[float]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The ordered list of all the starting times.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+i.starting_times = sorted(T_s.discrete + T_s.continue)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+arrival_times() -> list[float]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The list of all arrival times.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+i.arrival_times = T_a.discrete
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+ongoing_times() -> list[float]
+\end_layout
+
+\begin_layout Itemize
+The ordered list of all the ongoing times.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+i.ongoing_times = sorted(T_o.discrete + T_o.continue)
+\end_layout
+
+\end_deeper
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "IS1"
+literal "false"
+
+\end_inset
+
+Giordano P.,
+ Interaction spaces I:
+ Towards a unified mathematical theory of complex systems.
+ See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.mat.univie.ac.at/~giordap7/IS.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "IS2"
+literal "false"
+
+\end_inset
+
+Giordano P.,
+ Interaction spaces II:
+ A mathematical definition of complex adaptive systems as interaction spaces.
+ See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.mat.univie.ac.at/~giordap7/IS_cas.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
