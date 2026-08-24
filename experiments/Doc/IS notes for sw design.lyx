@@ -335,7 +335,7 @@ it can belong to one training left grid in ARC-AGI 1,
  or being the mental representation in another IS.
  Learning to think at them as different interacting entities helps in the construction of CEF,
  which maps these entities among each other.
- For this reasons,
+ For this reason,
  it seems better to use UML's composition (black rhombus,
  call with parameters and instantiation internal to 
 \family typewriter
@@ -356,9 +356,9 @@ InteractingEntity
 
 \begin_layout Standard
 In the class 
-\begin_inset Formula $\texttt{InteractionSpace}$
-\end_inset
-
+\family typewriter
+InteractionSpace
+\family default
  we surely set as attributes all the variables and quantities that are parameters for the considered IS.
  For example,
  the time 
@@ -399,32 +399,6 @@ In the following notes,
 self
 \family default
  and sometimes another more meaningful name.
-\end_layout
-
-\begin_layout Standard
-Open problem:
- create a parent class 
-\family typewriter
-StaticInteractionSpace
-\family default
- of 
-\family typewriter
-InteractionSpace
-\family default
- for static interaction spaces where all the interactions are static (
-\begin_inset Formula $\tist{i}(t)=\tong{i}(t)=\tst$
-\end_inset
-
- for all 
-\begin_inset Formula $t$
-\end_inset
-
-,
- which is the 
-\family typewriter
-default
-\family default
- value below).
 \end_layout
 
 \begin_layout Standard
@@ -738,7 +712,7 @@ Methods:
 
 \family typewriter
 t_first_arrival(t:
- float = IS.t) -> float
+ float | None = None) -> float
 \end_layout
 
 \begin_deeper
@@ -774,6 +748,19 @@ literal "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Itemize
+If called with 
+\family typewriter
+IS.t_first_arrival()
+\family default
+,
+ the default value is 
+\family typewriter
+None
+\family default
+ (for static IS).
 \end_layout
 
 \end_deeper
@@ -840,24 +827,34 @@ literal "false"
 \begin_layout Enumerate
 
 \family typewriter
-execution_log() -> BinaryIO
+execution_log(path:
+ str) -> None
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Save in a file all the interesting variables of the IS.
+Save in the file 
+\family typewriter
+path
+\family default
+ all the interesting variables of the IS.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
-load_system_state() -> BinaryIO
+load_system_state(path:
+ str) -> None
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Load from a file all the IS variables (e.g.
+Load from the file 
+\family typewriter
+path
+\family default
+ all the IS variables (e.g.
 \begin_inset space ~
 \end_inset
 
@@ -876,9 +873,9 @@ Every interacting entity
 \end_inset
 
  is an object in the class 
-\begin_inset Formula $\texttt{InteractingEntity}$
-\end_inset
-
+\family typewriter
+InteractingEntity
+\family default
 .
  These are classified (as we prefer) into subclasses:
  in the design phase of the problem (e.g.
@@ -1028,7 +1025,7 @@ We wan to study the GEP in
 \begin_inset space ~
 \end_inset
 
-what are good possible global configuration of our IS.
+what are good possible global configurations of our IS.
 \end_layout
 
 \begin_layout Standard
@@ -1079,7 +1076,7 @@ On the contrary,
 \begin_inset Formula $R_{i}\ni\gamma_{i}(t)$
 \end_inset
 
- (for each interaction) can be useful in order to consider phenomena such as 
+ (for each interaction) can be useful to consider phenomena such as 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1296,7 +1293,7 @@ ac:
  dict[tuple[i:
  Interaction,
  t:
- float = IS.t],
+ float | str],
  v:
  float]
 \end_layout
@@ -1315,13 +1312,20 @@ e.ac[i,
 .
 \end_layout
 
+\begin_layout Itemize
+in case of static IS we can use 
+\family typewriter
+e.ac[i,
+ '']
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
 x:
  dict[t:
- float = IS.t,
+ float | str,
  v:
  numpy.ndarray]
 \end_layout
@@ -1337,6 +1341,12 @@ e.x[t]
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Itemize
+in case of static IS we can use 
+\family typewriter
+e.x['']
 \end_layout
 
 \begin_layout Itemize
@@ -1553,7 +1563,7 @@ gamma:
  dict[tuple[i:
  Interaction,
  t:
- float = IS.t],
+ float | str],
  v:
  i.type_of_resources]
 \end_layout
@@ -1580,6 +1590,14 @@ r.gamma[i,
  
 \family typewriter
 i in r.interactions == True
+\end_layout
+
+\begin_layout Itemize
+In case of static IS,
+ we can use 
+\family typewriter
+r.gamma[i,
+ '']
 \end_layout
 
 \begin_layout Itemize
@@ -1662,7 +1680,7 @@ The list of all the interactions
 \family typewriter
 I:
  dict[t:
- float = IS.t,
+ float | str,
  I_list:
  list[Interaction]]
 \end_layout
@@ -1700,32 +1718,19 @@ set(p.I[t])
 \end_layout
 
 \begin_layout Itemize
-Open problem to discuss:
- Since 
+In case of static IS,
+ we can use 
+\family typewriter
+p.I['']
+\end_layout
+
+\begin_layout Itemize
+It seems that we need to use 
 \family typewriter
 p.I[t]
 \family default
- is a list of 
-\family typewriter
-Interaction
-\family default
-,
- these are hashable and we have to use e.g.
- 
-\family typewriter
-@dataclass(frozen=True)
-\family default
- in case we want to directly implement 
-\family typewriter
-p.I[t]
-\family default
- as a set.
- However,
- it seems that we need to use 
-\family typewriter
-p.I[t]
-\family default
- only to test it is non empty for the implementation of the evolution equation:
+ only to test it is non empty for the implementation of the evolution equation,
+ that is in a code of the form:
  
 \family typewriter
 if p.I[t]:
@@ -2110,9 +2115,9 @@ methods:
 
 \family typewriter
 nx(t:
- float = IS.t,
+ float | None = None,
  s:
- float) -> dict[tuple[tau:
+ float | None = None) -> dict[tuple[tau:
  float,
  eps:
  InteractingEntity],
@@ -2337,7 +2342,7 @@ literal "false"
 .
  Intuitively,
  they are all the times when something occurs:
- an interaction start,
+ an interaction starts,
  a propagator arrives,
  the state of an interacting entity changes,
  the neighborhood of an interaction changes,
@@ -2618,7 +2623,7 @@ methods:
 
 \family typewriter
 clock(t:
- float = IS.t) -> float
+ float) -> float
 \end_layout
 
 \begin_deeper
@@ -2654,6 +2659,11 @@ inf
 \end_inset
 
 ))
+\end_layout
+
+\begin_layout Itemize
+In case of static IS,
+ we do not use this class because it is trivial.
 \end_layout
 
 \end_deeper
@@ -2706,9 +2716,9 @@ dynamical entities
 
 ,
  are objects in the class 
-\begin_inset Formula $\texttt{Interaction}$
-\end_inset
-
+\family typewriter
+Interaction
+\family default
 .
 \end_layout
 
@@ -2891,7 +2901,7 @@ R:
 \begin_layout Itemize
 If,
  at instantiation,
- this attribute è 
+ this attribute is 
 \family typewriter
 None
 \family default
@@ -3239,13 +3249,6 @@ because the CA is on a spatial grid).
 .
 \end_layout
 
-\begin_layout Itemize
-Open problem to discuss:
- as above for 
-\family typewriter
-p.I[t]
-\end_layout
-
 \end_deeper
 \begin_layout Enumerate
 methods:
@@ -3369,7 +3372,7 @@ pa(i) = self.pa
 
 \family typewriter
 gamma(t:
- float = IS.t) -> self.resource_type
+ float | None = None) -> self.resource_type
 \end_layout
 
 \begin_deeper
@@ -3485,7 +3488,7 @@ khx(list_active_interactions,
 
 \family typewriter
 nx(t:
- float = IS.t) -> dict[tuple[tau:
+ float | None = None) -> dict[tuple[tau:
  float,
  eps:
  InteractingEntity],
