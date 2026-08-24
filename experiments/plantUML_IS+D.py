@@ -17,7 +17,11 @@ class InteractingEntity:
         self.id = id
         self.proper_state_dim = proper_state_dim
         self.states_description = states_description
-        self.ac: dict[tuple[Interaction, float], float] = {}
+        
+        # e.ac[i, t] is the activation of the interacting entity e for the interaction i at time t
+        self.ac: dict[tuple[Interaction, float], float] = {} 
+        
+        # e.x[t] is the proper state of the interacting entity e at time t
         self.x: dict[float, np.ndarray] = {}
 
 
