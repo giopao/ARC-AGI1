@@ -1,49 +1,49 @@
 <mxfile host="Electron">
   <diagram name="Pagina-1" id="lZCOC9Z2l5SbnQuHxcSr">
-    <mxGraphModel dx="984" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="820" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-13" connectable="0" parent="1" style="group" value="" vertex="1">
-          <mxGeometry height="300" width="340" x="220" y="30" as="geometry" />
+          <mxGeometry height="300" width="309.25" x="220" y="30" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-5" parent="wFVm_F-XsIBU8BGHlKKp-13" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=10;tabPosition=left;html=1;whiteSpace=wrap;align=left;verticalAlign=top;" value="Main Engine" vertex="1">
-          <mxGeometry height="300" width="340" as="geometry" />
+          <mxGeometry height="300" width="309.25" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-8" parent="wFVm_F-XsIBU8BGHlKKp-13" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rotation=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="InteractionSpace" vertex="1">
-          <mxGeometry height="220" width="260" x="40" y="43" as="geometry">
+          <mxGeometry height="234" width="233.62" x="36.38" y="43" as="geometry">
             <mxRectangle height="30" width="130" x="310" y="130" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-9" parent="wFVm_F-XsIBU8BGHlKKp-8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=1;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rotation=0;movable=1;resizable=1;deletable=1;editable=1;locked=0;connectable=1;" value="+ id: str&lt;div&gt;+ t_st: float&lt;/div&gt;&lt;div&gt;+&amp;nbsp;t_end: float&lt;/div&gt;&lt;div&gt;+&amp;nbsp;t: float&lt;/div&gt;&lt;div&gt;+&amp;nbsp;E: dict[id: str, e:InteractingEntity]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;I: dict[id: str, i:Interaction]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Delta: float&lt;/div&gt;" vertex="1">
-          <mxGeometry height="114" width="260" y="26" as="geometry" />
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-9" parent="wFVm_F-XsIBU8BGHlKKp-8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=1;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rotation=0;movable=1;resizable=1;deletable=1;editable=1;locked=0;connectable=1;" value="+ id: str&lt;div&gt;+ t_st: float&lt;/div&gt;&lt;div&gt;+&amp;nbsp;t_end: float&lt;/div&gt;&lt;div&gt;+&amp;nbsp;t: float&lt;/div&gt;&lt;div&gt;+&amp;nbsp;E: dict[id: str, e:InteractingEntity]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;I: dict[id: str, i:Interaction]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Delta: float&lt;/div&gt;&lt;div&gt;+ is_static: bool&lt;/div&gt;" vertex="1">
+          <mxGeometry height="128" width="233.62" y="26" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-10" parent="wFVm_F-XsIBU8BGHlKKp-8" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;rotation=0;" value="" vertex="1">
-          <mxGeometry height="8" width="260" y="140" as="geometry" />
+          <mxGeometry height="8" width="233.62" y="154" as="geometry" />
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-11" parent="wFVm_F-XsIBU8BGHlKKp-8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rotation=0;" value="+ t_first_arrival(t: float | None = None) -&amp;gt; float&lt;div&gt;+ run() -&amp;gt; dict&lt;/div&gt;&lt;div&gt;+ execution_log(path: str) -&amp;gt; None&lt;/div&gt;&lt;div&gt;+ load_system_state(path: str) -&amp;gt; None&lt;/div&gt;" vertex="1">
-          <mxGeometry height="72" width="260" y="148" as="geometry" />
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-11" parent="wFVm_F-XsIBU8BGHlKKp-8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rotation=0;" value="+ t_first_arrival(t: float) -&amp;gt; float&lt;div&gt;+ run() -&amp;gt; dict&lt;/div&gt;&lt;div&gt;+ execution_log(path: str) -&amp;gt; None&lt;/div&gt;&lt;div&gt;+ load_system_state(path: str) -&amp;gt; None&lt;/div&gt;" vertex="1">
+          <mxGeometry height="72" width="233.62" y="162" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-57" connectable="0" parent="1" style="group" value="" vertex="1">
-          <mxGeometry height="330" width="350" x="1390" y="380" as="geometry" />
+          <mxGeometry height="350" width="350" x="1390" y="380" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-43" parent="wFVm_F-XsIBU8BGHlKKp-57" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;align=left;verticalAlign=top;" value="Temporal System" vertex="1">
-          <mxGeometry height="330" width="350" as="geometry" />
+          <mxGeometry height="350" width="350" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-50" parent="wFVm_F-XsIBU8BGHlKKp-57" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="TimeEvents" vertex="1">
-          <mxGeometry height="130" width="250" x="50" y="48" as="geometry" />
+          <mxGeometry height="149.030303030303" width="250" x="50" y="50.90909090909091" as="geometry" />
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-51" parent="wFVm_F-XsIBU8BGHlKKp-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;discrete: list[float]&lt;div&gt;+&amp;nbsp;continuous: numpy.ndarray | None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;infty: bool&lt;/div&gt;" vertex="1">
-          <mxGeometry height="64" width="250" y="26" as="geometry" />
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-51" parent="wFVm_F-XsIBU8BGHlKKp-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;+ IS: InteractionSpace&lt;/div&gt;+&amp;nbsp;discrete: list[float]&lt;div&gt;+&amp;nbsp;continuous: numpy.ndarray | None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;infty: bool&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80.6060606060606" width="250" y="26" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-52" parent="wFVm_F-XsIBU8BGHlKKp-50" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="250" y="90" as="geometry" />
+          <mxGeometry height="8.484848484848484" width="250" y="106.6060606060606" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-53" parent="wFVm_F-XsIBU8BGHlKKp-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;clock(t: float) -&amp;gt; float" vertex="1">
-          <mxGeometry height="32" width="250" y="98" as="geometry" />
+          <mxGeometry height="33.93939393939394" width="250" y="115.09090909090908" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-55" parent="wFVm_F-XsIBU8BGHlKKp-57" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" value="Stochastic generation of T^s, T^a, T^o" vertex="1">
-          <mxGeometry height="100" width="250" x="50" y="200" as="geometry" />
+          <mxGeometry height="106.06060606060606" width="250" x="50" y="220.00121212121212" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-56" edge="1" parent="wFVm_F-XsIBU8BGHlKKp-57" source="wFVm_F-XsIBU8BGHlKKp-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" target="wFVm_F-XsIBU8BGHlKKp-43">
           <mxGeometry relative="1" as="geometry" />
@@ -67,7 +67,7 @@
           <mxGeometry height="100" width="230" x="20" y="64" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-65" connectable="0" parent="1" style="group" value="" vertex="1">
-          <mxGeometry height="920" width="1030" x="20" y="370" as="geometry" />
+          <mxGeometry height="920" width="1030" x="20" y="380" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-14" parent="wFVm_F-XsIBU8BGHlKKp-65" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;align=left;verticalAlign=top;" value="Entity System" vertex="1">
           <mxGeometry height="920" width="1030" as="geometry" />
@@ -75,80 +75,88 @@
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-64" connectable="0" parent="wFVm_F-XsIBU8BGHlKKp-65" style="group" value="" vertex="1">
           <mxGeometry height="790" width="978.5" x="20.000000000000004" y="70" as="geometry" />
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-15" parent="wFVm_F-XsIBU8BGHlKKp-64" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="InteractingEntity" vertex="1">
-          <mxGeometry height="128" width="298.7" x="82.4" as="geometry" />
-        </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-16" parent="wFVm_F-XsIBU8BGHlKKp-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;id: str&lt;div&gt;+&amp;nbsp;proper_state_dim: int&lt;/div&gt;&lt;div&gt;+&amp;nbsp;states_description: list[str]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;ac: dict[tuple[i: Interaction, t: float | str], v: float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;x: dict[t: float | str, v: numpy.ndarray]&lt;/div&gt;" vertex="1">
-          <mxGeometry height="94" width="298.7" y="26" as="geometry" />
-        </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-17" parent="wFVm_F-XsIBU8BGHlKKp-15" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="298.7" y="120" as="geometry" />
-        </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-19" parent="wFVm_F-XsIBU8BGHlKKp-64" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Propagator" vertex="1">
-          <mxGeometry height="88" width="401.7" y="440" as="geometry" />
+          <mxGeometry height="88" width="420" y="320" as="geometry" />
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-20" parent="wFVm_F-XsIBU8BGHlKKp-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;interactions: list[Interaction]&lt;div&gt;+&amp;nbsp;type: str&lt;/div&gt;&lt;div&gt;+&amp;nbsp;gamma: dict[tuple[i: Interaction, t: float | str], v: i.type_of_resources]&lt;/div&gt;" vertex="1">
-          <mxGeometry height="54" width="401.7" y="26" as="geometry" />
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-20" parent="wFVm_F-XsIBU8BGHlKKp-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;interactions: list[Interaction]&lt;div&gt;+&amp;nbsp;type: str&lt;/div&gt;&lt;div&gt;+&amp;nbsp;gamma: dict[tuple[i: Interaction, t: float], v: Any] | dict[i: Interaction, v:Any]&lt;/div&gt;" vertex="1">
+          <mxGeometry height="54" width="420" y="26" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-21" parent="wFVm_F-XsIBU8BGHlKKp-19" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="401.7" y="80" as="geometry" />
-        </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-23" parent="wFVm_F-XsIBU8BGHlKKp-64" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Patient" vertex="1">
-          <mxGeometry height="200" width="620" x="206" y="590" as="geometry" />
-        </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-24" parent="wFVm_F-XsIBU8BGHlKKp-23" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;interactions: list[Interactions]&lt;div&gt;+ I: dict[t: float | str, I_list: list[Interaction]]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Omega_type: str&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Omega_discr_set: set | None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Omega_int_min: float | None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Omega_int_max: float | None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;P_density: FunctionType&lt;/div&gt;&lt;div&gt;+&amp;nbsp;f: FunctionType&lt;/div&gt;" vertex="1">
-          <mxGeometry height="134" width="620" y="26" as="geometry" />
-        </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-25" parent="wFVm_F-XsIBU8BGHlKKp-23" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="620" y="160" as="geometry" />
-        </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-26" parent="wFVm_F-XsIBU8BGHlKKp-23" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;nx(t: float | None = None, s: float | None = None) -&amp;gt; dict[tuple[tau: float, eps: InteractingEntity], v: numpy.ndarray]" vertex="1">
-          <mxGeometry height="32" width="620" y="168" as="geometry" />
+          <mxGeometry height="8" width="420" y="80" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-27" parent="wFVm_F-XsIBU8BGHlKKp-64" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Interaction" vertex="1">
-          <mxGeometry height="470" width="504.7" x="473.8" as="geometry" />
+          <mxGeometry height="447.03" width="504.7" x="473.8" y="3" as="geometry" />
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-28" parent="wFVm_F-XsIBU8BGHlKKp-27" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;id: str&lt;div&gt;+&amp;nbsp;agents: tuple[InteractingEntity, ...]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;pr: Propagator&lt;/div&gt;&lt;div&gt;+&amp;nbsp;pa: Patient&lt;/div&gt;&lt;div&gt;+&amp;nbsp;resources_type: T&lt;/div&gt;&lt;div&gt;+&amp;nbsp;resource_space_dim: int&lt;/div&gt;&lt;div&gt;+&amp;nbsp;R: tuple(T, types.FunctionType) | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;min_resource: float | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;max_resource: float | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;T_s: TimeEvents&lt;/div&gt;&lt;div&gt;+&amp;nbsp;T_o: TimeEvents&lt;/div&gt;&lt;div&gt;+&amp;nbsp;T_a: TimeEvents&lt;/div&gt;&lt;div&gt;+&amp;nbsp;ts: dict[t: float | str, t_start: float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;to: dict[t: float | str, t_ongoing: float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;ta: dict[t: float | str, t_arrival: float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;N: dict[t: float | str, N_list: list[InteractingEntity]]&lt;/div&gt;" vertex="1">
-          <mxGeometry height="244" width="504.7" y="26" as="geometry" />
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-28" parent="wFVm_F-XsIBU8BGHlKKp-27" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;id: str&lt;div&gt;+ IS: InteractionSpace&lt;br&gt;&lt;div&gt;+&amp;nbsp;agents: tuple[InteractingEntity, ...]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;pr: Propagator&lt;/div&gt;&lt;div&gt;+&amp;nbsp;pa: Patient&lt;/div&gt;&lt;div&gt;+&amp;nbsp;resources_type: Any | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;resource_space_dim: int | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;R: tuple(T, types.FunctionType) | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;min_resource: float | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;max_resource: float | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;T_s: TimeEvents&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;| None = None&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;T_o: TimeEvents&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;| None = None&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;T_a: TimeEvents&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;| None = None&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;ts: dict[t: float = self.IS.t, t_start: float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;to: dict[t: float&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;= self.IS.t&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, t_ongoing: float]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;ta: dict[t: float = self.IS.t, t_arrival: float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;N: dict[t: float = self.IS.t, N_list: list[InteractingEntity]] | list[InteractingEntity]&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="264" width="504.7" y="26" as="geometry" />
         </mxCell>
         <mxCell id="wFVm_F-XsIBU8BGHlKKp-29" parent="wFVm_F-XsIBU8BGHlKKp-27" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="504.7" y="270" as="geometry" />
+          <mxGeometry height="8" width="504.7" y="290" as="geometry" />
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-30" parent="wFVm_F-XsIBU8BGHlKKp-27" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;arity() -&amp;gt; int&lt;div&gt;+&amp;nbsp;ag() -&amp;gt; tuple[InteractingEntity, ...]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;a(j: int) -&amp;gt; InteractingEntity&lt;/div&gt;&lt;div&gt;+&amp;nbsp;pr() -&amp;gt; InteractingEntity&lt;/div&gt;&lt;div&gt;+&amp;nbsp;pa() -&amp;gt; InteractingEntity&lt;/div&gt;&lt;div&gt;+&amp;nbsp;gamma(t: float | None = None) -&amp;gt; self.resource_type&lt;/div&gt;&lt;div&gt;+&amp;nbsp;__str__() -&amp;gt; BinaryIO&lt;/div&gt;&lt;div&gt;+&amp;nbsp;UML() -&amp;gt; BinaryIO&lt;/div&gt;&lt;div&gt;+&amp;nbsp;nx(t: float | None = None) -&amp;gt; dict[tuple[tau: float, eps: InteractingEntity], v: numpy.ndarray]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;starting_times() -&amp;gt; list[float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;arrival_times() -&amp;gt; list[float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;ongoing_times() -&amp;gt; list[float]&lt;/div&gt;" vertex="1">
-          <mxGeometry height="192" width="504.7" y="278" as="geometry" />
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-30" parent="wFVm_F-XsIBU8BGHlKKp-27" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;arity() -&amp;gt; int&lt;div&gt;+&amp;nbsp;ag() -&amp;gt; tuple[InteractingEntity, ...]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;a(j: int) -&amp;gt; InteractingEntity&lt;/div&gt;&lt;div&gt;+&amp;nbsp;gamma(t: float | None = None) -&amp;gt; Any&lt;/div&gt;&lt;div&gt;+&amp;nbsp;UML() -&amp;gt; None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;nx(t: float | None = None) -&amp;gt; dict[tuple[tau: float, eps: InteractingEntity], v: numpy.ndarray]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;starting_times() -&amp;gt; list[float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;arrival_times() -&amp;gt; list[float]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;ongoing_times() -&amp;gt; list[float]&lt;/div&gt;" vertex="1">
+          <mxGeometry height="149.03" width="504.7" y="298" as="geometry" />
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-34" edge="1" parent="wFVm_F-XsIBU8BGHlKKp-64" source="wFVm_F-XsIBU8BGHlKKp-19" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" target="wFVm_F-XsIBU8BGHlKKp-15" value="">
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-15" parent="wFVm_F-XsIBU8BGHlKKp-65" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="InteractingEntity" vertex="1">
+          <mxGeometry height="136" width="401.7" x="40.00000000000001" y="111" as="geometry" />
+        </mxCell>
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-16" parent="wFVm_F-XsIBU8BGHlKKp-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;id: str&lt;div&gt;+ IS: InteractionSpace&lt;br&gt;&lt;div&gt;+&amp;nbsp;proper_state_dim: int&lt;/div&gt;&lt;div&gt;+&amp;nbsp;states_description: list[str]&lt;/div&gt;&lt;div&gt;+&amp;nbsp;ac: dict[tuple[i: Interaction, t: float], v: float] | dict[i: Interaction, v: float]&amp;nbsp;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;x: dict[t: float, v: numpy.ndarray] | numpy.ndarray&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="102" width="401.7" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-17" parent="wFVm_F-XsIBU8BGHlKKp-15" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="401.7" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-34" edge="1" parent="wFVm_F-XsIBU8BGHlKKp-65" source="wFVm_F-XsIBU8BGHlKKp-19" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" target="wFVm_F-XsIBU8BGHlKKp-15" value="">
           <mxGeometry relative="1" width="160" x="0.7369" y="-44" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="329.6" y="-80" as="sourcePoint" />
-            <mxPoint x="1.493500000000047" y="155.7940000000001" as="targetPoint" />
+            <mxPoint x="349.6" y="-10" as="sourcePoint" />
+            <mxPoint x="21.493500000000047" y="225.7940000000001" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-39" edge="1" parent="wFVm_F-XsIBU8BGHlKKp-64" source="wFVm_F-XsIBU8BGHlKKp-23" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" target="wFVm_F-XsIBU8BGHlKKp-15" value="">
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-39" edge="1" parent="wFVm_F-XsIBU8BGHlKKp-65" source="wFVm_F-XsIBU8BGHlKKp-23" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" target="wFVm_F-XsIBU8BGHlKKp-15" value="">
           <mxGeometry relative="1" width="160" x="0.7369" y="-44" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="92.7" y="162" as="sourcePoint" />
-            <mxPoint x="114.33" y="100" as="targetPoint" />
+            <mxPoint x="112.7" y="232" as="sourcePoint" />
+            <mxPoint x="134.32999999999998" y="170" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-66" edge="1" parent="1" source="wFVm_F-XsIBU8BGHlKKp-50" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="wFVm_F-XsIBU8BGHlKKp-8" value="">
-          <mxGeometry relative="1" width="160" as="geometry">
-            <mxPoint x="580" y="690" as="sourcePoint" />
-            <mxPoint x="1190" y="120" as="targetPoint" />
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-23" parent="wFVm_F-XsIBU8BGHlKKp-65" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Patient" vertex="1">
+          <mxGeometry height="200" width="480" x="250" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-24" parent="wFVm_F-XsIBU8BGHlKKp-23" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;interactions: list[Interaction]&lt;div&gt;+ I: dict[t: float, I_list: list[Interaction]] |&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;list[Interaction]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Omega_type: str | None = None&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Omega_discr_set: set |&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;None = None&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Omega_int_min: float |&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;None = None&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;Omega_int_max: float |&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;None = None&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;P_density: FunctionType |&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;None = None&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;f: FunctionType |&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;None = None&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="134" width="480" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-25" parent="wFVm_F-XsIBU8BGHlKKp-23" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="480" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="wFVm_F-XsIBU8BGHlKKp-26" parent="wFVm_F-XsIBU8BGHlKKp-23" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;nx(t: float, s: float) -&amp;gt; dict[tuple[tau: float, eps: InteractingEntity], v: numpy.ndarray]" vertex="1">
+          <mxGeometry height="32" width="480" y="168" as="geometry" />
+        </mxCell>
+        <mxCell id="mYB2vxh-MCv6Q9sWtHNO-1" edge="1" parent="1" source="wFVm_F-XsIBU8BGHlKKp-15" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="wFVm_F-XsIBU8BGHlKKp-8" value="">
+          <mxGeometry relative="1" width="160" x="0.7369" y="-44" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="269" y="440" as="sourcePoint" />
+            <mxPoint x="150" y="130" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-33" edge="1" parent="1" source="wFVm_F-XsIBU8BGHlKKp-27" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="wFVm_F-XsIBU8BGHlKKp-8" value="">
-          <mxGeometry relative="1" width="160" as="geometry">
-            <Array as="points" />
-            <mxPoint x="420" y="350" as="sourcePoint" />
-            <mxPoint x="580" y="350" as="targetPoint" />
+        <mxCell id="mYB2vxh-MCv6Q9sWtHNO-2" edge="1" parent="1" source="wFVm_F-XsIBU8BGHlKKp-27" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.993;entryY=1.006;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;entryPerimeter=0;" target="wFVm_F-XsIBU8BGHlKKp-11" value="">
+          <mxGeometry relative="1" width="160" x="0.7369" y="-44" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="699" y="642" as="sourcePoint" />
+            <mxPoint x="580" y="330" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wFVm_F-XsIBU8BGHlKKp-32" edge="1" parent="1" source="wFVm_F-XsIBU8BGHlKKp-15" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;entryX=0.005;entryY=1.039;entryDx=0;entryDy=0;entryPerimeter=0;" target="wFVm_F-XsIBU8BGHlKKp-11" value="">
-          <mxGeometry relative="1" width="160" as="geometry">
-            <Array as="points" />
-            <mxPoint x="420" y="350" as="sourcePoint" />
-            <mxPoint x="580" y="350" as="targetPoint" />
+        <mxCell id="mYB2vxh-MCv6Q9sWtHNO-3" edge="1" parent="1" source="wFVm_F-XsIBU8BGHlKKp-50" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" target="wFVm_F-XsIBU8BGHlKKp-9" value="">
+          <mxGeometry relative="1" width="160" x="0.7369" y="-44" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="1019" y="572" as="sourcePoint" />
+            <mxPoint x="900" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R0LACFqgjyJlthXjoKDl-1" edge="1" parent="1" source="wFVm_F-XsIBU8BGHlKKp-44" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0;exitY=0;exitDx=170;exitDy=14;entryX=1;entryY=0;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;exitPerimeter=0;" target="wFVm_F-XsIBU8BGHlKKp-8" value="">
+          <mxGeometry relative="1" width="160" x="0.7369" y="-44" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="2085" y="558" as="sourcePoint" />
+            <mxPoint x="1010" y="290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
