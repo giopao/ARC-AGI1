@@ -268,6 +268,7 @@ End
 \papersides 2
 \paperpagestyle default
 \tablestyle default
+\listings_params "language=Python,breaklines=true,showstringspaces=false,keepspaces=true,tabsize=4"
 \tracking_changes false
 \output_changes false
 \change_bars false
@@ -277,6 +278,7 @@ End
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
+\author 5381 ""
 \end_header
 
 \begin_body
@@ -336,13 +338,16 @@ it can belong to one training left grid in ARC-AGI 1,
  Learning to think at them as different interacting entities helps in the construction of CEF,
  which maps these entities among each other.
  For this reason,
- it seems better to use UML's composition (black rhombus,
- call with parameters and instantiation internal to 
-\family typewriter
-InteractionSpace
-\family default
-) and not aggregation (empty rhombus,
- call directly with the entity object,
+ it seems 
+\change_inserted 5381 1787648761
+simpler to use 
+\change_unchanged
+UML's 
+\change_inserted 5381 1787648770
+aggregation
+\change_unchanged
+ (empty rhombus,
+ call directly with the entity constructor,
  e.g.
 \begin_inset space ~
 \end_inset
@@ -351,7 +356,58 @@ InteractionSpace
 \family typewriter
 InteractingEntity
 \family default
+) and not 
+\change_inserted 5381 1787648916
+composition
+\change_unchanged
+ (black rhombus,
+ call with parameters and instantiation internal to 
+\family typewriter
+InteractionSpace
+\family default
 ).
+ 
+\change_inserted 5381 1787733799
+For example,
+ we can first construct an interacting entity (e.g.
+\begin_inset space ~
+\end_inset
+
+a rectangle) and then associate it to two different IS.
+ For this motivation,
+ we will introduce an attribute that specifies which IS this entity is associated with.
+ We can therefore have e.g.
+\begin_inset space ~
+\end_inset
+
+two interacting entity 
+\begin_inset Formula $e_{1}\in E_{1}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $e_{2}\in E_{2}$
+\end_inset
+
+ having the same values of state 
+\begin_inset Formula $x_{e_{1}}(t)=x_{e_{2}}(t)$
+\end_inset
+
+,
+ but aggregated to two different IS (therefore,
+ they are different 
+\family typewriter
+InteractingEntity
+\family default
+ objects because the associated IS are different:
+ 
+\family typewriter
+e_1.IS !
+ = e_2.IS
+\family default
+ (see below).
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -475,8 +531,7 @@ Corresponds to the last value of time
 \begin_inset Formula $t\in[\tst,\tend]$
 \end_inset
 
-,
- 
+ in the algorithm explained in 
 \begin_inset CommandInset citation
 LatexCommand cite
 after "Sec.~2.8"
@@ -485,6 +540,15 @@ literal "false"
 
 \end_inset
 
+
+\change_inserted 5381 1787740113
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+it takes as values of the times when anything occurs in the implemented IS
+\change_unchanged
 .
 \end_layout
 
@@ -509,22 +573,22 @@ This corresponds to the set
 
 \begin_layout Itemize
 We first have to recognize an interacting entity and collect the values of its attributes.
- Then we pass these values to the corresponding IS,
- which internally (composition) instantiate the corresponding 
+ Using the class 
 \family typewriter
-InteractingEntity
+InteractionEntity
 \family default
- and add it to 
+,
+ we instantiate 
 \family typewriter
-self.E
+e
+\family default
+,
+ then we add this entity to the corresponding IS,
+ with 
+\family typewriter
+IS.E[id_of_e] = e
 \family default
 .
- When we finished this process for all the interacting entities,
- the attribute 
-\family typewriter
-self.E
-\family default
- is complete.
 \end_layout
 
 \begin_layout Itemize
@@ -580,22 +644,22 @@ This corresponds to the set
 
 \begin_layout Itemize
 We first have to recognize an interaction and collect the values of its attributes.
- Then we pass these values to the corresponding IS,
- which internally (composition) instantiate the corresponding 
+ Using the class 
 \family typewriter
 Interaction
 \family default
- and add it to 
+,
+ we instantiate 
 \family typewriter
-self.
+i
 \family default
-I.
- When we finished this process for all the interacting entity,
- the attribute 
+,
+ then we add this entity to the corresponding IS,
+ with 
 \family typewriter
-self.I
+IS.I[id_of_i] = i
 \family default
- is complete.
+.
 \end_layout
 
 \begin_layout Itemize
@@ -702,6 +766,161 @@ two moving balls having an elastic collision.
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+
+\change_inserted 5381 1787735289
+
+\family typewriter
+is_static:
+ bool
+\change_unchanged
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 5381 1787735289
+
+\family typewriter
+self.is_static == True
+\family default
+ if the IS is declared as static.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 5381 1787735289
+Formally,
+ an IS is static if
+\change_unchanged
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 5381 1787735369
+All the states 
+\begin_inset Formula $x_{e}(t)$
+\end_inset
+
+ are constant in 
+\begin_inset Formula $t\in[\tst,\tend]$
+\end_inset
+
+ and all 
+\begin_inset Formula $e\in E$
+\end_inset
+
+;
+\change_unchanged
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 5381 1787735448
+For all interactions 
+\begin_inset Formula $i$
+\end_inset
+
+,
+ we have 
+\begin_inset Formula $\tist{i}(\tst)=\tong{i}(\tst)=\tst$
+\end_inset
+
+ (i.e.
+\begin_inset space ~
+\end_inset
+
+each interaction 
+\begin_inset Formula $i$
+\end_inset
+
+ starts at 
+\begin_inset Formula $\tst$
+\end_inset
+
+) and 
+\begin_inset Formula $\tist{i}(t)=\tong{i}(t)=+\infty$
+\end_inset
+
+ (i.e.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $i$
+\end_inset
+
+ never restart again) for all 
+\begin_inset Formula $t>\tst$
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5381 1787735698
+From this,
+ it follows that 
+\begin_inset Formula $t^{1}(\tst)=\tst$
+\end_inset
+
+,
+ 
+\begin_inset Formula $t^{1}(t)=+\infty$
+\end_inset
+
+ for all 
+\begin_inset Formula $t>\tst$
+\end_inset
+
+ and 
+\begin_inset Formula $I_{p}(t)=\left\{ i\in I\mid\pa{i}=p\right\} $
+\end_inset
+
+.
+ Therefore,
+ the EE can be applied only for 
+\begin_inset Formula $t=\tst$
+\end_inset
+
+ and for all 
+\begin_inset Formula $t^{1}(\tst)=\tst\le s\le\tst+\Delta$
+\end_inset
+
+,
+ we must have 
+\begin_inset Formula $x_{p}=f_{p}(\omega,s,\stateNeigh_{p}x_{s})$
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+the right-hand-side of the EE does not depend neither on 
+\begin_inset Formula $\omega$
+\end_inset
+
+ nor on 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\end_deeper
+\end_deeper
 \end_deeper
 \begin_layout Enumerate
 Methods:
@@ -710,25 +929,25 @@ Methods:
 \begin_deeper
 \begin_layout Enumerate
 
+\change_inserted 5381 1787735732
+
 \family typewriter
 t_first_arrival(t:
- float | None = None) -> float
+ float) -> float
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
 
 \family typewriter
-IS.t_first_arrival(t) = min(i.ta[t] for i in IS.I.values() if i.ts[t] == t,
- default = 
-\begin_inset Quotes eld
-\end_inset
+IS.t_first_arrival(t) = 
+\change_inserted 5381 1787650560
+min((i.ta[t] for i in self.I.values() if i.ts[t] == t),
+ default = float('inf'))
+\change_unchanged
 
-inf
-\begin_inset Quotes erd
-\end_inset
-
-)
 \end_layout
 
 \begin_layout Itemize
@@ -751,16 +970,41 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-If called with 
+For static IS,
+ 
+\change_inserted 5381 1787736105
+the previous implementation of 
 \family typewriter
-IS.t_first_arrival()
+IS.t_first_arrival
 \family default
-,
- the default value is 
+ should give the correct results,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
-None
+IS.t_first_arrival(IS.t_st) == IS.t_st
 \family default
- (for static IS).
+ and 
+\family typewriter
+IS.t_first_arrival(IS.t) == float(
+\begin_inset Quotes eld
+\end_inset
+
+inf
+\begin_inset Quotes erd
+\end_inset
+
+)
+\family default
+ if 
+\family typewriter
+IS.t > IS.t_st
+\family default
+ if we implement correctly the starting and arrival times of the interactions of a static IS.
+\change_unchanged
+
 \end_layout
 
 \end_deeper
@@ -826,9 +1070,13 @@ literal "false"
 \end_deeper
 \begin_layout Enumerate
 
+\change_inserted 5381 1787736121
+
 \family typewriter
 execution_log(path:
  str) -> None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -843,9 +1091,13 @@ path
 \end_deeper
 \begin_layout Enumerate
 
+\change_inserted 5381 1787736127
+
 \family typewriter
 load_system_state(path:
  str) -> None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -976,6 +1228,14 @@ the history of the state
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 5381 1787736267
+About the implementation of the state space
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1229,6 +1489,7 @@ literal "false"
 Patient(InteractingEntity)
 \family default
 .
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -1249,6 +1510,27 @@ id:
  str
 \end_layout
 
+\begin_layout Enumerate
+
+\change_inserted 5381 1787654553
+
+\family typewriter
+IS:
+ InteractionSpace
+\change_unchanged
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\change_inserted 5381 1787736315
+The IS the interacting entity is associated with.
+\change_unchanged
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 
 \family typewriter
@@ -1293,13 +1575,33 @@ ac:
  dict[tuple[i:
  Interaction,
  t:
- float | str],
+ float],
  v:
  float]
+\change_inserted 5381 1787654364
+ | dict[i:
+ Interaction,
+ v:
+ float]
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
+
+\change_inserted 5381 1787654532
+If the associated IS is not static (i.e.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+self.IS.is_static == False)
+\family default
+,
+ then 
+\change_unchanged
 
 \family typewriter
 e.ac[i,
@@ -1313,10 +1615,28 @@ e.ac[i,
 \end_layout
 
 \begin_layout Itemize
-in case of static IS we can use 
+
+\change_inserted 5381 1787736480
+If the associated IS is static (i.e.
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
-e.ac[i,
- '']
+self.IS.is_static == True)
+\family default
+,
+ then we can simply use 
+\family typewriter
+e.ac[i]
+\family default
+ which have to correspond to the constant value 
+\begin_inset Formula $\act_{i}^{e}(\tst)\in[0,1]$
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \end_deeper
@@ -1325,28 +1645,76 @@ e.ac[i,
 \family typewriter
 x:
  dict[t:
- float | str,
+ float,
  v:
  numpy.ndarray]
+\change_inserted 5381 1787654860
+ | numpy.ndarray
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
 
+\change_inserted 5381 1787654874
+If the associated IS is not static (i.e.
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
+self.IS.is_static == False)
+\family default
+,
+ then
+\family typewriter
+ 
+\change_unchanged
 e.x[t]
 \family default
  corresponds to 
 \begin_inset Formula $x_{e}(t)\in S_{e}$
 \end_inset
 
+
+\change_inserted 5381 1787736466
+ (the proper state space)
+\change_unchanged
 .
 \end_layout
 
 \begin_layout Itemize
-in case of static IS we can use 
+
+\change_inserted 5381 1787736489
+If the associated IS is static (i.e.
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
-e.x['']
+self.IS.is_static == True)
+\family default
+,
+ then we can simply use 
+\family typewriter
+e.x
+\family default
+ which have to correspond to the constant value
+\family typewriter
+ (numpy.ndarray
+\family default
+)
+\change_unchanged
+ 
+\change_inserted 5381 1787654957
+
+\begin_inset Formula $x_{e}(\tst)$
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -1370,17 +1738,17 @@ str
 \family default
  or more generic objects.
  In that case,
- it could be convenient to introduce a subclass of 
+ it could be convenient to 
+\change_inserted 5381 1787660005
+consider only the calculations with the 
 \family typewriter
-InteractingEntity
+numpy.ndarray
 \family default
- having these new state variables.
- In the present version,
- we always consider 
+ contained in 
 \family typewriter
 e.x[t]
-\family default
- as a numerical array.
+\change_unchanged
+
 \end_layout
 
 \end_deeper
@@ -1397,6 +1765,48 @@ Propagator
  as subclass of 
 \family typewriter
 InteractingEntity
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5381 1787736966
+We have to recall that propagators are interacting entities,
+ and not only attributes of interactions carrying the goods sent by agents to patients.
+ This means that also propagators 
+\begin_inset Formula $r$
+\end_inset
+
+ have a proper state 
+\begin_inset Formula $x_{r}(t)$
+\end_inset
+
+ and activations 
+\begin_inset Formula $\act_{i}^{r}(t)$
+\end_inset
+
+.
+ For example,
+ if 
+\begin_inset Formula $\act_{i}^{r}(\tarr{i}(t))=0$
+\end_inset
+
+,
+ then the interaction 
+\begin_inset Formula $i$
+\end_inset
+
+ cannot start (see axiom (CE) in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Def.~5"
+key "IS2"
+literal "false"
+
+\end_inset
+
+).
+\change_unchanged
+
 \end_layout
 
 \begin_layout Enumerate
@@ -1558,18 +1968,38 @@ doing that
 \end_deeper
 \begin_layout Enumerate
 
+\change_inserted 5381 1787737266
+
 \family typewriter
 gamma:
  dict[tuple[i:
  Interaction,
  t:
- float | str],
+ float],
  v:
- i.type_of_resources]
+ Any] | dict[i:
+ Interaction,
+ v:
+ Any]
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
+
+\change_inserted 5381 1787662305
+If the associated IS is not static (i.e.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+self.IS.is_static == False)
+\family default
+,
+ then 
+\change_unchanged
 
 \family typewriter
 r.gamma[i,
@@ -1593,11 +2023,28 @@ i in r.interactions == True
 \end_layout
 
 \begin_layout Itemize
-In case of static IS,
- we can use 
+
+\change_inserted 5381 1787662374
+If the associated IS is static (i.e.
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
-r.gamma[i,
- '']
+self.IS.is_static == True)
+\family default
+,
+ then we can simply use 
+\family typewriter
+r.gamma[i]
+\family default
+ which corresponds to the constant value 
+\begin_inset Formula $\gamma_{i}(\tst)\in R_{i}$
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -1658,7 +2105,7 @@ attributes:
 
 \family typewriter
 interactions:
- list[Interactions]
+ list[Interaction]
 \end_layout
 
 \begin_deeper
@@ -1677,16 +2124,33 @@ The list of all the interactions
 \end_deeper
 \begin_layout Enumerate
 
+\change_inserted 5381 1787737283
+
 \family typewriter
 I:
  dict[t:
- float | str,
+ float,
  I_list:
- list[Interaction]]
+ list[Interaction]] | list[Interaction]
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
+
+\change_inserted 5381 1787665693
+If the associated IS is not static (i.e.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+self.IS.is_static == False)
+\family default
+,
+ then 
+\change_unchanged
 
 \family typewriter
 p.I[t]
@@ -1718,10 +2182,129 @@ set(p.I[t])
 \end_layout
 
 \begin_layout Itemize
-In case of static IS,
- we can use 
+
+\change_inserted 5381 1787665728
+If the associated IS is static (i.e.
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
-p.I['']
+self.IS.is_static == True)
+\family default
+,
+ 
+\change_unchanged
+we can use 
+\change_inserted 5381 1787737409
+
+\family typewriter
+p.I
+\family default
+,
+ which corresponds to the constant value 
+\begin_inset Formula $I_{p}(\tst)=\left\{ i\in I\mid\pa{i}=p\right\} $
+\end_inset
+
+,
+ which equals 
+\family typewriter
+set(p.interactions)
+\change_unchanged
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 5381 1787738151
+It can be implemented as (see 
+\family typewriter
+IS.py
+\family default
+):
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5381 1787737969
+
+\family typewriter
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 5381 1787737971
+
+self.I:
+ dict[float,
+ list[Interaction]] | list[Interaction]
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\change_inserted 5381 1787737971
+if self.IS.is_static == False:
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\change_inserted 5381 1787737971
+t1 = self.IS.t_first_arrival(self.IS.t)
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\change_inserted 5381 1787737971
+self.I[self.IS.t] = [i for i in self.interactions if
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                                 
+\change_inserted 5381 1787737971
+t1 <= i.ta[self.IS.t] <= t1 + self.IS.Delta]
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\change_inserted 5381 1787737971
+else:
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\change_inserted 5381 1787737971
+self.I = self.interactions
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -1729,7 +2312,11 @@ It seems that we need to use
 \family typewriter
 p.I[t]
 \family default
- only to test it is non empty for the implementation of the evolution equation,
+ only to test 
+\change_inserted 5381 1787738993
+if 
+\change_unchanged
+it is non empty for the implementation of the evolution equation,
  that is in a code of the form:
  
 \family typewriter
@@ -1743,6 +2330,10 @@ if p.I[t]:
 \family typewriter
 Omega_type:
  str
+\change_inserted 5381 1787738772
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -1795,12 +2386,29 @@ In case we need to implement more general probability spaces,
  interval.
 \end_layout
 
+\begin_layout Itemize
+
+\change_inserted 5381 1787738869
+If the IS is static,
+ we omit the variable (
+\family typewriter
+Omega_type = None
+\family default
+).
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
 Omega_discr_set:
- set | None
+ set
+\change_inserted 5381 1787738765
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -1835,6 +2443,17 @@ Otherwise,
 Omega_discr_set = {omega_1,
  ...,
  omega_K}
+\change_inserted 5381 1787738880
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 5381 1787739107
+If the IS is static,
+ we omit the variable.
+\change_unchanged
+
 \end_layout
 
 \end_deeper
@@ -1842,7 +2461,11 @@ Omega_discr_set = {omega_1,
 
 \family typewriter
 Omega_int_min:
- float | None
+ float
+\change_inserted 5381 1787738760
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -1904,12 +2527,25 @@ inf
 ).
 \end_layout
 
+\begin_layout Itemize
+
+\change_inserted 5381 1787739117
+If the IS is static,
+ we omit the variable.
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
 Omega_int_max:
- float | None
+ float
+\change_inserted 5381 1787738756
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -1944,12 +2580,25 @@ Otherwise,
 p.Omega_int_max = b
 \end_layout
 
+\begin_layout Itemize
+
+\change_inserted 5381 1787739127
+If the IS is static,
+ we omit the variable.
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
 P_density:
  FunctionType
+\change_inserted 5381 1787738735
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -2015,12 +2664,25 @@ If
 p.P_density(omega)
 \end_layout
 
+\begin_layout Itemize
+
+\change_inserted 5381 1787739137
+If the IS is static,
+ we omit the variable.
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
 f:
  FunctionType
+\change_inserted 5381 1787738748
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -2104,6 +2766,15 @@ p.I[t]
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+
+\change_inserted 5381 1787739162
+If the IS is static,
+ we omit the variable.
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \end_deeper
 \begin_layout Enumerate
@@ -2113,16 +2784,20 @@ methods:
 \begin_deeper
 \begin_layout Enumerate
 
+\change_inserted 5381 1787739852
+
 \family typewriter
 nx(t:
- float | None = None,
+ float,
  s:
- float | None = None) -> dict[tuple[tau:
+ float) -> dict[tuple[tau:
  float,
  eps:
  InteractingEntity],
  v:
  numpy.ndarray]
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -2306,6 +2981,19 @@ literal "false"
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+
+\change_inserted 5381 1787739937
+If the IS is static,
+ we simply do not use this method (the attribute 
+\family typewriter
+p.f == None
+\family default
+ and the EE is useless).
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \end_deeper
 \end_deeper
@@ -2346,7 +3034,15 @@ literal "false"
  a propagator arrives,
  the state of an interacting entity changes,
  the neighborhood of an interaction changes,
- etc.
+ etc
+\change_inserted 5381 1787740058
+ (all these time events are actually all the values taken by 
+\family typewriter
+IS.t
+\family default
+)
+\change_unchanged
+.
  Each clock function 
 \begin_inset Formula $\tau$
 \end_inset
@@ -2417,7 +3113,11 @@ On the other hand,
 \begin_inset Formula $t\mapsto\tarr{i}$
 \end_inset
 
- is not a clock function (
+ is 
+\emph on
+not
+\emph default
+ a clock function (
 \begin_inset CommandInset citation
 LatexCommand cite
 after "Sec.~3.4"
@@ -2466,6 +3166,28 @@ attributes:
 \end_layout
 
 \begin_deeper
+\begin_layout Enumerate
+
+\change_inserted 5381 1787742285
+
+\family typewriter
+IS:
+ InteractionSpace
+\change_unchanged
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 5381 1787742316
+The IS the set of discr./cont.
+ time events is associated with.
+\change_unchanged
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 
 \family typewriter
@@ -2527,7 +3249,11 @@ is not None
 
 \family typewriter
 T.continuous[k,
- 1]
+ 
+\change_inserted 5381 1787740735
+0
+\change_unchanged
+]
 \family default
  corresponds to 
 \begin_inset Formula $t_{k}^{1}$
@@ -2540,7 +3266,11 @@ T.continuous[k,
 
 \family typewriter
 T.continuous[k,
- 2]
+ 
+\change_inserted 5381 1787740740
+1
+\change_unchanged
+]
 \family default
  corresponds to 
 \begin_inset Formula $t_{k}^{2}$
@@ -2648,27 +3378,22 @@ It is the clock function generated by the set
 
 \begin_layout Itemize
 It can be implemented as 
+\change_inserted 5381 1787742199
+in 
 \family typewriter
-T.clock(t) = min(s for s in T if s >= t,
- default = float(
-\begin_inset Quotes eld
-\end_inset
+IS.py
+\change_unchanged
 
-inf
-\begin_inset Quotes erd
-\end_inset
-
-))
 \end_layout
 
-\begin_layout Itemize
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
 In case of static IS,
  we do not use this class because it is trivial.
 \end_layout
 
-\end_deeper
-\end_deeper
-\end_deeper
 \begin_layout Section
 Interactions
 \end_layout
@@ -2775,6 +3500,27 @@ type of an interaction
 \end_deeper
 \begin_layout Enumerate
 
+\change_inserted 5381 1787745647
+
+\family typewriter
+IS:
+ InteractionSpace
+\change_unchanged
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 5381 1787745678
+The IS the interaction is associated with.
+\change_unchanged
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
 \family typewriter
 agents:
  tuple of InteractingEntity
@@ -2843,14 +3589,31 @@ Patient
 
 \family typewriter
 resources_type:
- T
+ 
+\change_inserted 5381 1787748697
+Any | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
 
+\change_inserted 5381 1787748730
+If this attribute is 
 \family typewriter
-T
+None
+\family default
+,
+ the following is not implemented (the same below).
+\change_unchanged
+
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+It
 \family default
  can be any type:
  
@@ -2867,6 +3630,10 @@ float | int | str | FunctionType
 \family typewriter
 resource_space_dim:
  int
+\change_inserted 5381 1787748719
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -2893,22 +3660,15 @@ resource_space_dim = -1
 
 \family typewriter
 R:
- tuple(T,
+ tuple(
+\change_inserted 5381 1787746005
+Any
+\change_unchanged
+,
  types.FunctionType) | None = None
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
-If,
- at instantiation,
- this attribute is 
-\family typewriter
-None
-\family default
-,
- the following is not implemented.
-\end_layout
-
 \begin_layout Itemize
 We must have 
 \family typewriter
@@ -2988,6 +3748,10 @@ max_resource:
 \family typewriter
 T_s:
  TimeEvents
+\change_inserted 5381 1787746299
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -3026,12 +3790,25 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Itemize
+
+\change_inserted 5381 1787746401
+If the IS is static,
+ we can omit this parameter.
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
 T_o:
  TimeEvents
+\change_inserted 5381 1787746301
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -3070,12 +3847,25 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Itemize
+
+\change_inserted 5381 1787746408
+If the IS is static,
+ we can omit this parameter.
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
 T_a:
  TimeEvents
+\change_inserted 5381 1787746303
+ | None = None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -3113,6 +3903,15 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Itemize
+
+\change_inserted 5381 1787746421
+If the IS is static,
+ we can omit this parameter.
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
@@ -3141,6 +3940,28 @@ i.ts[t]
 
 \family typewriter
 i.ts[t] = i.T_s.clock(t)
+\change_inserted 5381 1787753285
+
+\family default
+,
+ where 
+\family typewriter
+t = i.IS.t
+\family default
+ is the current IS time.
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I'm not fully convinced of this...
+ up to now
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -3187,8 +4008,12 @@ ta:
 \begin_deeper
 \begin_layout Itemize
 See 
+\change_inserted 5381 1787746956
+
 \family typewriter
-tarr.py
+IS
+\change_unchanged
+.py
 \family default
  for a possible implementation.
  The idea is to set 
@@ -3223,19 +4048,35 @@ N:
  float = IS.t,
  N_list:
  list[InteractingEntity]]
+\change_inserted 5381 1787747027
+ | list[InteractingEntity]
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
 
+\change_inserted 5381 1787747175
+If the associated IS is not static (i.e.
+\begin_inset space ~
+\end_inset
+
+
 \family typewriter
+self.IS.is_static == False)
+\family default
+,
+ then
+\family typewriter
+ 
+\change_unchanged
 i.N[t]
 \family default
  corresponds to 
 \begin_inset Formula $\mathcal{N}_{i}(t)$
 \end_inset
 
- but it is implemented as a list and not as a set.
- Saying that the neighborhood is a set in an inheritance from cellular automata theory,
+ but it is implemented as a list and not as a set (saying that the neighborhood is a set in an inheritance from cellular automata theory,
  but it is not completely correct if the evolution function depends on some order of the entities in this neighborhood (e.g.
 \begin_inset space ~
 \end_inset
@@ -3246,7 +4087,32 @@ because the CA is on a spatial grid).
 \begin_inset Formula $\mathcal{N}_{i}(t)$
 \end_inset
 
+).
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 5381 1787747110
+If the associated IS is static (i.e.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+self.IS.is_static == True)
+\family default
+,
+ then we can simply use 
+\family typewriter
+i.N
+\family default
+ which have to correspond to the constant value 
+\begin_inset Formula $\mathcal{N}_{i}(\tst)\subseteq E$
+\end_inset
+
 .
+\change_unchanged
+
 \end_layout
 
 \end_deeper
@@ -3312,7 +4178,7 @@ a(j:
 
 \family typewriter
 a(i,
- j) = list(self.agents)[j]
+ j) = self.agents[j]
 \family default
  corresponds to 
 \begin_inset Formula $a_{j}$
@@ -3329,59 +4195,31 @@ a(i,
 \begin_layout Enumerate
 
 \family typewriter
-pr() -> InteractingEntity
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\family typewriter
-pr(i) = self.pr
-\family default
-.
- This method simply implement the mathematical notation 
-\begin_inset Formula $\text{pr}(i)=r$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\family typewriter
-pa() -> InteractingEntity
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\family typewriter
-pa(i) = self.pa
-\family default
-.
- This method simply implement the mathematical notation 
-\begin_inset Formula $\text{pa}(i)=p$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\family typewriter
 gamma(t:
- float | None = None) -> self.resource_type
+ float | None = None) -> 
+\change_inserted 5381 1787747644
+Any
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
+
+\change_inserted 5381 1787747836
+If the IS is not static:
+ 
+\change_unchanged
 
 \family typewriter
 gamma(i,
  t) = pr(i).gamma[i,
- t] == i.pr.gamma[i,t]
+ t] == i.pr.gamma[i,
+
+\change_inserted 5381 1787747740
+ 
+\change_unchanged
+t]
 \family default
  this is 
 \begin_inset Formula $\gamma_{i}(t)$
@@ -3393,11 +4231,24 @@ gamma(i,
 \begin_inset Formula $i$
 \end_inset
 
+.
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 5381 1787747877
+If the IS is static:
+ 
+\family typewriter
+gamma(i) = pr(i).gamma[i] == i.pr.gamma[i]
+\change_unchanged
 
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
+
+\change_deleted 5381 1787663508
 
 \family typewriter
 __str__() -> BinaryIO
@@ -3405,6 +4256,8 @@ __str__() -> BinaryIO
 
 \begin_deeper
 \begin_layout Itemize
+
+\change_deleted 5381 1787663508
 visualize the LaTeX (png figure) corresponding to 
 \begin_inset Formula $i:a_{1},\ldots,a_{n}\xra{r}p$
 \end_inset
@@ -3445,13 +4298,19 @@ visualize the LaTeX (png figure) corresponding to
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
 
 \family typewriter
-UML() -> BinaryIO
+UML() -> 
+\change_inserted 5381 1787747951
+None
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -3486,14 +4345,18 @@ khx(list_active_interactions,
 \end_deeper
 \begin_layout Enumerate
 
+\change_inserted 5381 1787748081
+
 \family typewriter
 nx(t:
- float | None = None) -> dict[tuple[tau:
+ float) -> dict[tuple[tau:
  float,
  eps:
  InteractingEntity],
  v:
  numpy.ndarray]
+\change_unchanged
+
 \end_layout
 
 \begin_deeper
@@ -3664,6 +4527,15 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Itemize
+
+\change_inserted 5381 1787748297
+If the IS is static,
+ we simply do not use this method.
+\change_unchanged
+
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
 
@@ -3679,7 +4551,19 @@ The ordered list of all the starting times.
 \begin_layout Itemize
 
 \family typewriter
-i.starting_times = sorted(T_s.discrete + T_s.continue)
+i.starting_times = sorted(
+\change_inserted 5381 1787749364
+i.
+\change_unchanged
+T_s.discrete + 
+\change_inserted 5381 1787749379
+i.
+\change_unchanged
+T_s.continuous
+\change_inserted 5381 1787751992
+.flatten()
+\change_unchanged
+)
 \end_layout
 
 \end_deeper
@@ -3714,7 +4598,19 @@ The ordered list of all the ongoing times.
 \begin_layout Itemize
 
 \family typewriter
-i.ongoing_times = sorted(T_o.discrete + T_o.continue)
+i.ongoing_times = sorted(
+\change_inserted 5381 1787752036
+i.
+\change_unchanged
+T_o.discrete + 
+\change_inserted 5381 1787752041
+i.
+\change_unchanged
+T_o.continuous
+\change_inserted 5381 1787752047
+.flatten()
+\change_unchanged
+)
 \end_layout
 
 \end_deeper
