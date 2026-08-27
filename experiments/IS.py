@@ -130,28 +130,29 @@ class Interaction:
         t = self.IS.t
 
         self.ts: dict[float, float]
-        self.ts[t] = self.T_s.clock(t)
+        self.ts[t] = self.T_s.clock(t) if self.T_s is not None else {}
         
         self.to: dict[float, float]
-        self.to[t] = self.T_o.clock(t)
+        self.to[t] = self.T_o.clock(t) if self.T_o is not None else {}
         
         self.ta: dict[float, float]
-        if len(self.T_a) < 2:
-            self.ta[t] = self.T_a[0]
+        if self.T_a is not None:
+            if len(self.T_a) < 2:
+                self.ta[t] = self.T_a[0]
+                
+            # Find the insertion index using binary search
+            idx = bisect.bisect_right(self.T_a, t)
             
-        # Find the insertion index using binary search
-        idx = bisect.bisect_right(self.T_a, t)
-        
-        # Case 1: t is less than the first element
-        if idx == 0:
-            self.ta[t] = float("-inf")
-            
-        # Case 2: t is greater than or equal to the last element
-        if idx == len(self.T_a):
-            self.ta[t] = self.T_a[-1]
-            
-        # Case 3: t falls exactly between two elements
-        self.ta[t] = self.T_a[idx - 1]
+            # Case 1: t is less than the first element
+            if idx == 0:
+                self.ta[t] = float("-inf")
+                
+            # Case 2: t is greater than or equal to the last element
+            if idx == len(self.T_a):
+                self.ta[t] = self.T_a[-1]
+                
+            # Case 3: t falls exactly between two elements
+            self.ta[t] = self.T_a[idx - 1]
 
         self.N: dict[t: float, list[InteractingEntity]] = {}
 
