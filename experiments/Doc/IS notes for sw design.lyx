@@ -273,7 +273,7 @@ End
 \paperpagestyle default
 \tablestyle default
 \listings_params "language=Python,breaklines=true,showstringspaces=false,keepspaces=true,tabsize=4"
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \change_bars false
 \postpone_fragile_content false
@@ -371,7 +371,7 @@ InteractionSpace
 \family default
 ).
  
-\change_inserted 5381 1787733799
+\change_inserted 5381 1787818187
 For example,
  we can first construct an interacting entity (e.g.
 \begin_inset space ~
@@ -379,7 +379,7 @@ For example,
 
 a rectangle) and then associate it to two different IS.
  For this motivation,
- we will introduce an attribute that specifies which IS this entity is associated with.
+ we will introduce an attribute that specifies which IS this entity is aggregated with.
  We can therefore have e.g.
 \begin_inset space ~
 \end_inset
@@ -403,7 +403,7 @@ two interacting entity
 \family typewriter
 InteractingEntity
 \family default
- objects because the associated IS are different:
+ objects because the aggregated IS are different:
  
 \family typewriter
 e_1.IS !
@@ -545,13 +545,13 @@ literal "false"
 \end_inset
 
 
-\change_inserted 5381 1787740113
+\change_inserted 5381 1787819886
 ,
  i.e.
 \begin_inset space ~
 \end_inset
 
-it takes as values of the times when anything occurs in the implemented IS
+it takes as values all the subsequent times when anything occurs in the implemented IS
 \change_unchanged
 .
 \end_layout
@@ -1528,8 +1528,8 @@ IS:
 \begin_deeper
 \begin_layout Enumerate
 
-\change_inserted 5381 1787736315
-The IS the interacting entity is associated with.
+\change_inserted 5381 1787818045
+The IS the interacting entity is aggregated with.
 \change_unchanged
 
 \end_layout
@@ -1594,8 +1594,8 @@ ac:
 \begin_deeper
 \begin_layout Itemize
 
-\change_inserted 5381 1787654532
-If the associated IS is not static (i.e.
+\change_inserted 5381 1787818174
+If the aggregated IS is not static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -1620,8 +1620,8 @@ e.ac[i,
 
 \begin_layout Itemize
 
-\change_inserted 5381 1787736480
-If the associated IS is static (i.e.
+\change_inserted 5381 1787818175
+If the aggregated IS is static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -1661,8 +1661,8 @@ x:
 \begin_deeper
 \begin_layout Itemize
 
-\change_inserted 5381 1787654874
-If the associated IS is not static (i.e.
+\change_inserted 5381 1787818176
+If the aggregated IS is not static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -1690,8 +1690,8 @@ e.x[t]
 
 \begin_layout Itemize
 
-\change_inserted 5381 1787736489
-If the associated IS is static (i.e.
+\change_inserted 5381 1787818176
+If the aggregated IS is static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -1992,8 +1992,8 @@ gamma:
 \begin_deeper
 \begin_layout Itemize
 
-\change_inserted 5381 1787662305
-If the associated IS is not static (i.e.
+\change_inserted 5381 1787818177
+If the aggregated IS is not static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -2028,8 +2028,8 @@ i in r.interactions == True
 
 \begin_layout Itemize
 
-\change_inserted 5381 1787662374
-If the associated IS is static (i.e.
+\change_inserted 5381 1787818178
+If the aggregated IS is static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -2143,8 +2143,8 @@ I:
 \begin_deeper
 \begin_layout Itemize
 
-\change_inserted 5381 1787665693
-If the associated IS is not static (i.e.
+\change_inserted 5381 1787818178
+If the aggregated IS is not static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -2187,8 +2187,8 @@ set(p.I[t])
 
 \begin_layout Itemize
 
-\change_inserted 5381 1787665728
-If the associated IS is static (i.e.
+\change_inserted 5381 1787818179
+If the aggregated IS is static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -3039,12 +3039,12 @@ literal "false"
  the state of an interacting entity changes,
  the neighborhood of an interaction changes,
  etc
-\change_inserted 5381 1787740058
+\change_inserted 5381 1787818905
  (all these time events are actually all the values taken by 
 \family typewriter
 IS.t
 \family default
-)
+ during a simulation)
 \change_unchanged
 .
  Each clock function 
@@ -3184,9 +3184,9 @@ IS:
 \begin_deeper
 \begin_layout Itemize
 
-\change_inserted 5381 1787742316
+\change_inserted 5381 1787818046
 The IS the set of discr./cont.
- time events is associated with.
+ time events is aggregated with.
 \change_unchanged
 
 \end_layout
@@ -3516,8 +3516,8 @@ IS:
 \begin_deeper
 \begin_layout Itemize
 
-\change_inserted 5381 1787745678
-The IS the interaction is associated with.
+\change_inserted 5381 1787818046
+The IS the interaction is aggregated with.
 \change_unchanged
 
 \end_layout
@@ -4060,8 +4060,8 @@ N:
 
 \begin_layout Itemize
 
-\change_inserted 5381 1787747175
-If the associated IS is not static (i.e.
+\change_inserted 5381 1787818179
+If the aggregated IS is not static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -4096,8 +4096,8 @@ because the CA is on a spatial grid).
 
 \begin_layout Itemize
 
-\change_inserted 5381 1787747110
-If the associated IS is static (i.e.
+\change_inserted 5381 1787818180
+If the aggregated IS is static (i.e.
 \begin_inset space ~
 \end_inset
 
@@ -4240,68 +4240,17 @@ t]
 
 \begin_layout Itemize
 
-\change_inserted 5381 1787747877
+\change_inserted 5381 1787819822
 If the IS is static:
  
 \family typewriter
 gamma(i) = pr(i).gamma[i] == i.pr.gamma[i]
-\change_unchanged
-
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\change_deleted 5381 1787663508
-
-\family typewriter
-__str__() -> BinaryIO
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\change_deleted 5381 1787663508
-visualize the LaTeX (png figure) corresponding to 
-\begin_inset Formula $i:a_{1},\ldots,a_{n}\xra{r}p$
-\end_inset
-
- where instead of 
-\begin_inset Formula $a_{j}$
-\end_inset
-
-,
- 
-\begin_inset Formula $r$
-\end_inset
-
-,
- 
-\begin_inset Formula $p$
-\end_inset
-
- we insert 
-\begin_inset Formula $a_{j}\texttt{.id}$
-\end_inset
-
- and instead of 
-\begin_inset Formula $i$
-\end_inset
-
- we insert 
-\begin_inset Formula $\texttt{i.id}$
+\family default
+ is 
+\begin_inset Formula $\gamma_{i}(\tst)$
 \end_inset
 
 .
- Override 
-\begin_inset Formula $\texttt{\_\_str\_\_}$
-\end_inset
-
- so that it will work with 
-\begin_inset Formula $\texttt{print}$
-\end_inset
-
-
 \change_unchanged
 
 \end_layout
