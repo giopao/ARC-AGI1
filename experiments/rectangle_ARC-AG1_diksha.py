@@ -113,8 +113,7 @@ def find_rectangles(grid):
 rectangles = find_rectangles(grid)
 
 for rectangle in rectangles:
-    print(
-        "Rectangle found:",
+    print("Rectangle found:",
         "top row =", rectangle.top_row,
         "left column =", rectangle.left_column,
         "bottom row =", rectangle.bottom_row,
