@@ -42,10 +42,10 @@ class Rectangle:
         return inside_positions
 
     # Check if point is inside the rectangle
-    def is_point_inside(self, point: Point):
-        row_is_inside = (self.top_row < point.row < self.bottom_row)
-        column_is_inside = (self.left_column < point.col < self.right_column)
-        return row_is_inside and column_is_inside
+    def point_inside(self, point: Point):
+        row_inside = (self.top_row < point.row < self.bottom_row)
+        column_inside = (self.left_column < point.col < self.right_column)
+        return row_inside and column_inside
     
 def get_colored_positions(grid):
     colored_positions = []
