@@ -22,21 +22,26 @@ class Rectangle:
         left_column: int,
         bottom_row: int,
         right_column: int,
-        color: int
+        colors: set[int],
+        corners_found: int
     ):
         self.top_row = top_row
         self.left_column = left_column
         self.bottom_row = bottom_row
         self.right_column = right_column
-        self.color = color
 
-    # Find all cells that are inside the rectangle
+        self.colors = colors
+        self.corners_found = corners_found
+
+    # Find all positions inside the rectangle
     def get_inside_positions(self):
-        inside_cells = []
+        inside_positions = []
+
         for row in range(self.top_row + 1, self.bottom_row):
             for column in range(self.left_column + 1, self.right_column):
-                inside_cells.append((row, column))
-        return inside_cells
+                inside_positions.append((row, column))
+
+        return inside_positions
 
     # Check whether a point is inside the rectangle
     def is_point_inside(self, point: Point):
