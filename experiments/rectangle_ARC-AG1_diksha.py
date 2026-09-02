@@ -1,7 +1,6 @@
 from __future__ import annotations
 import numpy as np
 
-
 # location of point
 class Point:
     def __init__(
@@ -13,7 +12,6 @@ class Point:
         self.row = row
         self.col = col
         self.color = color
-
 
 class Rectangle:
     def __init__(
@@ -61,8 +59,7 @@ grid = np.array([
     [0, 2, 2, 2, 0],
     [0, 2, 0, 2, 0],
     [0, 2, 2, 2, 0],
-    [0, 0, 0, 0, 0]
-])
+    [0, 0, 0, 0, 0]])
 
 # Find positions of all colored cells
 positions = get_colored_positions(grid)
@@ -88,7 +85,7 @@ def find_rectangles(grid):
                     number_of_corners = 0
                     rectangle_colors = set()
 
-                    # Detect corners which are colored
+                    # Detect corners that are colored
                     for row, column in corner_positions:
                         color = int(grid[row, column])
 
