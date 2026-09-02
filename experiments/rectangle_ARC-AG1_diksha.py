@@ -36,14 +36,12 @@ class Rectangle:
     # Find all positions inside the rectangle
     def get_inside_positions(self):
         inside_positions = []
-
         for row in range(self.top_row + 1, self.bottom_row):
             for column in range(self.left_column + 1, self.right_column):
                 inside_positions.append((row, column))
-
         return inside_positions
 
-    # Check whether a point is inside the rectangle
+    # Check if point is inside the rectangle
     def is_point_inside(self, point: Point):
         row_is_inside = (self.top_row < point.row < self.bottom_row)
         column_is_inside = (self.left_column < point.col < self.right_column)
@@ -51,14 +49,11 @@ class Rectangle:
     
 def get_colored_positions(grid):
     colored_positions = []
-
     rows, columns = grid.shape
-
     for row in range(rows):
         for column in range(columns):
             if grid[row, column] != 0:
                 colored_positions.append((row, column, int(grid[row, column])))
-
     return colored_positions
 
 grid = np.array([
