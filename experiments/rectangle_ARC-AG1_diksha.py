@@ -3,7 +3,7 @@ import numpy as np
 
 
 # location of point
-class Point:
+class ColorPoint:
     def __init__(
         self,
         row: int,
@@ -31,7 +31,7 @@ class Rectangle:
         self.right_column = right_column
 
         self.colors = colors
-        self.corners_found = corners_found
+        self.corners_found = number_of_corners
 
     # Find all positions inside the rectangle
     def get_inside_positions(self):
@@ -47,7 +47,7 @@ class Rectangle:
         column_inside = (self.left_column < point.col < self.right_column)
         return row_inside and column_inside
     
-def get_colored_positions(grid):
+def find_colored_positions(grid):
     colored_positions = []
     rows, columns = grid.shape
     for row in range(rows):
@@ -65,5 +65,5 @@ grid = np.array([
 ])
 
 # Find positions of all colored cells
-positions = get_colored_positions(grid)
+positions = find_colored_positions(grid)
 print(positions)
