@@ -1,0 +1,1500 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\begin_preamble
+\usepackage{pdfsync}
+\usepackage{graphics}
+\usepackage{epstopdf}
+\usepackage[all]{xy}
+\usepackage{amscd}
+\setlist[enumerate]{leftmargin=*,label=(\roman*),align=left}
+\setlist[itemize]{leftmargin=*,align=left}
+
+
+
+%%%%% Paolo's macro %%%%%%%
+
+\newcommand{\xyR}[1]{ \makeatletter
+\xydef@\xymatrixrowsep@{#1} \makeatother} % end of \xyR
+% command \xyC to have more space between colums in diagrams
+\newcommand{\xyC}[1]{ \makeatletter
+\xydef@\xymatrixcolsep@{#1} \makeatother} % end of \xyC
+\entrymodifiers={++[ ][F]} % to have more space around objects in diagrams
+
+                                                     % ARROWS %
+\newcommand{\ra}{\longrightarrow}
+\newcommand{\xra}[1]{\xrightarrow{\ \ #1\ \ }} % extendible arrow
+\newcommand{\xrad}[1]{\xrightarrow{\displaystyle\ \ #1\ \ }} % extensible arrow in displaystyle
+
+    % MATHBBB %
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\R}{\field{R}} % reals
+\newcommand{\N}{\field{N}} % naturals
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}} % integers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}} % rationals
+
+% MATHCAL %
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\mC}{\mathcal{C}}
+%\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+
+
+                                            % MATHEMATICAL SIMBOLS %
+
+\newcommand{\eps}{\varepsilon} % for the sake of brevity only
+\renewcommand{\phi}{\varphi}
+\newcommand{\diff}[1]{\,\hbox{\rm d}#1} % dt,dx,... for integrals
+\newcommand{\h}[1]{\hspace{#1 truein}}  % to leave horizontal space
+\newcommand{\sss}{\scriptscriptstyle} % for the sake of brevity
+\newcommand{\Iso}{{}^{\displaystyle\sim}}
+%\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+%\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\corners}[1]{\ulcorner{#1}\urcorner}
+
+
+                                                 % CATEGORIES AND FUNCTORS %
+
+\DeclareMathOperator*{\colim}{colim} % colimit
+\newcommand{\Coo}{\mbox{\ensuremath{\mathcal{C}}}^{\infty}} % C infinity
+\DeclareMathOperator*{\Man}{{\bf Man}} % category of smooth manifolds
+\DeclareMathOperator{\Set}{{\bf Set}} % category of Sets
+\newcommand{\OR}{{\mathcal{O}}\mbox{$\R^\infty$}} % category of open sets in numerical spaces
+\newcommand{\FDiff}{\ext{\Coo}} %category of Fermat spaces
+\newcommand{\SFR}{{\bf S}\mbox{$\FR^\infty$}} % category of subsets of Fermat reals \FR and smooth maps
+\newcommand{\SRtil}{\text{\bf Set}_{\sss{\Rtil}}^\infty\!} % category of subsets of CGN
+\newcommand{\Top}{{\bf Top}} % category of topological spaces
+\newcommand{\Diff}{{\bf Dlg}} % diffeological spaces
+\newcommand{\Fr}{{\bf Fr}} % Froelicher spaces
+\newcommand{\HFr}{{\bf HFr}} % Hausdorff Froelicher spaces
+\newcommand{\LCS}{\text{\bf LCS}} % locally convex vector spaces and continuous linear maps
+\newcommand{\Con}{\text{\bf Con}} % convenient vector spaces and continuous linear maps
+\newcommand{\ConInf}{\Con{}^\infty} % convenient vector spaces and smooth maps
+\newcommand{\Fgen}{{\bf F}\Diff} % functionally generated diffeological spaces
+\newcommand{\TD}{\text{\rm T}_\text{\rm D}} % functor \Diff -> \Top "topological from diffeol"
+\newcommand{\DT}{\text{\rm D}_\text{\rm T}} % functor \Top -> \Diff "diffeol from topological"
+\newcommand{\DF}{\text{\rm D}_\text{\rm F}} % functor \Fr -> \Diff "diffeol from Frolicher"
+\newcommand{\FD}{\text{\rm F}_\text{\rm D}} % functor \Diff -> \Fr "Frolicher from diffeol"
+\newcommand{\FFG}{\text{\rm F}_\text{\rm FG}} % functor \Fgen -> \Fr "Frolicher from Fgen"
+\newcommand{\FGF}{\text{\rm FG}_\text{\rm F}} % functor \Fr -> \Fgen "Fgen from Frolicher"
+\newcommand{\DFG}{\text{\rm D}_\text{\rm FG}} % functor \Fgen -> \Diff "diffeol from Fgen"
+\newcommand{\FGD}{\text{\rm FG}_\text{\rm D}} % functor \Diff -> \Fgen "Fgen from diffeol"
+\newcommand{\FGM}{\text{\rm FG}_\text{\rm M}} % functor \Man -> \Fgen "Fgen from man"
+\newcommand{\Gcinf}{\mathcal{G}\cinfty} % generalized smooth functions
+\newcommand{\GDK}[1]{\mathcal{GD}_{#1}} % genearlized diffeological spaces
+\newcommand{\GD}{\mathcal{GD}}
+\newcommand{\Fs}[1]{\mathcal{F}_{\sss #1}} % hom set for the category of known functions
+\newcommand{\Ds}[1]{\mathcal{D}_{\sss #1}} % generalized elements or figures with specified space
+\newcommand{\GDiff}{\mathcal{G}\Diff}
+\DeclareMathOperator*{\ORn}{{\bf O}\mbox{$\R^n$}}
+
+    % FERMAT THEORY %
+
+\newcommand{\FR}{{{}^\bullet\R}} % Fermat reals
+\newcommand{\st}[1]{{#1^\circ}} % standard part map
+\newcommand{\In}[1]{\in_{_{\scriptscriptstyle{#1}}}} % \in for generalized elements
+\newcommand{\InUp}[1]{\in^{\scriptscriptstyle{#1}}} % \in for observables
+\newcommand{\Nil}{\mathcal{N}} % nilpotent functions
+\newcommand{\ext}[1]{{}^\bullet #1} % extension functor
+\newcommand{\equp}[1]{\displaystyle \mathop {\,=\,}^{ \sss{#1}}} % equality up to infinitesimal
+\newcommand{\hyperR}{{{}^*\R}} % hyperreals
+\newcommand{\extFR}{{}^\bullet\bar{\R}} % extended Fermat reals
+\newcommand{\existsext}[1]{\exists_{\,{}^{\ext{\!}#1}}}
+\newcommand{\forallext}[1]{\forall_{\,{}^{\ext{\!}#1}}}
+
+
+     % COLOMBEAU THEORY %
+
+\newcommand{\Rtil}{\widetilde \R} % real Colombeau generalized number
+\newcommand{\Ctil}{\widetilde \CC} % complex Colombeau generalized number
+\newcommand{\otilc}{\widetilde \Omega_c} % compactly supported points in Omega
+\newcommand{\gs}{\mathcal{G}^s} % special Colombeau algebra
+\newcommand{\Gs}{\boldsymbol{\mathcal{G}}^s} % special CA as a diffeological space
+\newcommand{\gf}{\mathcal{G}^e} % full CA
+\newcommand{\Gf}{\boldsymbol{\mathcal{G}}^e} % full CA as a diffeological space
+\newcommand{\ems}{\mathcal{E}^s_M} % moderate nets for the special CA
+\newcommand{\Ems}{\boldsymbol{\mathcal{E}}^s_M} % moderate nets for the special CA as a diffeological space
+\newcommand{\ns}{\mathcal{N}^s} % negligible nets for the special CA
+\newcommand{\emf}{\mathcal{E}^e_M} % moderate nets for the full CA
+\newcommand{\Emf}{\boldsymbol{\mathcal{E}}^e_M} % moderate nets for the full CA as a diffeological space
+\newcommand{\nf}{\mathcal{N}^e} % negligible nets for the full CA
+\newcommand{\gss}{{\mathcal G}^{\text{\rm s}}} % special CA with roman s
+\newcommand{\gse}{{\mathcal G}^{\text{\rm e}}} % full CA with roman e
+\newcommand{\gsd}{{\mathcal G}^{\text{\rm d}}} % diffeomorphism invariant CA with roman d
+\newcommand{\gsh}{\hat{\mathcal{G}}} % algebra of asymptotic functions (NSA)
+\newcommand{\erm}{\text{\rm e}} % for having roman superscript in CAs
+\newcommand{\srm}{\text{\rm s}}
+\newcommand{\drm}{\text{\rm d}}
+\newcommand{\crm}{\text{\rm c}}
+\newcommand{\brm}{\text{\rm b}}
+\newcommand{\thick}{\text{\rm th}} % thickening
+\newcommand{\sint}[1]{\langle#1\rangle} % strong internal set
+\newcommand{\Eball}{B^{{\scriptscriptstyle \text{\rm E}}}} % ordinary Euclidean ball
+\newcommand{\Fball}{B^{{\scriptscriptstyle \text{\rm F}}}} % ball in Fermat top
+\newcommand{\sintF}[1]{\sint{#1}_{\scriptscriptstyle\text{\rm F}}}
+\newcommand{\RC}[1]{{}^{\scriptscriptstyle #1}\Rtil}
+\newcommand{\rcrho}{\RC{\rho}}
+\newcommand{\csp}[1]{{\text{\rm c}}({#1})}
+%\newcommand{\csp}[1]{{}^{\scriptscriptstyle \rho}\widetilde{{#1}_{\text{\rm c}}}}
+\newcommand{\fcmp}{\Subset_{\text{f}}}
+
+
+                                              % LOGICAL SYMBOLS %
+
+\newcommand{\ptind}{\displaystyle \mathop {\ldots\ldots\,}} % marks with smth over. Usage: \ptind^{...}
+\newcommand{\then}{\quad \Longrightarrow \quad} % implication
+\newcommand{\DIff}{ \quad\;\; :\!\iff \quad } % :iff by definition
+\newcommand{\IffD}{ \quad\;\; \iff \!\! \colon \quad } % iff: by definition
+\newcommand{\eqUp}{\displaystyle \mathop {=}} % = with something above
+\newcommand{\leUp}{\displaystyle \mathop {\le}} % <= with something above
+\newcommand{\geUp}{\displaystyle \mathop {\ge}} % >= with something above
+
+%% Interaction spaces %%
+
+\DeclareMathOperator{\act}{ac}
+\DeclareMathOperator{\stateNeigh}{n}
+\DeclareMathOperator{\stateAgents}{ag}
+\newcommand{\tst}{t_{\rm st}}
+\newcommand{\tend}{t_{\rm end}}
+\newcommand{\creationTime}[1]{t^{#1}_{\rm c}}
+\newcommand{\destructionTime}[1]{t^{#1}_{\rm d}}
+\newcommand{\ag}[1]{{\rm ag}(#1)}
+\newcommand{\pa}[1]{{\rm pa}(#1)}
+\newcommand{\pr}[1]{{\rm pr}(#1)}
+\newcommand{\tist}[1]{t_{#1}^{\rm s}}
+\newcommand{\tong}[1]{t_{#1}^{\rm o}}
+\newcommand{\tarr}[1]{t_{#1}^{\rm a}}
+\newcommand{\tfirst}{t^{\rm 1}}
+\newcommand{\tsubs}{t_{\rm s}}
+\newcommand{\tsuba}{t_{\rm a}}
+\newcommand{\tsubo}{t_{\rm o}}
+
+
+%%%% ARC-AGI 1
+\newcommand{\hisarc}{\textsc{h\textbf{i}s-arc}}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+enumitem
+\end_modules
+\maintain_unincluded_children no
+\begin_local_layout
+Format 66
+Style Subjectclass
+    CopyStyle             Address
+    LatexName             subjclass[2020]
+    LabelString           "2020 Mathematics Subject Classification:"
+End
+\end_local_layout
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\notefontcolor #ffaa00
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side right
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ARC-AGI1 algorithm
+\begin_inset Newline newline
+\end_inset
+
+(Possibly wrong) Informal notes before arriving at a precise formulation
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Interacting-entities-and-interactions"
+
+\end_inset
+
+Interacting entities and interactions
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:listAllGeom"
+
+\end_inset
+
+Start with the list of geometric entities,
+ geometric relations,
+ geometric properties and geometric transformations shown in the lecture.
+\end_layout
+
+\begin_layout Enumerate
+Mrs Code is now called 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ (
+\series bold
+H
+\series default
+uman 
+\series bold
+I
+\series default
+nspired 
+\series bold
+IS
+\series default
+ for 
+\series bold
+A
+\series default
+bstract 
+\series bold
+R
+\series default
+easoning 
+\series bold
+C
+\series default
+orpora).
+\end_layout
+
+\begin_layout Enumerate
+In order to implement an efficient selection of geometrical objects,
+ construct a hierarchical human-inspired organization of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ as an IS:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Human-inspired:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Synaptic plasticity
+\emph default
+:
+ based on the idea of interactions' good measuring 
+\begin_inset Quotes eld
+\end_inset
+
+how many times we used this interaction so far
+\begin_inset Quotes erd
+\end_inset
+
+ and normalized into a probability of selection of this interaction in the algorithm (=:
+ dynamics of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ as a dynamical IS).
+ See below Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:HiS-ARC"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Abstraction"
+
+\end_inset
+
+
+\emph on
+Abstraction
+\emph default
+:
+ in the IS corresponding to 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+,
+ consider interactions of the form e.g.
+\begin_inset Formula 
+\begin{align*}
+i:\textrm{rectangles}\xra{r}\textrm{closed lines}\\
+j:\textrm{triangles}\xra{s}\textrm{closed lines}\\
+k:\textrm{squares}\xra{u}\textrm{rectangles}\\
+h:\textrm{L-shapes}\xra{v}\textrm{L-shapes},
+\end{align*}
+
+\end_inset
+
+where the propagators have the following properties:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\act_{i}^{r}(t)=1$
+\end_inset
+
+ means that at time 
+\begin_inset Formula $t$
+\end_inset
+
+ (computation time) we have found a 'rectangle' in at least one training 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ but it occurs also in the other 
+\begin_inset Formula $\mathcal{I}_{j}$
+\end_inset
+
+ only if we think at it as a more abstract 'closed line
+\begin_inset Quotes erd
+\end_inset
+
+ (e.g.
+\begin_inset space ~
+\end_inset
+
+because in 
+\begin_inset Formula $\mathcal{I}_{j}$
+\end_inset
+
+ there is a 'triangle').
+ See also below 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:listAllGeom"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Similarly for 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma_{i}(t)$
+\end_inset
+
+ is a counting good following 
+\emph on
+synaptic plasticity
+\emph default
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+how many times we used this abstraction so far
+\begin_inset Quotes erd
+\end_inset
+
+,
+ see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:HiS-ARC"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+An interaction of the type 
+\begin_inset Formula $h:g\xra{v}g$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $g$
+\end_inset
+
+ is an abstract geometrical objects,
+ simply means that 
+\begin_inset Formula $g$
+\end_inset
+
+ occurs in some 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Also geometric relations and transformations have to be organized in a hierarchical way using a similar abstraction,
+ like geometric entities as above.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Consider-only-ALL-training"
+
+\end_inset
+
+Consider only interacting entities and interactions of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ that occur in 
+\series bold
+all
+\series default
+ 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ 
+\series bold
+or
+\series default
+ in 
+\series bold
+all
+\series default
+ 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ For example,
+ a geometric entity 
+\begin_inset Formula $g$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+occur
+\begin_inset Quotes erd
+\end_inset
+
+ in all 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ means that an abstraction,
+ as described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Abstraction"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ of minimal level occur in all 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+ For example,
+ if a 'rectangle' occurs in 
+\begin_inset Formula $\mathcal{I}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{I}_{2}$
+\end_inset
+
+,
+ and a 'square' in 
+\begin_inset Formula $\mathcal{I}_{3}$
+\end_inset
+
+,
+ we have an occurrence of 'rectangle'.
+ If we have 'rectangle' in 
+\begin_inset Formula $\mathcal{I}_{1}$
+\end_inset
+
+,
+ a 'triangle' in 
+\begin_inset Formula $\mathcal{I}_{2}$
+\end_inset
+
+ and a 'circle' in 
+\begin_inset Formula $\mathcal{I}_{3}$
+\end_inset
+
+,
+ then we have an occurrence of 'closed lines'.
+ This would correspond to a certain application of the GEP in 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ in the dynamics of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ as an IS.
+ However,
+ since it is a strict rule,
+ it would correspond to maximum cost where 
+\begin_inset Formula $C_{y}^{j}(e)\in\{0,1\}$
+\end_inset
+
+ (if e.g.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $e\in\mathcal{I}_{k}\setminus\mathcal{I}_{h}$
+\end_inset
+
+) or zero probability 
+\begin_inset Formula $Q_{\gamma}(i)=0$
+\end_inset
+
+ (if e.g.
+\begin_inset space ~
+\end_inset
+
+the interaction 
+\begin_inset Formula $i\in\mathcal{S}_{k}\setminus\mathcal{S}_{h}$
+\end_inset
+
+).
+ Up to now,
+ we can therefore not use the GEP but simply apply this strict rule.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:CEF"
+
+\end_inset
+
+CEF
+\end_layout
+
+\begin_layout Enumerate
+Differently to what I stated during the lecture,
+ it seems more natural to consider that from the training pair 
+\begin_inset Formula $\mathcal{I}_{k}-\mathcal{S}_{k}$
+\end_inset
+
+ we are constructing two CEF for RLE,
+ one of which is a forgetful one (because some interacting entities are not considered at all in the solution).
+ Moreover,
+ in general some geometric transformations to construct 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ from 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ needs 
+\emph on
+more than one
+\emph default
+ interacting entity,
+ such as:
+ copy on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ the rectangle in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ but with a new color taken from the most numerous set of cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+ 
+\emph on
+Since we start from more than one interacting entity
+\emph default
+,
+ the natural learning is RLE.
+ 
+\end_layout
+
+\begin_layout Enumerate
+On the contrary,
+ in transforming the final empty 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+ for the solution,
+ we proceed stepwise starting from one interacting entity to the next one,
+ and aiming to change its state:
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+change the dimension of the grid by following the rules used in the training (the grid is surely an interacting entity of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+change the color of this part of the grid by following the rules used in the training
+\end_layout
+
+\begin_layout Enumerate
+etc.
+\end_layout
+
+\begin_layout Standard
+In this case,
+ the natural learning process is therefore RLS because we start 
+\emph on
+from only one
+\emph default
+ interacting entity and we want to change its state.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+In considering CEF constructed as composition of at most 3 elementary transformations,
+ we do not have to consider all possible triples of transformations,
+ but only those that are composable (i.e.
+\begin_inset space ~
+\end_inset
+
+the output of the first transformation can be considered as input of the subsequent one).
+\end_layout
+
+\begin_layout Enumerate
+It could be useful to see CEF as interacting entities of another IS within 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+.
+ In this way,
+ we can talk of the state of a CEF,
+ one of whose component could be its 
+\begin_inset Quotes eld
+\end_inset
+
+abstract description
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This state can be used to apply the strict rule of considering the same transformations in all the pair 
+\begin_inset Formula $\mathcal{I}_{k}-\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Visualize a CEF 
+\begin_inset Formula $U(x)=y$
+\end_inset
+
+ by changing the color of the border (1 pixel width) of each interacting entities:
+ first 
+\begin_inset Formula $x$
+\end_inset
+
+ and after 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Make disappear all the interacting entities that are forgotten (
+\begin_inset Formula $U(x)=\emptyset$
+\end_inset
+
+) by a CEF.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:HiS-ARC"
+
+\end_inset
+
+Organization of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ as IS
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ is implemented as a dynamical (i.e.
+\begin_inset space ~
+\end_inset
+
+not static) IS having:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Synaptic plasticity algorithm following the GEP
+\series default
+:
+ This algorithm aims to solve the problem 
+\begin_inset Quotes eld
+\end_inset
+
+how to use a human-inspired algorithm in order to find what geometric entities,
+ relations or transformations occur in the given training IS avoiding a brute-force algorithm
+\begin_inset Quotes erd
+\end_inset
+
+.
+ It uses the GEP,
+ so it is implemented as a CAS.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+At 
+\begin_inset Formula $\tst$
+\end_inset
+
+ all the counting goods 
+\begin_inset Formula $\gamma_{i_{1}},\ldots,\gamma_{i_{N}}=1$
+\end_inset
+
+.
+ The interpretation is:
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ already has a human-inspired core-knowledge (we can even call it 
+\emph on
+subconscious knowledge
+\emph default
+) which allows it to recognize the geometric object 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ (entity,
+ relation,
+ transformation).
+ However,
+ so far it has no experience about how frequently 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ occurs in ARC-AGI1 problems,
+ but it will adapt its behaviour in learning to solve these puzzles (this is plasticity,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+adaptation based on occurring frequencies of objects 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+,
+ see 
+\begin_inset Quotes eld
+\end_inset
+
+Gemini - synaptic_plasticity.pdf
+\begin_inset Quotes erd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:normalize-counting-goods"
+
+\end_inset
+
+At generic step:
+ Transform all the counting goods into a probability by normalization.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Extract-a-geometrical-object"
+
+\end_inset
+
+Extract a geometrical object 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ using this probability.
+\end_layout
+
+\begin_layout Enumerate
+Search for occurrences of this object in the training IS.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Searching the geometric object 
+\begin_inset Formula $g$
+\end_inset
+
+ corresponds to searching of an interaction 
+\begin_inset Formula $i_{j}:g\xra{v}g$
+\end_inset
+
+ as described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Abstraction"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ occurs in all training IS,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ finds if some 
+\begin_inset Formula $i_{h}$
+\end_inset
+
+ of lower abstraction level (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Abstraction"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) occurs in the training IS,
+ until it founds the lower abstraction level.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The lowest found abstraction level is one of the 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+.
+ Increase its counting goods:
+ 
+\begin_inset Formula $\gamma_{i_{j}}(t+1)=\gamma_{i_{j}}(t)+1$
+\end_inset
+
+ (
+\begin_inset Formula $t$
+\end_inset
+
+ is not actually implemented in the code and intuitively corresponds to 
+\begin_inset Quotes eld
+\end_inset
+
+next step in the algorithm
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Drop 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ from the list 
+\begin_inset Formula $i_{1},\ldots,i_{N}$
+\end_inset
+
+ and restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Extract-a-geometrical-object"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+If 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ does not occurs in all training IS,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ searches for occurrences at a higher abstraction level.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The highest found abstraction level is one of the 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+.
+ Increase its counting goods:
+ 
+\begin_inset Formula $\gamma_{i_{j}}(t+1)=\gamma_{i_{j}}(t)+1$
+\end_inset
+
+.
+ Drop 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ from the list 
+\begin_inset Formula $i_{1},\ldots,i_{N}$
+\end_inset
+
+ and restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Extract-a-geometrical-object"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+If no higher level occurs in all training IS,
+ then drop 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ from the list 
+\begin_inset Formula $i_{1},\ldots,i_{N}$
+\end_inset
+
+ and restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Extract-a-geometrical-object"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+In the language of IS and the GEP,
+ this corresponds to 
+\begin_inset Formula $Q_{\gamma_{i_{j}}(t+1)}(i_{j})=0$
+\end_inset
+
+ in the diversification probability or deactivation of of the propagator 
+\begin_inset Formula $\pr{i_{j}}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\act_{i_{j}}^{\pr{i_{j}}}(t+1)=0$
+\end_inset
+
+,
+ and setting a maximal value of cost 
+\begin_inset Formula $C_{y(t+1)}^{h}(g)=1$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $i_{j}:g\xra{v}g$
+\end_inset
+
+ and the global state 
+\begin_inset Formula $y(t+1)$
+\end_inset
+
+ contains the new state 
+\begin_inset Formula $\act_{i_{j}}^{\pr{i_{j}}}(t+1)=0$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+With the new counting goods,
+ restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:normalize-counting-goods"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+It is possible to prove that,
+ at each step in this synaptic plasticity algorithm,
+ the normalized probability is actually the maximum entropy probability on 
+\begin_inset Formula $i_{1},\ldots,i_{N}$
+\end_inset
+
+ that 
+\begin_inset Quotes eld
+\end_inset
+
+respect the past 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ experience
+\begin_inset Quotes erd
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+the counting goods experienced by 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ in the past.
+ In fact this probability maximize the entropy among all probabilities 
+\begin_inset Formula $p_{1},\ldots,p_{N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $p_{k}(t)\ge\frac{\gamma_{i_{k}}(t)}{\sum_{j=1}^{N}\gamma_{i_{j}}(t)}=:P_{k}(t)$
+\end_inset
+
+ for all the 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ already found in the past,
+ 
+\begin_inset Formula $k=1,\ldots,M\le N$
+\end_inset
+
+.
+ Normalization also corresponds to assign 
+\begin_inset Quotes eld
+\end_inset
+
+the remaining probability
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $p_{j}(t)=\frac{1-\sum_{k=1}^{M}P_{k}(t)}{N-M}$
+\end_inset
+
+ to all not-founded objects 
+\begin_inset Formula $j=M+1,\ldots,N$
+\end_inset
+
+.
+ Therefore,
+ this synaptic plasticity algorithm (is very simple and natural and) satisfies the GEP (i.e.
+\begin_inset space ~
+\end_inset
+
+it implement synaptic plasticity as a CAS).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+All the found geometric objects of the training IS are included in 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ as interacting entities or interactions.
+\end_layout
+
+\begin_layout Enumerate
+Other interactions (See also issue #6 and 
+\begin_inset Quotes eld
+\end_inset
+
+Gemini - geometric_hierarchy_brain_processing.pdf
+\begin_inset Quotes erd
+\end_inset
+
+):
+ The idea is to recognize forms by using "composition of elementary geometrical objects and relations".
+ Example:
+ even if we do not have a code for the recognition of rectangles,
+ we can say that a rectangle is "an L shape (or a certain form) touching a vertical line touching an L shape (of another form) touching an horizontal line...
+ touching the initial L shape".
+ Here the elementary geometrical objects and relations are "L shape",
+ "touching" "counting and differentiating geometrical objects",
+ "vertical line",
+ "horizontal line".
+ We can hence construct CEF by linking these elementary objects and their interactions.
+ This could be a general method when we consider a puzzle that is not solvable because the core-knowledge we developed so far is incomplete.
+ It is probably the method used by human's brain,
+ see “Geon Theory for 2D Shapes”,
+ “Biederman's alphabet of 2D edge properties” and “Structural Information Theory (SIT) by Emanuel Leeuwenberg”.
+ We can try this idea if the final percentage of solved puzzle is too low because of incomplete core-knowledge.
+ Starting initial ideas for the formalization of this method using the language of IS are as follows:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Human-inspired hierarchical recognition of interacting entities
+\series default
+:
+ 
+\begin_inset Formula $a_{1},\ldots,a_{n}\xra{r}p$
+\end_inset
+
+ 
+\emph on
+if the geometric entities
+\emph default
+ 
+\begin_inset Formula $a_{1},\ldots,a_{n}$
+\end_inset
+
+ 
+\emph on
+are used to recognize the geometric entity
+\emph default
+ 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ For example:
+\begin_inset Formula 
+\[
+i:\textrm{lines},\textrm{L shapes}\xra{r}\textrm{rectangles}.
+\]
+
+\end_inset
+
+The propagator 
+\begin_inset Formula $r$
+\end_inset
+
+ contains counting goods as in the synaptic plasticity described above,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+it represents the number of times 
+\begin_inset Formula $a_{1},\ldots,a_{n}$
+\end_inset
+
+ are used so far in solving the training puzzles of ARC-AGI1.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abstract geometric relations between geometrical entities
+\series default
+:
+ These interactions generalize the list of geometric relations.
+ For example:
+\begin_inset Formula 
+\begin{align*}
+j & :\textrm{cells}\xra{r}\text{rectangle}\\
+k & :\textrm{rectangles},\textrm{square}\xra{s}\textrm{lines},
+\end{align*}
+
+\end_inset
+
+with 
+\family typewriter
+j.pr.type = 
+\begin_inset Quotes eld
+\end_inset
+
+contains
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ 
+\family typewriter
+k.pr.type = 
+\begin_inset Quotes eld
+\end_inset
+
+share a line
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ and 
+\begin_inset Formula $\gamma_{j}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\gamma_{k}$
+\end_inset
+
+ are 
+\begin_inset Quotes eld
+\end_inset
+
+counting goods
+\begin_inset Quotes erd
+\end_inset
+
+ as above.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abstract geometric transformations
+\series default
+:
+ These interactions corresponds to the list of geometric transformation.
+ For example:
+\begin_inset Formula 
+\[
+h:\textrm{lines},\textrm{cells}\xra{u}\textrm{lines},
+\]
+
+\end_inset
+
+with 
+\family typewriter
+h.pr.type = 
+\begin_inset Quotes eld
+\end_inset
+
+change the color of the 1st using the color of the 2nd
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ and 
+\begin_inset Formula $\gamma_{h}$
+\end_inset
+
+ as above.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Construction-of-the-training-CEF"
+
+\end_inset
+
+Construction of the training CEF (
+\begin_inset Quotes eld
+\end_inset
+
+this corresponds to this
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+The main aim of these CEF is to identify on what interacting entity we have to focus our attention,
+ find their abstract descriptions and order in the puzzle-solving algorithm (see 
+\begin_inset Quotes eld
+\end_inset
+
+Define CEF using characterization
+\begin_inset Quotes erd
+\end_inset
+
+).
+\end_layout
+
+\end_body
+\end_document
