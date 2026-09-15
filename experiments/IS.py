@@ -60,7 +60,7 @@ class Propagator(InteractingEntity):
 
         super().__init__(id, IS, proper_state_dim, states_description)
 
-        self.interactions: list[Interaction] = []
+        self.interaction: Interaction = []
         self.type = type
         self.gamma: dict[tuple[Interaction, float], Any] | dict[Interaction, Any] = {}
 
