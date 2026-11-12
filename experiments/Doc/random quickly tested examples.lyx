@@ -1,0 +1,4501 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\begin_preamble
+\usepackage{pdfsync}
+\usepackage{graphics}
+\usepackage{epstopdf}
+\usepackage[all]{xy}
+%\usepackage{amscd}
+\setlist[enumerate]{leftmargin=*,label=\arabic*.,align=left}
+
+%%%%% Paolo's macro %%%%%%%
+
+\newcommand{\xyR}[1]{ \makeatletter
+\xydef@\xymatrixrowsep@{#1} \makeatother} % end of \xyR
+% command \xyC to have more space between colums in diagrams
+\newcommand{\xyC}[1]{ \makeatletter
+\xydef@\xymatrixcolsep@{#1} \makeatother} % end of \xyC
+\entrymodifiers={++[ ][F]} % to have more space around objects in diagrams
+
+                                                     % ARROWS %
+\newcommand{\ra}{\longrightarrow}
+\newcommand{\xra}[1]{\xrightarrow{\ \ #1\ \ }} % extendible arrow
+\newcommand{\xrad}[1]{\xrightarrow{\displaystyle\ \ #1\ \ }} % extensible arrow in displaystyle
+
+    % MATHBBB %
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\R}{\field{R}} % reals
+\newcommand{\N}{\field{N}} % naturals
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}} % integers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}} % rationals
+
+% MATHCAL %
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\mC}{\mathcal{C}}
+%\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+
+
+                                            % MATHEMATICAL SIMBOLS %
+
+\newcommand{\eps}{\varepsilon} % for the sake of brevity only
+\renewcommand{\phi}{\varphi}
+\newcommand{\diff}[1]{\,\hbox{\rm d}#1} % dt,dx,... for integrals
+\newcommand{\h}[1]{\hspace{#1 truein}}  % to leave horizontal space
+\newcommand{\sss}{\scriptscriptstyle} % for the sake of brevity
+\newcommand{\Iso}{{}^{\displaystyle\sim}}
+%\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+%\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\corners}[1]{\ulcorner{#1}\urcorner}
+
+
+                                                 % CATEGORIES AND FUNCTORS %
+
+\DeclareMathOperator*{\colim}{colim} % colimit
+\newcommand{\Coo}{\mbox{\ensuremath{\mathcal{C}}}^{\infty}} % C infinity
+\DeclareMathOperator*{\Man}{{\bf Man}} % category of smooth manifolds
+\DeclareMathOperator{\Set}{{\bf Set}} % category of Sets
+\newcommand{\OR}{{\mathcal{O}}\mbox{$\R^\infty$}} % category of open sets in numerical spaces
+\newcommand{\FDiff}{\ext{\Coo}} %category of Fermat spaces
+\newcommand{\SFR}{{\bf S}\mbox{$\FR^\infty$}} % category of subsets of Fermat reals \FR and smooth maps
+\newcommand{\SRtil}{\text{\bf Set}_{\sss{\Rtil}}^\infty\!} % category of subsets of CGN
+\newcommand{\Top}{{\bf Top}} % category of topological spaces
+\newcommand{\Diff}{{\bf Dlg}} % diffeological spaces
+\newcommand{\Fr}{{\bf Fr}} % Froelicher spaces
+\newcommand{\HFr}{{\bf HFr}} % Hausdorff Froelicher spaces
+\newcommand{\LCS}{\text{\bf LCS}} % locally convex vector spaces and continuous linear maps
+\newcommand{\Con}{\text{\bf Con}} % convenient vector spaces and continuous linear maps
+\newcommand{\ConInf}{\Con{}^\infty} % convenient vector spaces and smooth maps
+\newcommand{\Fgen}{{\bf F}\Diff} % functionally generated diffeological spaces
+\newcommand{\TD}{\text{\rm T}_\text{\rm D}} % functor \Diff -> \Top "topological from diffeol"
+\newcommand{\DT}{\text{\rm D}_\text{\rm T}} % functor \Top -> \Diff "diffeol from topological"
+\newcommand{\DF}{\text{\rm D}_\text{\rm F}} % functor \Fr -> \Diff "diffeol from Frolicher"
+\newcommand{\FD}{\text{\rm F}_\text{\rm D}} % functor \Diff -> \Fr "Frolicher from diffeol"
+\newcommand{\FFG}{\text{\rm F}_\text{\rm FG}} % functor \Fgen -> \Fr "Frolicher from Fgen"
+\newcommand{\FGF}{\text{\rm FG}_\text{\rm F}} % functor \Fr -> \Fgen "Fgen from Frolicher"
+\newcommand{\DFG}{\text{\rm D}_\text{\rm FG}} % functor \Fgen -> \Diff "diffeol from Fgen"
+\newcommand{\FGD}{\text{\rm FG}_\text{\rm D}} % functor \Diff -> \Fgen "Fgen from diffeol"
+\newcommand{\FGM}{\text{\rm FG}_\text{\rm M}} % functor \Man -> \Fgen "Fgen from man"
+\newcommand{\Gcinf}{\mathcal{G}\cinfty} % generalized smooth functions
+\newcommand{\GDK}[1]{\mathcal{GD}_{#1}} % genearlized diffeological spaces
+\newcommand{\GD}{\mathcal{GD}}
+\newcommand{\Fs}[1]{\mathcal{F}_{\sss #1}} % hom set for the category of known functions
+\newcommand{\Ds}[1]{\mathcal{D}_{\sss #1}} % generalized elements or figures with specified space
+\newcommand{\GDiff}{\mathcal{G}\Diff}
+\DeclareMathOperator*{\ORn}{{\bf O}\mbox{$\R^n$}}
+
+    % FERMAT THEORY %
+
+\newcommand{\FR}{{{}^\bullet\R}} % Fermat reals
+\newcommand{\st}[1]{{#1^\circ}} % standard part map
+\newcommand{\In}[1]{\in_{_{\scriptscriptstyle{#1}}}} % \in for generalized elements
+\newcommand{\InUp}[1]{\in^{\scriptscriptstyle{#1}}} % \in for observables
+\newcommand{\Nil}{\mathcal{N}} % nilpotent functions
+\newcommand{\ext}[1]{{}^\bullet #1} % extension functor
+\newcommand{\equp}[1]{\displaystyle \mathop {\,=\,}^{ \sss{#1}}} % equality up to infinitesimal
+\newcommand{\hyperR}{{{}^*\R}} % hyperreals
+\newcommand{\extFR}{{}^\bullet\bar{\R}} % extended Fermat reals
+\newcommand{\existsext}[1]{\exists_{\,{}^{\ext{\!}#1}}}
+\newcommand{\forallext}[1]{\forall_{\,{}^{\ext{\!}#1}}}
+
+
+     % COLOMBEAU THEORY %
+
+\newcommand{\Rtil}{\widetilde \R} % real Colombeau generalized number
+\newcommand{\Ctil}{\widetilde \CC} % complex Colombeau generalized number
+\newcommand{\otilc}{\widetilde \Omega_c} % compactly supported points in Omega
+\newcommand{\gs}{\mathcal{G}^s} % special Colombeau algebra
+\newcommand{\Gs}{\boldsymbol{\mathcal{G}}^s} % special CA as a diffeological space
+\newcommand{\gf}{\mathcal{G}^e} % full CA
+\newcommand{\Gf}{\boldsymbol{\mathcal{G}}^e} % full CA as a diffeological space
+\newcommand{\ems}{\mathcal{E}^s_M} % moderate nets for the special CA
+\newcommand{\Ems}{\boldsymbol{\mathcal{E}}^s_M} % moderate nets for the special CA as a diffeological space
+\newcommand{\ns}{\mathcal{N}^s} % negligible nets for the special CA
+\newcommand{\emf}{\mathcal{E}^e_M} % moderate nets for the full CA
+\newcommand{\Emf}{\boldsymbol{\mathcal{E}}^e_M} % moderate nets for the full CA as a diffeological space
+\newcommand{\nf}{\mathcal{N}^e} % negligible nets for the full CA
+\newcommand{\gss}{{\mathcal G}^{\text{\rm s}}} % special CA with roman s
+\newcommand{\gse}{{\mathcal G}^{\text{\rm e}}} % full CA with roman e
+\newcommand{\gsd}{{\mathcal G}^{\text{\rm d}}} % diffeomorphism invariant CA with roman d
+\newcommand{\gsh}{\hat{\mathcal{G}}} % algebra of asymptotic functions (NSA)
+\newcommand{\erm}{\text{\rm e}} % for having roman superscript in CAs
+\newcommand{\srm}{\text{\rm s}}
+\newcommand{\drm}{\text{\rm d}}
+\newcommand{\crm}{\text{\rm c}}
+\newcommand{\brm}{\text{\rm b}}
+\newcommand{\thick}{\text{\rm th}} % thickening
+\newcommand{\sint}[1]{\langle#1\rangle} % strong internal set
+\newcommand{\Eball}{B^{{\scriptscriptstyle \text{\rm E}}}} % ordinary Euclidean ball
+\newcommand{\Fball}{B^{{\scriptscriptstyle \text{\rm F}}}} % ball in Fermat top
+\newcommand{\sintF}[1]{\sint{#1}_{\scriptscriptstyle\text{\rm F}}}
+\newcommand{\RC}[1]{{}^{\scriptscriptstyle #1}\Rtil}
+\newcommand{\rcrho}{\RC{\rho}}
+\newcommand{\csp}[1]{{\text{\rm c}}({#1})}
+%\newcommand{\csp}[1]{{}^{\scriptscriptstyle \rho}\widetilde{{#1}_{\text{\rm c}}}}
+\newcommand{\fcmp}{\Subset_{\text{f}}}
+
+
+                                              % LOGICAL SYMBOLS %
+
+\newcommand{\ptind}{\displaystyle \mathop {\ldots\ldots\,}} % marks with smth over. Usage: \ptind^{...}
+\newcommand{\then}{\quad \Longrightarrow \quad} % implication
+\newcommand{\DIff}{ \quad\;\; :\!\iff \quad } % :iff by definition
+\newcommand{\IffD}{ \quad\;\; \iff \!\! \colon \quad } % iff: by definition
+\newcommand{\eqUp}{\displaystyle \mathop {=}} % = with something above
+\newcommand{\leUp}{\displaystyle \mathop {\le}} % <= with something above
+\newcommand{\geUp}{\displaystyle \mathop {\ge}} % >= with something above
+
+%% Interaction spaces %%
+
+\DeclareMathOperator{\act}{ac}
+\DeclareMathOperator{\stateNeigh}{n}
+\DeclareMathOperator{\stateAgents}{ag}
+\newcommand{\tst}{t_{\rm st}}
+\newcommand{\tend}{t_{\rm end}}
+\newcommand{\creationTime}[1]{t^{#1}_{\rm c}}
+\newcommand{\destructionTime}[1]{t^{#1}_{\rm d}}
+\newcommand{\ag}[1]{{\rm ag}(#1)}
+\newcommand{\pa}[1]{{\rm pa}(#1)}
+\newcommand{\pr}[1]{{\rm pr}(#1)}
+\newcommand{\tist}[1]{t_{#1}^{\rm s}}
+\newcommand{\tong}[1]{t_{#1}^{\rm o}}
+\newcommand{\tarr}[1]{t_{#1}^{\rm a}}
+\newcommand{\tfirst}{t^{\rm 1}}
+\newcommand{\tsubs}{t_{\rm s}}
+\newcommand{\tsuba}{t_{\rm a}}
+\newcommand{\tsubo}{t_{\rm o}}
+
+
+%%%% ARC-AGI 1
+\newcommand{\hisarc}{\textsc{h\textbf{i}s-arc }}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+enumitem
+\end_modules
+\maintain_unincluded_children no
+\begin_local_layout
+Format 66
+Style Subjectclass
+    CopyStyle             Address
+    LatexName             subjclass[2020]
+    LabelString           "2020 Mathematics Subject Classification:"
+End
+\end_local_layout
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\notefontcolor #ffaa00
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side right
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Enumerate
+e3497940
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+sets of cells having the same color and being on the right/left of the gray column
+\end_layout
+
+\begin_layout Enumerate
+example of horizontal analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ (between reflected sets).
+ These mappings are also obtain using the action 
+\begin_inset Quotes eld
+\end_inset
+
+reflection
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+the preserved interactions of the cognitive mappings corresponding to the previous analogical ones are only related to the 
+\begin_inset Quotes eld
+\end_inset
+
+vertical position
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Therefore,
+ other interactions have to be deleted
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+3af2c5a8
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+example with 4 different analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+,
+ each one related to a different symmetry (or identity in one case)
+\end_layout
+
+\begin_layout Enumerate
+If the entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ are 
+\begin_inset Quotes eld
+\end_inset
+
+one set of cells having the same color
+\begin_inset Quotes erd
+\end_inset
+
+,
+ then the cognitive mappings defined by the previous analogical mappings do not preserve any interaction (the IS 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is actually a singleton set)
+\end_layout
+
+\begin_layout Enumerate
+If we consider more entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+,
+ then the touching interactions are preserved
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+b60334d2
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+In 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is actually a set of gray cells (there is no interaction)
+\end_layout
+
+\begin_layout Enumerate
+In 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ we have 
+\begin_inset Quotes eld
+\end_inset
+
+complex squares
+\begin_inset Quotes erd
+\end_inset
+
+ as interacting entities,
+ made of cross form + gray vertices + a black interior cell
+\end_layout
+
+\begin_layout Enumerate
+analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ between gray cells and interior black cells
+\end_layout
+
+\begin_layout Enumerate
+actions:
+ draw a cross form using blue + complete a cross form into a rectangle using the color of gray cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+868de0fa
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Example of invariance extraction:
+ we have to use vertical analogical/cognitive mapping (there are no interactions) 
+\begin_inset Formula $\mathcal{S}_{k}\ra\mathcal{S}_{j}$
+\end_inset
+
+ to find that the invariant property is 
+\begin_inset Quotes eld
+\end_inset
+
+having even/odd dimensions
+\begin_inset Quotes erd
+\end_inset
+
+ (of squares themselves or of interior squares).
+ Note that vertical analogical or cognitive mappings correspond to human's GLOBAL vision of everything in the puzzle.
+\end_layout
+
+\begin_layout Enumerate
+These invariant properties define conditional action:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+if even,
+ draw by red the interior
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+if odd,
+ draw by orange the interior
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Note the interaction with the color bar
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+543a7ed5
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Inputs 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ are sets (no interactions),
+ hence the natural choice for 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ is also to be a set
+\end_layout
+
+\begin_layout Enumerate
+The entities on 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ are complex ones made of rectangles where the sides have a certain thickness (hence interior cells are not necessarily symmetric)
+\end_layout
+
+\begin_layout Enumerate
+Actions:
+ copy the pink rectangle + draw the minimal rectangle containing the pink one + color interior cells
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+a68b268e
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The correct order is violet - light blue - yellow - orange
+\end_layout
+
+\begin_layout Enumerate
+Entities:
+ set of cells having the same color and placed above/below/right/left the blue row/column
+\end_layout
+
+\begin_layout Enumerate
+strong (fuzzy) analogical mapping 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ of orange set 
+\end_layout
+
+\begin_layout Enumerate
+weak (fuzzy) analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ of other colored sets
+\end_layout
+
+\begin_layout Enumerate
+actions:
+ redraw on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ the set in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ (4 actions)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+constructs an hypothesis for each possible composition of these 4 actions;
+ at each step in this composition (e.g.
+ after only two actions) it evaluates the costs and abandon this hypothesis if the costs are maximal (e.g.
+ orange is not fully preserved);
+ the composition working in all training is the winning hypothesis
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+e509e548
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The best interacting entities seem complex entities made of L-forms (sharing some cells)
+\end_layout
+
+\begin_layout Enumerate
+Using vertical analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{j}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can discover the invariance property 
+\begin_inset Quotes eld
+\end_inset
+
+number of L-forms
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Then,
+ it construct the conditional actions:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+If the number of L-forms is one,
+ then redraw in blue
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+If the number of L-forms is two,
+ then redraw in violet
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+If the number of L-forms is three,
+ then redraw in red
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+3906de3d
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entities:
+ set of blue cells + red columns:
+ the latter has to be preferred to other entities because their abstract description 
+\family typewriter
+column
+\family default
+ is found in every training
+\end_layout
+
+\begin_layout Enumerate
+By vertical analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{j}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can also discover the interaction with the black holes/columns in the set of blue cells (and it adds these holes among interacting entities).
+ The interaction is based on the analogies:
+ same horizontal position and same width.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can also construct strong horizontal analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra S_{k}$
+\end_inset
+
+ and hence it can consider actions (moving) taking red columns on 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ into the analogical ones in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+beb8660c
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Example of cognitive mappings preserving the relation (i.e.
+ the propagator)
+\end_layout
+
+\begin_layout Enumerate
+In fact,
+ entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ can be considered rows having their length in the state
+\end_layout
+
+\begin_layout Enumerate
+The interactions are 
+\begin_inset Formula $r_{1}\xra{\text{is shorther than}}r_{2}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{r}_{1}\xra{\text{is touching}}\bar{r}_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The cognitive maps,
+ constructed starting from the related analogical ones,
+ have to preserve this interactions
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can also consider the right border of the grid and the related touching interaction
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+e179c5f4
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ is a linear pattern and hence the analogical/cognitive mappings associate the blue cell in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ to the blue patter (made of two diagonals) in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+It is also useful to consider the border of the grid and the related touching relations (which are preserved)
+\end_layout
+
+\begin_layout Enumerate
+We need a general algorithm of the type 
+\begin_inset Quotes eld
+\end_inset
+
+complete a linear pattern of arbitrary dimensions 
+\begin_inset Formula $x$
+\end_inset
+
+,
+ 
+\begin_inset Formula $y$
+\end_inset
+
+ and with patter 
+\begin_inset Formula $z$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+a699fb00
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Example of linear patterns with black cells
+\end_layout
+
+\begin_layout Enumerate
+The 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ are isomorphic
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+e98196ab
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is made of two 
+\begin_inset Quotes eld
+\end_inset
+
+sets of cells of the same color
+\begin_inset Quotes erd
+\end_inset
+
+ separated by a gray row.
+ These sets are not interacting
+\end_layout
+
+\begin_layout Enumerate
+The mappings are natural and strong and correspond to the output of an action of the type 
+\begin_inset Quotes eld
+\end_inset
+
+redraw from 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+93b581b8
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The only entity on the left 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is a complex one:
+ "a square made of touching cells of different colors"
+\end_layout
+
+\begin_layout Enumerate
+The horizontal analogical mapping have only one best possibility (the brown cell on the right corresponds to the brown cell on the left because they are both cells,
+ of the same color and position)
+\end_layout
+
+\begin_layout Enumerate
+However,
+ in constructing the horizontal cognitive mappings (CEF) 
+\begin_inset Formula $U:\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ using the analogical mapping,
+ some entities on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ are missed,
+ i.e.
+ the new squares or parts of squares in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Therefore,
+ we have to use RLS starting from each one of these missed entities 
+\begin_inset Formula $\bar{e}$
+\end_inset
+
+ as patient,
+ i.e.
+ we try to solve the problem:
+ "what are the interactions in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ that produce 
+\begin_inset Formula $\bar{e}$
+\end_inset
+
+ using 
+\begin_inset Formula $U$
+\end_inset
+
+?"
+\end_layout
+
+\begin_layout Enumerate
+Looking (using synaptic plasticity) the transformation that yield squares as output (or parts of them if they go out of the left grid),
+ we can recognize that the light-blue square in 
+\begin_inset Formula $\mathcal{S}_{1}$
+\end_inset
+
+,
+ we have the color (from the light blue cell on 
+\begin_inset Formula $\mathcal{I}_{1}$
+\end_inset
+
+,
+ but the remaining parameter of this transformation is "position where to start drawing the square".
+\end_layout
+
+\begin_layout Enumerate
+Using this missing parameter,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+is able to compute that we have to add the BLACK cell in (2,2) as interacting entity
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can use RLE to decide the numerical position starting from the position of the light-blue one...
+ but that's cumbersome considering all the other cases
+\end_layout
+
+\begin_layout Enumerate
+Otherwise,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+add new interactions of the form:
+ 
+\begin_inset Formula $\text{light-bluebcell},\text{brownbcell},\text{black cell}\xra{\text{touching on corner}}\text{black cell}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+It adds this interaction because only in this way,
+ the cognitive map 
+\begin_inset Formula $U$
+\end_inset
+
+ is defined by
+\begin_inset Formula 
+\[
+U(\text{light-blue cell})=\text{copy of light-blue cell on }\mathcal{S}_{1}
+\]
+
+\end_inset
+
+ (by analogical mappings),
+ and
+\begin_inset Formula 
+\begin{align*}
+U(\text{brown cell}) & =\text{copy of brown cell on }\mathcal{S}_{1}\\
+U(\text{black cell},\text{brown cell},\text{light-blue cell}) & =\text{light-blue square in }\mathcal{S}_{1}
+\end{align*}
+
+\end_inset
+
+ (drawn with the color of the first agent (light-blue cell) and the position of the third agent (black cell)),
+ it gets a CEF
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+484b58aa
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+This is a typical example of 
+\begin_inset Quotes eld
+\end_inset
+
+completion of a tiling made of (diagonal/vertical/horizontal) patterns
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+firstly recognize 
+\begin_inset Quotes eld
+\end_inset
+
+complex diagonals
+\begin_inset Quotes erd
+\end_inset
+
+ because they are in every input 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+After this recognition,
+ it has to search for a higher level entity,
+ such as a 
+\begin_inset Quotes eld
+\end_inset
+
+tiling made or diagonal patterns
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The idea is to set a general algorithm to find the possible tile pattern (the following ideas seem to work also for tiling made of a pattern repeated in other directions,
+ such as vertical or horizontal).
+ 
+\end_layout
+
+\begin_layout Enumerate
+It can first construct internal analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{k}$
+\end_inset
+
+ by associating analogous diagonals:
+ in this case they have the same colors but different length.
+ For shorter diagonal it will find a low analogy.
+\end_layout
+
+\begin_layout Enumerate
+Then it starts considering a set of cells along a line which is orthogonal to these diagonals by taking one cell in each diagonal until it covers all the diagonals that are 
+\emph on
+not
+\emph default
+ analogous:
+ in this way,
+ it considers one cell in each diagonal without taking again cells in already considered diagonals.
+\end_layout
+
+\begin_layout Enumerate
+Then it constructs internal 
+\emph on
+cognitive
+\emph default
+ mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{k}$
+\end_inset
+
+ that 
+\emph on
+preserves
+\emph default
+ colors and touching relations among cells (or higher entities such as L-forms,
+ rows,
+ small diagonals,
+ etc.?).
+ There is no need to consider all the possible cognitive mappings of this form:
+ we can stop when a fuzzy-based heuristic is sufficiently high or,
+ better,
+ when some cells are missing because the tile pattern is still incomplete.
+\end_layout
+
+\begin_layout Enumerate
+Then it enlarges the set of orthogonal cells (the searching tile pattern) by adding another cell in each diagonal,
+ and restarts constructing internal cognitive mappings.
+\end_layout
+
+\begin_layout Enumerate
+It will stop using a deterministic GEP,
+ i.e.
+ when the minimal set of orthogonal cells is able to reconstruct all the other cells by repeating the discovered pattern (minimal 
+\begin_inset Formula $\{0,1\}$
+\end_inset
+
+ value cost or maximal value of exchanged information between the tile pattern and all the other cells,
+ or both).
+\end_layout
+
+\begin_layout Enumerate
+Once it has discovered the tile pattern,
+ the corresponding algorithm 
+\begin_inset Quotes eld
+\end_inset
+
+complete the tiling
+\begin_inset Quotes erd
+\end_inset
+
+ can start outside the grid and repeat the discovered pattern until the internal analogical mappings between diagonal has a maximal fuzzy value.
+\end_layout
+
+\begin_layout Enumerate
+Using the previous algorithms,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+recognize that 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ is the completion of the incomplete tiling 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and hence that 
+\begin_inset Formula $\mathcal{S}_{N}=\text{completion}(\mathcal{I}_{N})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+6d0160f0
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Human solution:
+ find the unique square with a yellow cell;
+ redraw on 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+ in the same relative position of the yellow cell.
+\end_layout
+
+\begin_layout Enumerate
+Entities:
+ complex squares + gray rows and columns
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can construct an horizontal cognitive mapping in only one way.
+ This mapping correspond to the action 
+\begin_inset Quotes eld
+\end_inset
+
+redraw the square 
+\begin_inset Formula $X$
+\end_inset
+
+ into position 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ It has to decide 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Trying to construct vertical analogical mappings,
+ it can find the very weak analogy 
+\begin_inset Quotes eld
+\end_inset
+
+both squares have a yellow cell
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This could increase its final level of 
+\emph on
+phasic dopamine signal
+\emph default
+ (adding different partly positive fuzzy indicators into a final sigmoid function in order to have threshold and saturation effects)
+\end_layout
+
+\begin_layout Enumerate
+On the other hand,
+ it tries to find invariant properties among the squares in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ having an analogous one in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+:
+ the only property it finds is 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $X$
+\end_inset
+
+ has a yellow cell
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+It also tries to find invariant properties between analogous squares in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+:
+ using the elementary arithmetic module,
+ it can find that the position of the yellow cell is equal to the position of the square in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ taking the unit of measurement 3 cells = 1 unit.
+ Therefore,
+ 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ = this relative position
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+constructs the conditional actions:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+if 
+\begin_inset Formula $X$
+\end_inset
+
+ is the square with a yellow cell,
+ then redraw it in the same relative position using the unit 3 cells = 1 unit
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+91413438
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Human solution:
+ repeat the set of colored cells a number of times equals to the number of colored cells.
+ The final grid is 3 times the number of black cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+ For example,
+ 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+ is a square grid of width 3 x 7 = 21,
+ and the light-blue figure has to repeated two times.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is a complex square with touching colored cells and touching black cells or a set of cells having the same color
+\end_layout
+
+\begin_layout Enumerate
+Using the Elementary Arithmetic Unit (EAU),
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can discover the dimension of the grid 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can also discover that there are more horizontal cognitive mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+.
+ It always count how many of these mappings founds.
+\end_layout
+
+\begin_layout Enumerate
+Using the EAU,
+ it discovers that the number of cognitive mappings equals the number of colored cells in the complex square
+\end_layout
+
+\begin_layout Enumerate
+The action producing these 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ is hence 
+\begin_inset Quotes eld
+\end_inset
+
+Draw the input square 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ using the linearization order 
+\begin_inset Formula $W$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $W$
+\end_inset
+
+ can be fixed using hypotheses testing among the few orders that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+knows (maybe using synaptic plasticity with all the orders)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+7447852a
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Firstly,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+recognizes diagonals,
+ and then a linear pattern.
+ Note that the smallest pattern is made by a black L-form + a red diagonal made of three cells + a black T-form + an opposite diagonal made of two red cells + a single black cell
+\end_layout
+
+\begin_layout Enumerate
+The recognition of the patter is facilitated (increase of dopamine) by the construction of vertical cognitive mappings
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+sets the pattern as a complex entity made of the previously listed sub-entities.
+ This means that,
+ by translations or using internal cognitive mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{k}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can enumerate each sub-entites with respect to the order of the pattern:
+ the 1st L-form,
+ the 2nd L-form,
+ the 3rd L-form,
+ etc.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:longTiling"
+
+\end_inset
+
+
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can also complete the founded pattern on an arbitrarily long tiling
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+constructs horizontal cognitive mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ corresponding to the actions:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+color the 1st L-form in yellow
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+color the 1+3 th L-form in yellow
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+color the 1+3+3 th L-form in yellow
+\begin_inset Quotes erd
+\end_inset
+
+...
+ Similarly for the other sub-entities:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+color the 2nd T-form in yellow
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+color the 2+3 th T-form in yellow
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+color the 2+3+3 T-form in yellow
+\begin_inset Quotes erd
+\end_inset
+
+,
+ etc.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can obtain an explanation using also a composition of 
+\begin_inset Quotes eld
+\end_inset
+
+translations
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+color in yellow
+\begin_inset Quotes erd
+\end_inset
+
+ actions
+\end_layout
+
+\begin_layout Enumerate
+The previous two steps can help the EAU to find the general rule,
+ and hence apply these transformation to 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+05269061
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\hisarc$
+\end_inset
+
+recognizes a tiling pattern on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ and a strong (same object,
+ colors,
+ position) horizontal cognitive mapping
+\end_layout
+
+\begin_layout Enumerate
+Therefore,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+recognizes that 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ is obtained as output of the action:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+complete the patter starting from the incomplete 
+\begin_inset Formula $X$
+\end_inset
+
+ and using the pattern 
+\begin_inset Formula $y$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Therefore,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+needs 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+finds the minimal pattern 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ and sets 
+\begin_inset Formula $X=\mathcal{S}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The entity 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ does not correspond to anything in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+creates a new entity in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ using RLS,
+ starting from 
+\begin_inset Formula $\bar{y}\in\mathcal{S}_{k}$
+\end_inset
+
+ and finding the best entity in 
+\begin_inset Formula $y\in\mathcal{I}_{k}$
+\end_inset
+
+,
+ i.e.
+ one (there are many) having a good fuzzy evaluation (dopamine) in an analogical mapping linking 
+\begin_inset Formula $y\mapsto\bar{y}$
+\end_inset
+
+.
+ Entities 
+\begin_inset Formula $y\in\mathcal{I}_{k}$
+\end_inset
+
+ are three cells diagonal with some black cells.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can now construct vertical analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{j}$
+\end_inset
+
+ that maps pattern 
+\begin_inset Formula $y_{k}\in\mathcal{I}_{k}\mapsto y_{j}\in\mathcal{I}_{j}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+needs to apply the previous action of completing the pattern on 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+,
+ but it misses the patter 
+\begin_inset Formula $y_{N}\in\mathcal{I}_{N}$
+\end_inset
+
+.
+ Therefore,
+ it uses the previous analogical mappings and set several hypotheses for different colors of the pattern 
+\begin_inset Formula $y_{N}$
+\end_inset
+
+ that have a good analogy with 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+.
+ It tests each hypothesis until the 
+\begin_inset Quotes eld
+\end_inset
+
+complete the pattern
+\begin_inset Quotes erd
+\end_inset
+
+ algorithm works
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+760b3cac
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entities:
+ for the light-blue sets,
+ L-form are not applicable to all training sets (L-forms do not complete these sets and in 
+\begin_inset Formula $\mathcal{I}_{3}$
+\end_inset
+
+ there are no L-forms in the light-bleu set).
+ On the contrary,
+ a complex entity made of L-forms (or one L-form and one cell) works for each yellow set.
+ Therefore we have 
+\begin_inset Quotes eld
+\end_inset
+
+set of light-blue cells
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+complex entity made of one L-form and ...
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+There are strong vertical analogical mappings between the complex yellow entities,
+ and two strong horizontal cognitive and analogical mappings.
+ One of the horizontal ones is related to a symmetry action:
+ this action need the 
+\begin_inset Formula $x$
+\end_inset
+
+ coordinate of a column.
+\end_layout
+
+\begin_layout Enumerate
+Invariance properties extraction has to recognize that the invariant property is the 
+\begin_inset Formula $x$
+\end_inset
+
+ coordinate of the vertical arm of the yellow L-form + 1.
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+has now all that is needed to apply the abstract rule to 
+\begin_inset Formula $\mathcal{I}_{N}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+0962bcdd
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ are complex cross forms.
+ The best entities in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ should be 
+\begin_inset Quotes eld
+\end_inset
+
+incomplete squares with two cross forms as sub-entities
+\begin_inset Quotes erd
+\end_inset
+
+ (but I guess that other entities would work as well)
+\end_layout
+
+\begin_layout Enumerate
+There are strong horizontal cognitive mappings (
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is actually isomorphic to 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+There are also vertical analogical mappings,
+ but probably these are not used
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+has to discover that entities on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ are obtained drawing two cross forms (one of which is complex).
+ Therefore,
+ it needs where 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ to start drawing,
+ in what colors 
+\begin_inset Formula $c$
+\end_inset
+
+ and how much they are long 
+\begin_inset Formula $l$
+\end_inset
+
+:
+ these input parameters are taken from 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ using the EAU
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+eb5a1d5d
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The simplest entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ are rectangles with sides of a certain width.
+ Classical squares in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ Interactions are 
+\begin_inset Quotes eld
+\end_inset
+
+touching rectangles/squares on all interior sides
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can construct horizontal cognitive mappings (they preserve the aforementioned touching interaction)
+\end_layout
+
+\begin_layout Enumerate
+The EAU decides the grid dimension based on the number of colors in input
+\end_layout
+
+\begin_layout Enumerate
+The action that is able to construct 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ is 
+\begin_inset Quotes eld
+\end_inset
+
+draw a square
+\begin_inset Quotes erd
+\end_inset
+
+,
+ with inputs 
+\begin_inset Quotes eld
+\end_inset
+
+where to draw
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+with what color
+\begin_inset Quotes erd
+\end_inset
+
+ taken from input.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+995c5fa3
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is a (non regular) linear pattern made of squares,
+ U-forms,
+ I-forms and with a black column as separator
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ is a (non regular) linear pattern made of colored rows
+\end_layout
+
+\begin_layout Enumerate
+Therefore,
+ the most meaningful interactions when dealing with linear patterns are 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $e_{1}$
+\end_inset
+
+ precedes 
+\begin_inset Formula $e_{2}$
+\end_inset
+
+ in the linear pattern
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The most important property in every linear patter is 
+\begin_inset Quotes eld
+\end_inset
+
+position number in the linear pattern
+\begin_inset Quotes erd
+\end_inset
+
+,
+ i.e.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+the 1st entity,
+ the 2nd entity,
+ the 3rd entity,
+ etc.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Weak horizontal analogical mappings based only on the position number.
+ Using these,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+discovers that 
+\begin_inset Quotes eld
+\end_inset
+
+position number
+\begin_inset Quotes erd
+\end_inset
+
+ is an invariant property for the conditional actions 
+\begin_inset Quotes eld
+\end_inset
+
+if the position number is 
+\begin_inset Formula $n$
+\end_inset
+
+,
+ then draw a row at the same position with color 
+\begin_inset Formula $c$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vertical analogical mappings increase the global level of dopamine.
+ The fact that the previous conditional actions works on other inputs also increases the global level of dopamine.
+\end_layout
+
+\begin_layout Enumerate
+This is an example where we can test the idea 
+\begin_inset Quotes eld
+\end_inset
+
+add all the (weak) partial fuzzy evaluations (dopamine for single decisions),
+ and insert this sum into a sigmoid function
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The output of this function is the global level of dopamine for this 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+hypothesis.
+ In general,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+could have more that one hypotheses and evaluate the global dopamine for all of them in order to decide what is the best hypothesis.
+ If one started hypothesis has a too much low level of global dopamine,
+ then 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can stop it and start a new hypothesis in a tree algorithm.
+ The winner of all these hypotheses should have the best evaluation of the GEP (minimal costs and maximal diversification).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Note that actually 
+\begin_inset Formula $\mathcal{I}_{k}\simeq\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+5117e062
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entities of 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ could be 
+\begin_inset Quotes eld
+\end_inset
+
+sets of cells having the same color
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+a single light-blue cell
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+There is only one horizontal analogical mapping for each training pair
+\end_layout
+
+\begin_layout Enumerate
+These analogy is reinforced by vertical analogical mappings associating light-blue cells at different levels
+\end_layout
+
+\begin_layout Enumerate
+These analogical mapping become cognitive ones if we consider the action:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+color the light-blue cell with the color of the other cells touching it
+\begin_inset Quotes erd
+\end_inset
+
+ + 
+\begin_inset Quotes eld
+\end_inset
+
+copy the other touching cells preserving their color
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Therefore,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+has to recognize that 
+\begin_inset Quotes eld
+\end_inset
+
+a light-blue cell touching other cells of the same color
+\begin_inset Quotes erd
+\end_inset
+
+ is an invariant property.
+ This and the previous step allows 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+to create a conditional action.
+\end_layout
+
+\begin_layout Enumerate
+Note the other entities are forgotten.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+a8c38be5
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ are complex squares having one (zero in one case) L-form or T-form and a set of gray cells as sub-entities.
+\end_layout
+
+\begin_layout Enumerate
+We can construct strong horizontal analogical mappings in one way only
+\end_layout
+
+\begin_layout Enumerate
+It could be useful (for an easiest way of using the EAU) to use a unit of measurement on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+:
+ 3 cells = 1 unit
+\end_layout
+
+\begin_layout Enumerate
+Of course we have 4 types of L-forms and or T-forms,
+ and each square with the same type is copied (action) in the same position of 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ Therefore,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+has to discover that the invariant property is the type of L-form or T-form and its EAU has to discover this position
+\end_layout
+
+\begin_layout Enumerate
+Using these data,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+constructs conditional actions to apply at 
+\begin_inset Formula $\mathcal{I}_{N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Note that here we only have two training examples,
+ but even one would suffice (also because included in the final solution,
+ we have to construct the same aforementioned cognitive mappings also for 
+\begin_inset Formula $\mathcal{I}_{N}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+:
+ this further increases the global level of dopamine)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+855e0971
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The highest level of entities that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can recognize are 
+\begin_inset Quotes eld
+\end_inset
+
+non-regular linear patterns of incomplete rectangles
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+,
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+non-regular (vertical) linear patterns of (horizontal) linear patterns whose separator is a black (column)
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Note that an incomplete rectangle can be recognized by a human whenever we have 4 cells working as vertices.
+ This weak fuzzy evaluation (once again,
+ global dopamine indicator starting from local dopamine indicators) increases if there are L-forms instead of vertices,
+ sides,
+ interior,
+ etc.
+ In this example,
+ humans clearly see 
+\begin_inset Quotes eld
+\end_inset
+
+piled rectangles with black holes
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Also note that the aforementioned entities in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ are recursively constructed:
+ e.g.
+ in 
+\begin_inset Formula $\mathcal{S}_{1}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+recognizes that we have two horizontal linear patterns and a rectangle having the same width,
+ and these are the sub-entities of a vertical linear pattern.
+\end_layout
+
+\begin_layout Enumerate
+Using this entities,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+cognitive mappings by associating an incomplete rectangle in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ with the corresponding linear pattern in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+:
+ they have the same width and height and this mapping preserves the order in the higher linear pattern:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+incomplete light-blue rect.
+ < incomplete yellow rect.
+\begin_inset Quotes erd
+\end_inset
+
+ is mapped into 
+\begin_inset Quotes eld
+\end_inset
+
+light-blue linear pattern < yellow linear pattern
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Moreover,
+ the conditional action that corresponds to these mappings is 
+\begin_inset Quotes eld
+\end_inset
+
+If the linear patter in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is vertical,
+ then draw vertical column having the same abscissa of the black cell
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This abscissa is an invariant property.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+85c4e7cd
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The simplest entities are rectangles
+\end_layout
+
+\begin_layout Enumerate
+The possible interactions are:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+completely touching rect.
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ is obtain by 
+\begin_inset Formula $r_{2}$
+\end_inset
+
+ by a scaling of 
+\begin_inset Formula $s$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The latter defines an order and the EAU has to be able to reverse this order
+\end_layout
+
+\begin_layout Enumerate
+The horizontal cognitive mappings correspond to a coloring action only considering this reversed order.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+776ffc46
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Human solution:
+ only one figure is inside a square/rectangle (4 sides,
+ different from L-form touching grid's borders!).
+ Find figures of the exact same form among the blue ones.
+ Color them in the color of the internal one.
+\end_layout
+
+\begin_layout Enumerate
+Simply note that only squares 
+\begin_inset Formula $s$
+\end_inset
+
+ have an interaction of the form 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $e$
+\end_inset
+
+ is internal to 
+\begin_inset Formula $s$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+It is also important to construct 
+\emph on
+internal
+\emph default
+ analogical mappings of the type 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+3eda0437
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Even if 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+starts only with "sets of contiguous cells of the same color",
+ it can recognize that the violet rectangle in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ does not have a counter image along the strong horizontal cognitive mapping.
+\end_layout
+
+\begin_layout Enumerate
+Therefore,
+ using RLS and analogical mappings 
+\begin_inset Formula $\mathcal{S}_{k}\ra\mathcal{I}_{k}$
+\end_inset
+
+,
+ it can recognize that a black rectangle entity on 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is missing.
+ So,
+ it can add this black rectangle in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The key point here is the abstract characterization:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+the black rectangle in input having the highest area
+\begin_inset Quotes erd
+\end_inset
+
+,
+ but that's quite easy using EAU order between numbers.
+ These numbers surely have to include area of rectangles.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+6f8cd79b
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let's imagine that in its core-knowledge 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+only has 
+\begin_inset Quotes eld
+\end_inset
+
+rows
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+columns
+\begin_inset Quotes erd
+\end_inset
+
+ but not 
+\begin_inset Quotes eld
+\end_inset
+
+rectangles
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Even with this (paradoxically) poor core-knowledge 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+recognizes 
+\begin_inset Quotes eld
+\end_inset
+
+light-blue touching rows and columns
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The,
+ using RLS and horizontal analogical or cognitive mappings,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+would start considering "touching black rows and columns" on 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Even with this poor core-knowledge,
+ we can imagine that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+is able to solve the puzzle
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+40853293
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+importance of execution order of action after invariance extraction:
+ to each order corresponds an hypothesis that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+tests arriving at a global value of dopamine
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+a699fb00
+\end_layout
+
+\begin_layout Enumerate
+cce03e0d
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ can simply be 
+\begin_inset Quotes eld
+\end_inset
+
+sets of (weakly) contiguous cells having the same color
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Interactions are 
+\begin_inset Quotes eld
+\end_inset
+
+touching
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The key characteristic of this example is the possibility to construct several cognitive mappings,
+ and this can also be useful for 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+to decide what entities to consider in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ For example,
+ if 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+starts considering 
+\begin_inset Quotes eld
+\end_inset
+
+set of weakly contiguous cells having the same color
+\begin_inset Quotes erd
+\end_inset
+
+ also in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+,
+ then it is not able to construct an analogical or cognitive mapping valued in 
+\begin_inset Formula $\mathcal{S}_{3}$
+\end_inset
+
+:
+ what is the counter-image of the red (blue) set of cells?
+ On the contrary,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+is able to construct several strong cognitive maps starting from the hypothesis of considering in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+sets of cells having the same color
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can also consider 
+\begin_inset Quotes eld
+\end_inset
+
+complex squares with interior set of cells having the same color
+\begin_inset Quotes erd
+\end_inset
+
+,
+ and this would allow to set a natural unit on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ Therefore,
+ some of these hypotheses have a higher level of dopamine.
+\end_layout
+
+\begin_layout Enumerate
+This level is even more increased by the internal cognitive mappings 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+is able to construct 
+\begin_inset Formula $\mathcal{S}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ for 
+\begin_inset Formula $k=2,3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The horizontal cognitive mappings correspond to the action 
+\begin_inset Quotes eld
+\end_inset
+
+copy all the entities of 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ into 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ starting from position 
+\begin_inset Formula $(\bar{x},\bar{y})$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+;
+ one action for each cognitive mappings.
+\end_layout
+
+\begin_layout Enumerate
+The EAU has to discover that:
+ 1) the number of cognitive mappings (and hence of actions) equals the number of red cells.
+ The invariant property are the coordinate 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ of each red cell and 
+\begin_inset Formula $\bar{x}=3x-2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\bar{y}=3y-2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Another possibility is to try (another 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+hypothesis?) 3 cells = 1 unit in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In principle,
+ the presence of copies of the same object in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ (or,
+ more generally,
+ of strong internal cognitive mappings 
+\begin_inset Formula $\mathcal{S}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ for 
+\begin_inset Formula $k=2,3$
+\end_inset
+
+ between objects having the same dimensions 
+\begin_inset Formula $(w,h)$
+\end_inset
+
+) is an indicator (synaptic plasticity!) that 
+\begin_inset Quotes eld
+\end_inset
+
+in this situation,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can try to use a different unit of measurement.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+3e980e27
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+More than one cognitive mapping:
+ one corresponding to a 
+\begin_inset Quotes eld
+\end_inset
+
+copy
+\begin_inset Quotes erd
+\end_inset
+
+ action (green cells),
+ and one corresponding to 
+\begin_inset Quotes eld
+\end_inset
+
+symmetric
+\begin_inset Quotes erd
+\end_inset
+
+ action (red cells).
+ These are therefore conditional actions.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Quotes eld
+\end_inset
+
+red cell
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+green cell
+\begin_inset Quotes erd
+\end_inset
+
+ are the invariant properties for the conditional actions
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+4258a5f9
+\end_layout
+
+\begin_layout Enumerate
+ce22a75a
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Another example where both analogical mappings of the type 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{S}_{k}\ra\mathcal{S}_{j}$
+\end_inset
+
+ are used to recognize that the best interacting entities in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ are "3x3 blue squares (
+\begin_inset Formula $\hisarc$
+\end_inset
+
+uses the analogical mappings 
+\begin_inset Formula $\mathcal{S}_{1}\ra\mathcal{S}_{2}$
+\end_inset
+
+) centered at the same position of grey cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+ Only after this choice of entities in 
+\begin_inset Formula $\mathcal{S}_{2}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+is able to construct the analogical mappings 
+\begin_inset Formula $\mathcal{I}_{2}\ra\mathcal{S}_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+321b1fc6
+\end_layout
+
+\begin_layout Enumerate
+4522001f
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+This is a good example of hypotheses testing and their evaluations.
+\end_layout
+
+\begin_layout Enumerate
+The first problem 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+has is to decide what are entities in the training pairs.
+ In 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+,
+ it has several possibilities,
+ and each one of them represents an hypothesis that need to be tested.
+ The basic idea of the test is 
+\begin_inset Quotes eld
+\end_inset
+
+the best hypothesis is one that allows to construct analogical and cognitive mappings,
+ to set invariant properties,
+ to prove RLE or RLS,
+ etc.
+ with the highest value of global dopamine
+\begin_inset Quotes erd
+\end_inset
+
+.
+ If,
+ even before the end,
+ i.e.
+ dynamically,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+evaluates that the global dopamine of certain set of hypotheses is under a certain threshold,
+ then it starts another set of hypotheses.
+ If all the possible sets of hypotheses (they are always a very limited number) fall under this threshold,
+ then it restarts with the first abandoned one hoping in a future increase of global dopamine.
+\end_layout
+
+\begin_layout Enumerate
+For example,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+has the following possibilities for entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+:
+ L-forms,
+ single cells,
+ grid's vertices,
+ grid's sides,
+ black L-forms
+\end_layout
+
+\begin_layout Enumerate
+Entities in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ are clear:
+ green squares and some entities related to grid,
+ such as grid's vertices.
+\end_layout
+
+\begin_layout Enumerate
+It seems that the horizontal cognitive mappings can be constructed 
+\begin_inset Quotes eld
+\end_inset
+
+only
+\begin_inset Quotes erd
+\end_inset
+
+ considering cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and adding 
+\begin_inset Quotes eld
+\end_inset
+
+black squares
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ Note that these mappings preserves the touching interactions with grid's vertices and sides,
+ but also the touching interactions between cells and squares.
+\end_layout
+
+\begin_layout Enumerate
+Since all entities in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ have the same width and height,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can adopt the 4 cells = 1 unit on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ and one grid's side as origin.
+ In this way,
+ the cognitive mappings have a higher level of dopamine (cells' coordinates are preserved into squares' coordinates).
+ Note that,
+ with these units,
+ 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ grid is 2.25 units of side.
+\end_layout
+
+\begin_layout Enumerate
+At the end,
+ each cognitive mapping correspond to a clear action,
+ possibly using the EAU.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+a64e4611
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The highest level entities 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can construct are 
+\begin_inset Quotes eld
+\end_inset
+
+connected sets of cells having the same color
+\begin_inset Quotes erd
+\end_inset
+
+.
+ In particular,
+ for the black one,
+ it can also identify it as a complex entity made of rectangles or rows and columns (of a certain width).
+ In this way,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+inherits properties and sub-entities such as 
+\begin_inset Quotes eld
+\end_inset
+
+interior cells
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+border cells
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+vertices
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+sides
+\begin_inset Quotes erd
+\end_inset
+
+ etc.
+ 
+\end_layout
+
+\begin_layout Enumerate
+In this way,
+ the horizontal cognitive mapping is clear and corresponds to the action 
+\begin_inset Quotes eld
+\end_inset
+
+color the interior of 
+\begin_inset Formula $X$
+\end_inset
+
+ using the color 
+\begin_inset Formula $c$
+\end_inset
+
+ from the color bar
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+88a62173
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Only one entities allows to construct an horizontal cognitive mapping.
+ Moreover,
+ this entity does not have an internal cognitive mapping 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In 
+\begin_inset Formula $\mathcal{I}_{N}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+tries to construct internal cognitive mappings and,
+ with the only remaining entity,
+ it construct an horizontal cognitive mapping
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+e8593010
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Human solution:
+ color entities made of 1 cell in green,
+ those made of two cells in red,
+ those made of three cells in blue
+\end_layout
+
+\begin_layout Enumerate
+It is important to include 
+\begin_inset Quotes eld
+\end_inset
+
+the number of sub-entities
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+the number of cells
+\begin_inset Quotes erd
+\end_inset
+
+ as a state property of every entities or,
+ at least,
+ in one of the basic features of the EAU,
+ i.e.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+count everything
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Then,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+has to identify the 
+\begin_inset Quotes eld
+\end_inset
+
+number of cells of 
+\begin_inset Formula $X$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ as the invariant property,
+ and to construct the condition actions we listed in the human solution.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+f8c80d96
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can proceed in several ways depending on the amplitude of its core-knowledge:
+\end_layout
+
+\begin_layout Enumerate
+It can identify L-forms and U-forms on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+,
+ on 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+;
+ then it can identify black entities on the input because corresponding entities on the output do not have a counter-image along the natural cognitive mapping;
+ in this way,
+ it recognize that the action is 
+\begin_inset Quotes eld
+\end_inset
+
+color (possibly outside the grid) in gray or light-blue the black forms in input
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+It can identify a tiling in output and an horizontal cognitive mapping;
+ therefore,
+ the output can be obtained using the action 
+\begin_inset Quotes eld
+\end_inset
+
+complete the tiling
+\begin_inset Quotes erd
+\end_inset
+
+ (ones again with possible drawing outside the grid)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+ac0a08a4
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Example of cognitive mapping taking cells into squares and of the use of "unit of measurement":
+ note that of the entities in output has the same dimensions,
+ and that this dimension equals the number of colored squares in input (EAU).
+ Therefore,
+ 1 unit on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ = the number of colored cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+"
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+469497ad
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Another example of use of unit of measurement:
+ "the "number of colors" in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ corresponds to 2 units in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+".
+ Analogical mappings are stronger in this way (higher local dopamine),
+ first of all with the red diagonals,
+ see below.
+\end_layout
+
+\begin_layout Enumerate
+The red diagonal in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ is an entity without counter-image and leads 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+to use RLS to insert a "black cell" (1 unit in input corresponds to 1 unit in output) which is in analogy in output 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ with "a complex entity made of a black square with a diagonal".
+ 
+\end_layout
+
+\begin_layout Enumerate
+The corresponding action 
+\begin_inset Quotes eld
+\end_inset
+
+draw a red diagonal
+\begin_inset Quotes erd
+\end_inset
+
+ can also end up completely outside the output grid
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+d4469b4b
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entities:
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Probably there remain only "contiguous sets of cells having the same color" in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+:
+ cross form,
+ T-form,
+ L-form
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Interactions:
+ touching (but they're not important)
+\end_layout
+
+\begin_layout Enumerate
+Vertical analogical mappings and invariance extraction:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{j}$
+\end_inset
+
+ :
+ only the color defines a weak analogy and an invariant property only in some inputs
+\end_layout
+
+\begin_layout Enumerate
+For 
+\begin_inset Formula $\mathcal{S}_{k}\ra\mathcal{S}_{j}$
+\end_inset
+
+ :
+ strong cognitive mapping,
+ but only between some inputs
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+This is a typical situation where 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+has to create conditional actions of the type:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+if color = 
+\begin_inset Formula $c$
+\end_inset
+
+,
+ then draw the form 
+\begin_inset Formula $X$
+\end_inset
+
+"
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+d4a91cb9
+\end_layout
+
+\begin_layout Enumerate
+6aa20dc0
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Example of internal analogical mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{k}$
+\end_inset
+
+ and horizontal cognitive mappings 
+\begin_inset Formula $\mathcal{I}_{k}\ra S_{k}$
+\end_inset
+
+ corresponding to a composition of two actions:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+apply symmetry 
+\begin_inset Formula $S$
+\end_inset
+
+ and then scale of factor 
+\begin_inset Formula $f$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Note that there are two possible symmetries involved in the training inputs,
+ and the factor could also be 
+\begin_inset Formula $f=1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+5582e5ca
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+This is a test for the EAU because the final instructions for 
+\begin_inset Formula $\mathcal{I}_{N}$
+\end_inset
+
+ involve a characterization of the type:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+the color of the set of colored cells having the highest number of cells
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+97999447
+\end_layout
+
+\begin_layout Enumerate
+f9012d9b
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Another composition of two actions:
+ firstly complete the pattern,
+ then draw in output only the part corresponding the the black square
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+d687bc17
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\hisarc$
+\end_inset
+
+can consider interaction of the type "having the same color" or internal analogical mappings based on the same criteria.
+\end_layout
+
+\begin_layout Enumerate
+Invariance extraction leads to conditional action of the type:
+ "if in analogy with a row,
+ draw a touching cell having the same 
+\begin_inset Formula $x$
+\end_inset
+
+" or "if in analogy with a column,
+ draw a touching cell having the same 
+\begin_inset Formula $y$
+\end_inset
+
+"
+\end_layout
+
+\begin_layout Enumerate
+Cells that are not interacting or having zero analogy are simply forgotten.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
