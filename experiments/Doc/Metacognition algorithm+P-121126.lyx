@@ -1,0 +1,6041 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\begin_preamble
+\usepackage{pdfsync}
+\usepackage{graphics}
+\usepackage{epstopdf}
+\usepackage[all]{xy}
+%\usepackage{amscd}
+\setlist[enumerate,1]{leftmargin=*,label=\arabic*.,align=left}
+
+%%%%% Paolo's macro %%%%%%%
+
+\newcommand{\xyR}[1]{ \makeatletter
+\xydef@\xymatrixrowsep@{#1} \makeatother} % end of \xyR
+% command \xyC to have more space between colums in diagrams
+\newcommand{\xyC}[1]{ \makeatletter
+\xydef@\xymatrixcolsep@{#1} \makeatother} % end of \xyC
+\entrymodifiers={++[ ][F]} % to have more space around objects in diagrams
+
+                                                     % ARROWS %
+\newcommand{\ra}{\longrightarrow}
+\newcommand{\xra}[1]{\xrightarrow{\ \ #1\ \ }} % extendible arrow
+\newcommand{\xrad}[1]{\xrightarrow{\displaystyle\ \ #1\ \ }} % extensible arrow in displaystyle
+
+    % MATHBBB %
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\R}{\field{R}} % reals
+\newcommand{\N}{\field{N}} % naturals
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}} % integers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}} % rationals
+
+% MATHCAL %
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\mC}{\mathcal{C}}
+%\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+
+
+                                            % MATHEMATICAL SIMBOLS %
+
+\newcommand{\eps}{\varepsilon} % for the sake of brevity only
+\renewcommand{\phi}{\varphi}
+\newcommand{\diff}[1]{\,\hbox{\rm d}#1} % dt,dx,... for integrals
+\newcommand{\h}[1]{\hspace{#1 truein}}  % to leave horizontal space
+\newcommand{\sss}{\scriptscriptstyle} % for the sake of brevity
+\newcommand{\Iso}{{}^{\displaystyle\sim}}
+%\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+%\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\corners}[1]{\ulcorner{#1}\urcorner}
+
+
+                                                 % CATEGORIES AND FUNCTORS %
+
+\DeclareMathOperator*{\colim}{colim} % colimit
+\newcommand{\Coo}{\mbox{\ensuremath{\mathcal{C}}}^{\infty}} % C infinity
+\DeclareMathOperator*{\Man}{{\bf Man}} % category of smooth manifolds
+\DeclareMathOperator{\Set}{{\bf Set}} % category of Sets
+\newcommand{\OR}{{\mathcal{O}}\mbox{$\R^\infty$}} % category of open sets in numerical spaces
+\newcommand{\FDiff}{\ext{\Coo}} %category of Fermat spaces
+\newcommand{\SFR}{{\bf S}\mbox{$\FR^\infty$}} % category of subsets of Fermat reals \FR and smooth maps
+\newcommand{\SRtil}{\text{\bf Set}_{\sss{\Rtil}}^\infty\!} % category of subsets of CGN
+\newcommand{\Top}{{\bf Top}} % category of topological spaces
+\newcommand{\Diff}{{\bf Dlg}} % diffeological spaces
+\newcommand{\Fr}{{\bf Fr}} % Froelicher spaces
+\newcommand{\HFr}{{\bf HFr}} % Hausdorff Froelicher spaces
+\newcommand{\LCS}{\text{\bf LCS}} % locally convex vector spaces and continuous linear maps
+\newcommand{\Con}{\text{\bf Con}} % convenient vector spaces and continuous linear maps
+\newcommand{\ConInf}{\Con{}^\infty} % convenient vector spaces and smooth maps
+\newcommand{\Fgen}{{\bf F}\Diff} % functionally generated diffeological spaces
+\newcommand{\TD}{\text{\rm T}_\text{\rm D}} % functor \Diff -> \Top "topological from diffeol"
+\newcommand{\DT}{\text{\rm D}_\text{\rm T}} % functor \Top -> \Diff "diffeol from topological"
+\newcommand{\DF}{\text{\rm D}_\text{\rm F}} % functor \Fr -> \Diff "diffeol from Frolicher"
+\newcommand{\FD}{\text{\rm F}_\text{\rm D}} % functor \Diff -> \Fr "Frolicher from diffeol"
+\newcommand{\FFG}{\text{\rm F}_\text{\rm FG}} % functor \Fgen -> \Fr "Frolicher from Fgen"
+\newcommand{\FGF}{\text{\rm FG}_\text{\rm F}} % functor \Fr -> \Fgen "Fgen from Frolicher"
+\newcommand{\DFG}{\text{\rm D}_\text{\rm FG}} % functor \Fgen -> \Diff "diffeol from Fgen"
+\newcommand{\FGD}{\text{\rm FG}_\text{\rm D}} % functor \Diff -> \Fgen "Fgen from diffeol"
+\newcommand{\FGM}{\text{\rm FG}_\text{\rm M}} % functor \Man -> \Fgen "Fgen from man"
+\newcommand{\Gcinf}{\mathcal{G}\cinfty} % generalized smooth functions
+\newcommand{\GDK}[1]{\mathcal{GD}_{#1}} % genearlized diffeological spaces
+\newcommand{\GD}{\mathcal{GD}}
+\newcommand{\Fs}[1]{\mathcal{F}_{\sss #1}} % hom set for the category of known functions
+\newcommand{\Ds}[1]{\mathcal{D}_{\sss #1}} % generalized elements or figures with specified space
+\newcommand{\GDiff}{\mathcal{G}\Diff}
+\DeclareMathOperator*{\ORn}{{\bf O}\mbox{$\R^n$}}
+
+    % FERMAT THEORY %
+
+\newcommand{\FR}{{{}^\bullet\R}} % Fermat reals
+\newcommand{\st}[1]{{#1^\circ}} % standard part map
+\newcommand{\In}[1]{\in_{_{\scriptscriptstyle{#1}}}} % \in for generalized elements
+\newcommand{\InUp}[1]{\in^{\scriptscriptstyle{#1}}} % \in for observables
+\newcommand{\Nil}{\mathcal{N}} % nilpotent functions
+\newcommand{\ext}[1]{{}^\bullet #1} % extension functor
+\newcommand{\equp}[1]{\displaystyle \mathop {\,=\,}^{ \sss{#1}}} % equality up to infinitesimal
+\newcommand{\hyperR}{{{}^*\R}} % hyperreals
+\newcommand{\extFR}{{}^\bullet\bar{\R}} % extended Fermat reals
+\newcommand{\existsext}[1]{\exists_{\,{}^{\ext{\!}#1}}}
+\newcommand{\forallext}[1]{\forall_{\,{}^{\ext{\!}#1}}}
+
+
+     % COLOMBEAU THEORY %
+
+\newcommand{\Rtil}{\widetilde \R} % real Colombeau generalized number
+\newcommand{\Ctil}{\widetilde \CC} % complex Colombeau generalized number
+\newcommand{\otilc}{\widetilde \Omega_c} % compactly supported points in Omega
+\newcommand{\gs}{\mathcal{G}^s} % special Colombeau algebra
+\newcommand{\Gs}{\boldsymbol{\mathcal{G}}^s} % special CA as a diffeological space
+\newcommand{\gf}{\mathcal{G}^e} % full CA
+\newcommand{\Gf}{\boldsymbol{\mathcal{G}}^e} % full CA as a diffeological space
+\newcommand{\ems}{\mathcal{E}^s_M} % moderate nets for the special CA
+\newcommand{\Ems}{\boldsymbol{\mathcal{E}}^s_M} % moderate nets for the special CA as a diffeological space
+\newcommand{\ns}{\mathcal{N}^s} % negligible nets for the special CA
+\newcommand{\emf}{\mathcal{E}^e_M} % moderate nets for the full CA
+\newcommand{\Emf}{\boldsymbol{\mathcal{E}}^e_M} % moderate nets for the full CA as a diffeological space
+\newcommand{\nf}{\mathcal{N}^e} % negligible nets for the full CA
+\newcommand{\gss}{{\mathcal G}^{\text{\rm s}}} % special CA with roman s
+\newcommand{\gse}{{\mathcal G}^{\text{\rm e}}} % full CA with roman e
+\newcommand{\gsd}{{\mathcal G}^{\text{\rm d}}} % diffeomorphism invariant CA with roman d
+\newcommand{\gsh}{\hat{\mathcal{G}}} % algebra of asymptotic functions (NSA)
+\newcommand{\erm}{\text{\rm e}} % for having roman superscript in CAs
+\newcommand{\srm}{\text{\rm s}}
+\newcommand{\drm}{\text{\rm d}}
+\newcommand{\crm}{\text{\rm c}}
+\newcommand{\brm}{\text{\rm b}}
+\newcommand{\thick}{\text{\rm th}} % thickening
+\newcommand{\sint}[1]{\langle#1\rangle} % strong internal set
+\newcommand{\Eball}{B^{{\scriptscriptstyle \text{\rm E}}}} % ordinary Euclidean ball
+\newcommand{\Fball}{B^{{\scriptscriptstyle \text{\rm F}}}} % ball in Fermat top
+\newcommand{\sintF}[1]{\sint{#1}_{\scriptscriptstyle\text{\rm F}}}
+\newcommand{\RC}[1]{{}^{\scriptscriptstyle #1}\Rtil}
+\newcommand{\rcrho}{\RC{\rho}}
+\newcommand{\csp}[1]{{\text{\rm c}}({#1})}
+%\newcommand{\csp}[1]{{}^{\scriptscriptstyle \rho}\widetilde{{#1}_{\text{\rm c}}}}
+\newcommand{\fcmp}{\Subset_{\text{f}}}
+
+
+                                              % LOGICAL SYMBOLS %
+
+\newcommand{\ptind}{\displaystyle \mathop {\ldots\ldots\,}} % marks with smth over. Usage: \ptind^{...}
+\newcommand{\then}{\quad \Longrightarrow \quad} % implication
+\newcommand{\DIff}{ \quad\;\; :\!\iff \quad } % :iff by definition
+\newcommand{\IffD}{ \quad\;\; \iff \!\! \colon \quad } % iff: by definition
+\newcommand{\eqUp}{\displaystyle \mathop {=}} % = with something above
+\newcommand{\leUp}{\displaystyle \mathop {\le}} % <= with something above
+\newcommand{\geUp}{\displaystyle \mathop {\ge}} % >= with something above
+
+%% Interaction spaces %%
+
+\DeclareMathOperator{\act}{ac}
+\DeclareMathOperator{\stateNeigh}{n}
+\DeclareMathOperator{\stateAgents}{ag}
+\newcommand{\tst}{t_{\rm st}}
+\newcommand{\tend}{t_{\rm end}}
+\newcommand{\creationTime}[1]{t^{#1}_{\rm c}}
+\newcommand{\destructionTime}[1]{t^{#1}_{\rm d}}
+\newcommand{\ag}[1]{{\rm ag}(#1)}
+\newcommand{\pa}[1]{{\rm pa}(#1)}
+\newcommand{\pr}[1]{{\rm pr}(#1)}
+\newcommand{\tist}[1]{t_{#1}^{\rm s}}
+\newcommand{\tong}[1]{t_{#1}^{\rm o}}
+\newcommand{\tarr}[1]{t_{#1}^{\rm a}}
+\newcommand{\tfirst}{t^{\rm 1}}
+\newcommand{\tsubs}{t_{\rm s}}
+\newcommand{\tsuba}{t_{\rm a}}
+\newcommand{\tsubo}{t_{\rm o}}
+
+
+%%%% ARC-AGI 1
+\newcommand{\hisarc}{\textsc{h\textbf{i}s-arc}}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+enumitem
+\end_modules
+\maintain_unincluded_children no
+\begin_local_layout
+Format 66
+Style Subjectclass
+    CopyStyle             Address
+    LatexName             subjclass[2020]
+    LabelString           "2020 Mathematics Subject Classification:"
+End
+\end_local_layout
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\notefontcolor #ffaa00
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side right
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+metacognition algorithm and its cognitive processes
+\end_layout
+
+\begin_layout Standard
+Analyzing 50 random ARC-AGI1 training puzzles (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Random_examples"
+literal "false"
+
+\end_inset
+
+ in Doc),
+ it seems that we can arrive at a sufficiently stable version of the general 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hisarc
+\end_layout
+
+\end_inset
+
+ (
+\series bold
+H
+\series default
+uman 
+\series bold
+I
+\series default
+nspired 
+\series bold
+IS
+\series default
+ for 
+\series bold
+A
+\series default
+bstract 
+\series bold
+R
+\series default
+easoning 
+\series bold
+C
+\series default
+orpora) algorithm.
+ We can think this algorithm as the 
+\emph on
+metacognition
+\emph default
+ of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hisarc
+\end_layout
+
+\end_inset
+
+ (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fle,Gem_CogProc"
+literal "false"
+
+\end_inset
+
+) written in the language of IST.
+ Another way to describe this process of discovering the metacognition algorithm is:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Taking inspiration from the human way to solve the puzzles,
+ we formalize this behavior using the language of IST,
+ and we then implement it in Python
+\begin_inset Quotes erd
+\end_inset
+
+.
+ For this motivation,
+ and to highlight the potential connections with neuroscience and cognitive psychology,
+ we tried to name the different parts of this algorithm using a terminology inherited from these two sciences (as similarly done by,
+ e.g.,
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HKSB"
+literal "false"
+
+\end_inset
+
+).
+ Even if the same possibility to realize this human-inspired formalization process is,
+ per se,
+ meaningful,
+ it does not imply that this formalization 
+\emph on
+faithfully
+\emph default
+ corresponds to human cognitive processes,
+ which is an open research question.
+\end_layout
+
+\begin_layout Standard
+Note that ARC-AGI 2 seems to be only an extension of ARC-AGI 1:
+ up to 9 exclusive ARC-AGI 1 puzzles,
+ all the other 397 puzzles of ARC-AGI 1 are included in ARC-AGI 2.
+ See 
+\family typewriter
+ARC-AGI 1_and_2.py
+\family default
+.
+ After a random partial checking,
+ it seems that ARC-AGI 2 puzzles are not conceptually different from ARC-AGI 1.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Core-knowledge"
+
+\end_inset
+
+Core-knowledge
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Core-knowledge
+\emph default
+ seems the correct name for the set of all our Python codes aiming to recognize interacting entities,
+ their relations/interactions,
+ their states,
+ and actions
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Action
+\emph default
+ is a more correct name,
+ as used e.g.
+\begin_inset space ~
+\end_inset
+
+in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Buz,Gem_Action"
+literal "false"
+
+\end_inset
+
+,
+ with respect to the old one 
+\emph on
+transformation
+\emph default
+,
+ which is only related to static geometrical transformations as used in ARC-AGI 1,
+ 2.
+\end_layout
+
+\end_inset
+
+ that transform these entities and their relations.
+ It corresponds to the innate cognitive abilities of newborns,
+ starting from which they are able to construct a more advanced knowledge,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_Core-knowledge,Gem_NeuUncProc"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Recognition-of-entities"
+
+\end_inset
+
+Recognition of entities
+\end_layout
+
+\begin_layout Subsubsection
+Entities as IS
+\end_layout
+
+\begin_layout Standard
+It is important to understand that frequently humans are able to recognize some entities as a whole,
+ even if they are themselves made of interacting sub-entities.
+ A typical example is a filled square made of cells of different colors:
+ sometimes it interacts as a square,
+ but sometimes we have to consider that it is made of differently colored cells (and maybe their interactions have to be preserved from 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+).
+ We can formalize this behavior by representing this type of entities as IS themselves and made of these sub-entities (frequently interacting with a relation of the type 
+\begin_inset Quotes eld
+\end_inset
+
+touching
+\begin_inset Quotes erd
+\end_inset
+
+).
+ We can call this type of objects 
+\emph on
+complex entities
+\emph default
+ (we can also think to implement each entity as a,
+ possibly trivial,
+ complex one).
+ These sub-entities also enter as entities of 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ For example,
+ we can see a rectangle as an IS made of touching L-forms (or even,
+ only 4 cells working as vertices),
+ with boundaries rows and columns (having a certain thickness),
+ interior cells,
+ border cells,
+ missing cells (each one with its own color) in case the rectangle is incomplete,
+ etc.
+ Similarly,
+ we can see an L-form as an IS made of two arms touching at an angle cell,
+ each one of these entities having its own color,
+ thickness,
+ etc.
+ 
+\end_layout
+
+\begin_layout Standard
+It is also useful to define a fuzzy-logic based indicator which measure 
+\begin_inset Quotes eld
+\end_inset
+
+how much this complex entity is near to a complete regular entity
+\begin_inset Quotes erd
+\end_inset
+
+.
+ In case of rectangle,
+ this dopamine-like indicator,
+ see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Neurotransmitters-and-fuzzy"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ increases e.g.
+ with 
+\begin_inset Quotes eld
+\end_inset
+
+number of L-form instead of single cells as vertices
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+fuzzy measure of completeness of sides
+\begin_inset Quotes erd
+\end_inset
+
+,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+unique color for interior cells
+\begin_inset Quotes erd
+\end_inset
+
+,
+ etc.
+\end_layout
+
+\begin_layout Standard
+Among the state of these IS-entities,
+ we always have to consider the 
+\begin_inset Quotes eld
+\end_inset
+
+number of interacting sub-entities it is made of
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Important examples going in this direction are:
+\end_layout
+
+\begin_layout Itemize
+L-,
+ T-,
+ I- and cross forms.
+\end_layout
+
+\begin_layout Itemize
+Linear patterns:
+ they are made of a few number of (not necessarily equal) figures repeated and touching,
+ possibly with a separator.
+ If these figures have all the same height,
+ we have an horizontal linear pattern,
+ otherwise we have a vertical one.
+ Starting with the 
+\begin_inset Quotes eld
+\end_inset
+
+first
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+last
+\begin_inset Quotes erd
+\end_inset
+
+ figure (i.e.
+\begin_inset space ~
+\end_inset
+
+those touching only one other entity and not two of them),
+ linear patterns define two linear order,
+ the former being the opposite of the latter.
+ This order is frequently used in puzzles.
+\end_layout
+
+\begin_layout Itemize
+Tiling:
+ if we see them as IS,
+ we can also use cognitive and analogical mappings (see below Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analogical-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) to decide whether they are tiling or not,
+ or if they are complete tiling or not.
+ The incomplete parts (e.g.
+\begin_inset space ~
+\end_inset
+
+where the internal cognitive mappings do not preserve interactions) can then be used for an action of the type 
+\begin_inset Quotes eld
+\end_inset
+
+complete an incomplete tiling
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Symmetric figures or incomplete symmetric figures.
+\end_layout
+
+\begin_layout Itemize
+Closed lines (where the borders may have a thickness,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+they are made by more that 1 cell of width,
+ or different colors).
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Sets of cells as entity
+\end_layout
+
+\begin_layout Standard
+A geometric entity such as 
+\begin_inset Quotes eld
+\end_inset
+
+set of cells
+\begin_inset Quotes erd
+\end_inset
+
+ clearly always occur in each training 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+,
+ but they are usually not recognized by humans in this abstract way.
+ Indeed,
+ human do not think at them as possible interacting entity if we are able to recognize for them other geometric entities.
+ For this reason,
+ it is better to construct a core-knowledge which is able to search for 
+\begin_inset Quotes eld
+\end_inset
+
+sets of cells having a certain property
+\begin_inset Quotes erd
+\end_inset
+
+,
+ such as:
+\end_layout
+
+\begin_layout Enumerate
+set of all the cells that are interior of ...
+\end_layout
+
+\begin_layout Enumerate
+set of all the cells that are exterior of ...
+\end_layout
+
+\begin_layout Enumerate
+Set of all the cells that are above/right/left of ...
+\end_layout
+
+\begin_layout Enumerate
+Set of all the cells that are contiguous ...
+ (
+\emph on
+weakly contiguous
+\emph default
+ if some of these cells touch only at a vertex,
+ 
+\emph on
+contiguous
+\emph default
+ if these cells always touch on sides)
+\end_layout
+
+\begin_layout Enumerate
+Set of all the cells shared by ...
+\end_layout
+
+\begin_layout Enumerate
+Set of all the cells that are of the same color and do not correspond to any other recognizable entity.
+\end_layout
+
+\begin_layout Subsubsection
+A posteriori recognition of entities
+\end_layout
+
+\begin_layout Standard
+As we will see below,
+ some entities are recognized only a posteriori:
+ this typically includes entities that are clear in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ but do not have a corresponding analogous entity in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ (i.e.
+ they do not have a counter-image along an analogical or cognitive mapping,
+ see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analogical-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Cognitive-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
+ or entities emerging from missing parameters in transformations/actions.
+ Only in this way,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ recognizes 
+\emph on
+black
+\emph default
+ entities like diagonals,
+ cells,
+ squares,
+ etc.
+ See e.g.
+\begin_inset space ~
+\end_inset
+
+the puzzle 
+\family typewriter
+3906de3d
+\family default
+,
+ where 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hisarc
+\end_layout
+
+\end_inset
+
+ can start with the hypothesis 
+\begin_inset Quotes eld
+\end_inset
+
+set of contiguous blue cells
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+red columns
+\begin_inset Quotes erd
+\end_inset
+
+ but only after constructing a first version of vertical and horizontal analogical mappings (see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analogical-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) it can recognize 
+\begin_inset Quotes eld
+\end_inset
+
+black columns
+\begin_inset Quotes erd
+\end_inset
+
+ touching the 
+\begin_inset Quotes eld
+\end_inset
+
+set of contiguous blue cells
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+In order to construct forgetful CEF,
+ in every training IS 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ we always have to consider 
+\begin_inset Quotes eld
+\end_inset
+
+the empty interacting entity
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ and the interaction 
+\begin_inset Formula $\emptyset\xra{\emptyset}\emptyset$
+\end_inset
+
+.
+ An entity such that 
+\begin_inset Formula $U(e)=\emptyset$
+\end_inset
+
+ is forgotten.
+\end_layout
+
+\begin_layout Enumerate
+In each training IS,
+ the bar (linear pattern?) containing the 10 colors 
+\begin_inset Formula $0,\ldots9$
+\end_inset
+
+ is always an interacting entity.
+ The transformation of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ can in fact include 
+\begin_inset Quotes eld
+\end_inset
+
+color the object 
+\begin_inset Formula $e$
+\end_inset
+
+ with the color of 
+\begin_inset Formula $e'$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+color the object 
+\begin_inset Formula $e$
+\end_inset
+
+ with the color 
+\begin_inset Formula $k\in\{0,\ldots,9\}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The 
+\begin_inset Formula $k$
+\end_inset
+
+-th color could also not occur in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ (but the chosen color 
+\begin_inset Formula $k$
+\end_inset
+
+ is frequently,
+ but not always,
+ the same in all the training IS).
+\end_layout
+
+\begin_layout Enumerate
+From the human point of view,
+ a rectangle has a height,
+ width of at least 2 rows resp.
+\begin_inset space ~
+\end_inset
+
+2 columns;
+ otherwise,
+ it is a row or a column.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Recognition-of-interactions"
+
+\end_inset
+
+Recognition of interactions
+\end_layout
+
+\begin_layout Standard
+See the issue 
+\begin_inset Quotes eld
+\end_inset
+
+Lists of geometrical entities #2
+\begin_inset Quotes erd
+\end_inset
+
+ on GitHub for a sufficiently complete list of interactions used in solving these puzzles.
+\end_layout
+
+\begin_layout Subsubsection
+Sets = only trivial (identity) interactions
+\end_layout
+
+\begin_layout Standard
+Sometimes,
+ see e.g.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+e98196ab
+\family default
+,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ can arrive to hypothesize (see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Hypotheses-testing"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) that there are no interactions in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+ In terms of category theory,
+ this means that 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ is only a set;
+ in this case,
+ the only trivial interactions are the identity 
+\begin_inset Formula $e\xra{\textrm{is equal to }}e$
+\end_inset
+
+ that are trivially preserved (therefore,
+ we do not have to implement them in the code).
+ In these cases,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ can produce an explanation of the type:
+ 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+I recognized that there are only trivial interactions (equality) in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+.
+\end_layout
+
+\begin_layout Subsubsection
+A posteriori recognition of interactions
+\end_layout
+
+\begin_layout Standard
+As for entities,
+ an a posteriori recognition of interactions can also occur using analogical mappings or in exploring some hypotheses,
+ see below Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analogical-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Hypotheses-testing"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Metacognition-algorithm"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For example,
+ sometimes 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ recognizes (e.g.
+\begin_inset space ~
+\end_inset
+
+under certain hypotheses,
+ see again Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Hypotheses-testing"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) that the considered cognitive mappings (see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Cognitive-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) do not preserve some hypothesized interactions:
+ this open a new branch hypotheses of deleting these interactions and/or to consider another hypothesis in 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ metacognition.
+ See e.g.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+beb8660c
+\family default
+ where the (analogically weak) 
+\begin_inset Quotes eld
+\end_inset
+
+touching
+\begin_inset Quotes erd
+\end_inset
+
+ relations are deleted in favor of 
+\begin_inset Quotes eld
+\end_inset
+
+has a lower number of patterns
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Implicit interactions 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ always considers are 
+\begin_inset Quotes eld
+\end_inset
+
+touching the border of the background grid
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+touching the vertices of the background grid
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Abstractions"
+
+\end_inset
+
+Abstractions
+\end_layout
+
+\begin_layout Standard
+From the mathematical point of view,
+ an 
+\emph on
+abstraction
+\emph default
+ is a situation of the form
+\begin_inset Formula 
+\[
+\xymatrix{ & \mathcal{A}bst\\
+\mathcal{I}\ar[ur]^{A_{\mathcal{I}}}\ar@<0.75ex>[rr]^{L_{\mathcal{IJ}}} &  & \mathcal{J}\ar[ul]_{A_{\mathcal{J}}}\ar@<0.75ex>[ll]^{L_{\mathcal{JI}}}
+}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+ are IS and all the arrows are CEF;
+ then the interacting entities 
+\begin_inset Formula $e\in\mathcal{I}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{e}\in\mathcal{J}$
+\end_inset
+
+ correspond to the same abstract concept 
+\begin_inset Formula $\alpha\in\mathcal{A}bst$
+\end_inset
+
+ if 
+\begin_inset Formula $L_{\mathcal{IJ}}(e)=\bar{e}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $L_{\mathcal{JI}}(\bar{e})=e$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{\mathcal{I}}(e)=\alpha=A_{j}(\bar{e})$
+\end_inset
+
+.
+ Example:
+ the entities 
+\begin_inset Formula $e$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{e}$
+\end_inset
+
+ are two rectangles (maybe of different dimension or color),
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is,
+ trivially,
+ the string 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+rectangles
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+ and the CEF between 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+ takes vertex and sides of the rectangles preserving their touching interactions;
+ note that this CE preservation is the non trivial part of the definition because it includes human inspired behavior:
+ e.g.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+the entities 
+\begin_inset Formula $e$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{e}$
+\end_inset
+
+ are both rectangles because this L-form corresponds to this,
+ and this L-form to this other one...
+ and this side corresponds to this one,
+ etc.
+ All these correspondences preserve the correct touching interactions
+\begin_inset Quotes erd
+\end_inset
+
+ (think at an 
+\begin_inset Quotes eld
+\end_inset
+
+open
+\begin_inset Quotes erd
+\end_inset
+
+ rectangle where one side does not close correctly or to a situation where one of the L-form is not correctly oriented:
+ human do not think they are rectangles anymore).
+\end_layout
+
+\begin_layout Standard
+There are two ways of constructing the IS of abstract notions 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+In the first intrinsic way,
+ we define the horizontal CEF by mimicking human behavior;
+ the idea is that the property
+\begin_inset Formula 
+\[
+\exists L_{\mathcal{IJ}},L_{\mathcal{JI}}\text{ CEF}:\ L_{\mathcal{IJ}}(e)=\bar{e},\ L_{\mathcal{JI}}(\bar{e})=e
+\]
+
+\end_inset
+
+defines an equivalence relation 
+\begin_inset Formula $e\sim\bar{e}$
+\end_inset
+
+;
+ we can finally construct (automatically?) the IS 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+ as the space of these equivalence classes (e.g.
+\begin_inset space ~
+\end_inset
+
+representing rectangles,
+ triangles,
+ straight lines,
+ etc.) and abstracting from 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+ the interactions of these entities (e.g.
+\begin_inset space ~
+\end_inset
+
+move,
+ dilate,
+ rotate,
+ etc.).
+ We will not implement this intrinsic way in 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+,
+ even if it seems a very general method more corresponding to human behavior.
+\end_layout
+
+\begin_layout Enumerate
+In the second way,
+ we directly define the IS 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+ and its interactions by mimicking what occurs in 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+,
+ inspired by human knowledge and considering the problem we have to solve.
+ In 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ we use this method:
+ in the state of each interacting entity and interactions that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ recognizes in the input training 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+,
+ it also includes the name of its abstract concept:
+ 
+\family typewriter
+L-form
+\family default
+,
+ 
+\family typewriter
+rectangle
+\family default
+,
+ 
+\family typewriter
+diagonal
+\family default
+,
+ 
+\family typewriter
+X is contained in Y
+\family default
+,
+ 
+\family typewriter
+X touches Y on Z
+\family default
+,
+ 
+\family typewriter
+X shares Y with Z
+\family default
+,
+ etc.
+ This state properties are used to construct entities and interactions of the IS 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+,
+ and the abstraction CEF (cognitive mappings) 
+\begin_inset Formula $A_{\mathcal{I}_{k}}$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{\mathcal{S}_{k}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The general rule is that:
+ 
+\emph on
+For everything we introduce in the code,
+ there must be a corresponding abstract description in 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+ and,
+ possibly,
+ the related interactions
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\emph on
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Abstract-entities:"
+
+\end_inset
+
+
+\series default
+\emph default
+Higher level abstract entities of 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+,
+ we also have to consider interactions of the form e.g.
+\begin_inset Formula 
+\begin{align*}
+i:\textrm{rectangles}\xra{r}\textrm{closed lines}\\
+j:\textrm{triangles}\xra{s}\textrm{closed lines}\\
+k:\textrm{squares}\xra{u}\textrm{rectangles}\\
+h:\textrm{L-shapes}\xra{v}\textrm{L-shapes},
+\end{align*}
+
+\end_inset
+
+where the propagators have the following properties:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\act_{i}^{r}(t)=1$
+\end_inset
+
+ means that at time 
+\begin_inset Formula $t$
+\end_inset
+
+ (computation time) we have found a 
+\family typewriter
+'rectangle'
+\family default
+ in at least one training 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ but it occurs also in the others 
+\begin_inset Formula $\mathcal{I}_{j}$
+\end_inset
+
+ only if we think at it as a more abstract 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+closed line
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+ (e.g.
+\begin_inset space ~
+\end_inset
+
+because in 
+\begin_inset Formula $\mathcal{I}_{j}$
+\end_inset
+
+ there is a 
+\family typewriter
+'triangle'
+\family default
+).
+ Similarly for 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ For example,
+ if a 
+\family typewriter
+'rectangle'
+\family default
+ occurs in 
+\begin_inset Formula $\mathcal{I}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{I}_{2}$
+\end_inset
+
+,
+ and a 
+\family typewriter
+'square'
+\family default
+ in 
+\begin_inset Formula $\mathcal{I}_{3}$
+\end_inset
+
+,
+ we have an occurrence of 
+\family typewriter
+'rectangle'
+\family default
+.
+ If we have 
+\family typewriter
+'rectangle'
+\family default
+ in 
+\begin_inset Formula $\mathcal{I}_{1}$
+\end_inset
+
+,
+ a 
+\family typewriter
+'triangle'
+\family default
+ in 
+\begin_inset Formula $\mathcal{I}_{2}$
+\end_inset
+
+ and a 
+\family typewriter
+'circle'
+\family default
+ in 
+\begin_inset Formula $\mathcal{I}_{3}$
+\end_inset
+
+,
+ then we have an occurrence of 
+\family typewriter
+'closed lines'
+\family default
+.
+ This would correspond to a certain application of the GEP in 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+.
+ However,
+ since it is a strict rule,
+ it would correspond to maximum cost 
+\begin_inset Formula $C_{y}^{j}(e)=1$
+\end_inset
+
+ where 
+\begin_inset Formula $C_{y}^{j}(e)\in\{0,1\}$
+\end_inset
+
+,
+ or zero probability 
+\begin_inset Formula $Q_{\gamma}(i)=0$
+\end_inset
+
+.
+ Up to now,
+ we can therefore not use the GEP but simply apply this strict rule.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma_{i}(t)$
+\end_inset
+
+ is a counting good following 
+\emph on
+synaptic plasticity
+\emph default
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+how many times we used this abstraction so far
+\begin_inset Quotes erd
+\end_inset
+
+,
+ see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Synaptic-plasticity-and"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ below for the corresponding implementation.
+\end_layout
+
+\begin_layout Enumerate
+An interaction of the type 
+\begin_inset Formula $h:g\xra{v}g$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $g$
+\end_inset
+
+ is an abstract geometrical objects,
+ simply means that 
+\begin_inset Formula $g$
+\end_inset
+
+ occurs in some 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+ In the state 
+\begin_inset Formula $x_{v}(t)$
+\end_inset
+
+,
+ we include some kind of link to the code used to recognize the entity 
+\begin_inset Formula $g$
+\end_inset
+
+:
+ if all the names of functions used to recognize an entity are held in a dictionary 
+\family typewriter
+core_knowledge_entities
+\family default
+ with entries 
+\family typewriter
+('description_of_funct1':
+ func1_name)
+\family default
+,
+ then 
+\family typewriter
+core_knowledge['description_of_func1']()
+\family default
+ works exactly as 
+\family typewriter
+funct1_name()
+\family default
+.
+ In this way,
+ we can say that 
+\begin_inset Quotes eld
+\end_inset
+
+our code is interacting as interactions of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Abstract-interactions"
+
+\end_inset
+
+Abstract interactions in 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also geometric relations (interactions of 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+) and actions/transformations have to be organized in a hierarchical way using a similar abstraction,
+ like geometric entities as above.
+ These interactions generalize the list of geometric relations.
+ For example:
+\begin_inset Formula 
+\begin{align*}
+j & :\textrm{cells}\xra{r}\text{rectangle}\\
+k & :\textrm{rectangles},\textrm{square}\xra{s}\textrm{lines},
+\end{align*}
+
+\end_inset
+
+with 
+\family typewriter
+j.pr.type = 
+\begin_inset Quotes eld
+\end_inset
+
+contains
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ 
+\family typewriter
+k.pr.type = 
+\begin_inset Quotes eld
+\end_inset
+
+share a line
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ and 
+\begin_inset Formula $\gamma_{j}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\gamma_{k}$
+\end_inset
+
+ are 
+\begin_inset Quotes eld
+\end_inset
+
+counting goods
+\begin_inset Quotes erd
+\end_inset
+
+ as above.
+ In the state of these propagators we include some kind of link to the code that recognize this relation (e.g.
+\begin_inset space ~
+\end_inset
+
+the dictionary as above).
+\end_layout
+
+\begin_layout Standard
+Therefore,
+ each actions has a related abstract description as an interaction of the form
+\begin_inset Formula 
+\[
+\text{abstr }a_{1},\ldots,\text{abstr }a_{n}\xra{\text{type of action}}\text{abstr }p,
+\]
+
+\end_inset
+
+where 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\text{abstr }a_{j}"$
+\end_inset
+
+ represents an abstract interacting entity of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ (e.g.
+\begin_inset space ~
+\end_inset
+
+a 
+\begin_inset Quotes eld
+\end_inset
+
+diagonal
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+L-form
+\begin_inset Quotes erd
+\end_inset
+
+,
+ etc.) and 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\text{type of action}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ is a string describing the action itself.
+ Among the agents of this description,
+ we also include the parameter this action needs to run.
+ In the state of the propagator (i.e.
+\begin_inset space ~
+\end_inset
+
+the state of the action/interaction itself),
+ we insert the name of the functions in the 
+\family typewriter
+dict
+\family default
+ containing all actions.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Abstract-actions"
+
+\end_inset
+
+Abstract actions/transformations
+\end_layout
+
+\begin_layout Standard
+These interactions corresponds to the list of geometric transformation.
+ For example:
+\begin_inset Formula 
+\[
+h:\textrm{lines},\textrm{cells}\xra{u}\textrm{lines},
+\]
+
+\end_inset
+
+with 
+\family typewriter
+h.pr.type = 
+\begin_inset Quotes eld
+\end_inset
+
+change the color of the 1st using the color of the 2nd
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+,
+ and 
+\begin_inset Formula $\gamma_{h}$
+\end_inset
+
+ as above.
+ In the state of these propagators we include some kind of link to the code that recognize this relation (e.g.
+\begin_inset space ~
+\end_inset
+
+the dictionary as above).
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Neurotransmitters-and-fuzzy"
+
+\end_inset
+
+Fuzzy logic based neurotransmitters
+\end_layout
+
+\begin_layout Standard
+Neurotransmitters are chemical messengers that the nervous system uses to transmit signals between neurons or from neurons to muscles.
+ They regulate nearly all human functions,
+ from mood to heart rate.
+ In particular,
+ dopamine implements a reward system,
+ since it is essential for motivation,
+ pleasure,
+ learning,
+ and motor control,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_NeuroTransm_fl"
+literal "false"
+
+\end_inset
+
+.
+ The fuzzy logic based indicators we implement in 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ can be thought of as a 
+\series bold
+very
+\series default
+ rough implementation of dopamine (see e.g.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Loev12,Zad97"
+literal "false"
+
+\end_inset
+
+):
+ the more one of these indicators is near to 
+\begin_inset Formula $1$
+\end_inset
+
+,
+ the more 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ labels the current hypotheses it is evaluating (see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Hypotheses-testing"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) as a promising one.
+ The more one of these indicators is near to 
+\begin_inset Formula $0$
+\end_inset
+
+,
+ the more 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ labels these hypotheses as a non-promising ones;
+ under a certain level of fuzzy truth,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ will (possibly temporarily) halt these hypotheses to consider a different set of assumptions.
+ See also Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Metacognition-algorithm"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Up to now,
+ the first idea for the general metacognition algorithm is to evaluate the fuzzy logic based dopamine of each part of the human inspired algorithms (entities,
+ interactions,
+ analogical mappings,
+ invariance extraction,
+ conditional mappings,
+ etc.) The evaluation of each single choice is called 
+\emph on
+local dopamine
+\emph default
+.
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ create from these algorithms a series of 3-4 hypotheses.
+ Using also synaptic plasticity,
+ we start with an hypothesis and evaluate each local dopamine,
+ then we add all the (possibly weak) local dopamine and insert this sum into a sigmoid function (in order to consider threshold and saturation effects).
+ The output of this function is the 
+\emph on
+global level of dopamine
+\emph default
+ for this 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+hypothesis.
+ In general,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ could have more that one hypotheses and evaluate the global dopamine for all of them in order to decide what is the best hypothesis.
+ If one started hypothesis has a too much low level of global dopamine,
+ then 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ can stop it and start/add a new hypothesis in a tree algorithm.
+ If the started hypothesis has a sufficiently good level of global dopamine,
+ it automatically delete all the other hypotheses.
+ Hypotheses that exchange a greater level of information (diversification;
+ this corresponds to Contextual Constraints,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_brainOrganization"
+literal "false"
+
+\end_inset
+
+) with the present situation are preferred.
+ The winner of all these hypotheses should the best evaluation of the GEP (minimal costs and maximal diversification;
+ this is Lateral Inhibition,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_brainOrganization"
+literal "false"
+
+\end_inset
+
+).
+ See 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Metacognition-algorithm"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+A fuzzy logic way to have the same rule in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ the training puzzles
+\end_layout
+
+\begin_layout Standard
+An example going in the direction of a local fuzzy-logic-based dopamine indicator for an evaluation that 
+\begin_inset Quotes eld
+\end_inset
+
+the same rule has to be applied in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ training puzzles
+\begin_inset Quotes erd
+\end_inset
+
+.
+ In some examples,
+ see e.g.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+d4469b4b
+\family default
+,
+ the same abstract entity cannot be found in all output training 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ In general,
+ we have a fuzzy evaluation based on the number of training puzzles where we can apply the same rule.
+ Clearly,
+ when we have exactly the same rule applied in all the training puzzles,
+ then this fuzzy value is maximum.
+\end_layout
+
+\begin_layout Standard
+Some crisp/fuzzy costs can also be considered in a fuzzy based indicator (they reduce to zero the local dopamine level),
+ such as:
+\end_layout
+
+\begin_layout Enumerate
+The abstract descriptions of actions are different in the training puzzles.
+\end_layout
+
+\begin_layout Enumerate
+The mappings 
+\begin_inset Formula $U$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+ (e.g.
+ obtained from analogical mappings) are not cognitive mappings (they are not CEF).
+ See e.g.
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+beb8660c
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+The RLE or RLS property,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $U\vdash R$
+\end_inset
+
+ or 
+\begin_inset Formula $L\vdash R$
+\end_inset
+
+,
+ does not hold.
+\end_layout
+
+\begin_layout Standard
+\noindent
+This corresponds to Prediction Error Minimization (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_brainOrganization"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Synaptic-plasticity-and"
+
+\end_inset
+
+Synaptic plasticity and object affordance
+\end_layout
+
+\begin_layout Standard
+In general and intuitive terms,
+ 
+\emph on
+synaptic plasticity
+\emph default
+ is the human brain's ability to reshape and constantly change itself in response to our experiences,
+ thoughts,
+ and environment,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_SynPlast"
+literal "false"
+
+\end_inset
+
+.
+ The more a thought,
+ action,
+ or memory is repeated,
+ the wider,
+ smoother,
+ and probable is for a human to use this cognitive path:
+ In the brain,
+ the connections (synapses) between neurons strengthen (plasticity).
+ A related behavior seems to be 
+\emph on
+object affordance
+\emph default
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+the phenomenon where the human brain is automatically pre-alerted or prepared for potential interactions upon seeing a well-known object,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_ObjAff"
+literal "false"
+
+\end_inset
+
+.
+ We could say that humans have a greater probability to activate on an object if they have seen it several times.
+\end_layout
+
+\begin_layout Standard
+We implement synaptic plasticity as a CAS because 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ has to decide among different competitive interpretations.
+ It 
+\emph on
+could be
+\emph default
+ better to implement synaptic plasticity for 
+\emph on
+everything where we have potential multiple choice
+\emph default
+s:
+ choice of entities or interactions,
+ different choices to construct an analogical or cognitive mappings,
+ even different ways to linearize a matrix (i.e.
+ to transform it into a row) or one among the two possible orders in a linear pattern.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\emph on
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Synaptic-plasticity-algorithm"
+
+\end_inset
+
+
+\series default
+Synaptic plasticity
+\emph default
+ algorithm following the GEP
+\end_layout
+
+\begin_layout Standard
+We want to solve the problem 
+\begin_inset Quotes eld
+\end_inset
+
+how to use a human-inspired algorithm in order to find what choice among several ones (e.g.
+\begin_inset space ~
+\end_inset
+
+geometric entities,
+ interaction,
+ actions,
+ etc.) is better to consider first in the given training puzzle (IS),
+ avoiding a brute-force algorithm
+\begin_inset Quotes erd
+\end_inset
+
+.
+ We will use the GEP and hence we are implementing a CAS:
+\end_layout
+
+\begin_layout Enumerate
+At the initial time 
+\begin_inset Formula $\tst$
+\end_inset
+
+ all the counting goods 
+\begin_inset Formula $\gamma_{i_{1}},\ldots,\gamma_{i_{N}}=1$
+\end_inset
+
+.
+ The interpretation is:
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ already has a human-inspired core-knowledge which allows it to make a choice 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ among 
+\begin_inset Formula $k=1,\ldots,N$
+\end_inset
+
+ different choices (e.g.
+\begin_inset space ~
+\end_inset
+
+what entity occurs,
+ or what interaction,
+ or what action creates a given entity in an output training or even what order 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ has to use among the two in a linear pattern).
+ However,
+ initially at 
+\begin_inset Formula $t=\tst$
+\end_inset
+
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ has no experience about how frequently 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ occurs in ARC-AGI 1,
+ 2 problems,
+ but it will adapt its behaviour in learning to solve these puzzles (this is plasticity,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+adaptation based on occurring frequencies of choices 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_SynPlast"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:normalize-counting-goods"
+
+\end_inset
+
+At generic step:
+ By normalization,
+ transform all the counting goods into a probability.
+ At the initial time 
+\begin_inset Formula $\tst$
+\end_inset
+
+,
+ we clearly get a uniform probability.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Extract-a-geometrical-object"
+
+\end_inset
+
+
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ makes a first choice 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ using this probability,
+ e.g.
+\begin_inset space ~
+\end_inset
+
+it searches for an interacting entity of type 
+\begin_inset Formula $k$
+\end_inset
+
+ among all the 
+\begin_inset Formula $N$
+\end_inset
+
+ it is able to recognize.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ evaluates the local dopamine for this choice 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+,
+ e.g.
+ it searches for occurrences of this object in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ (fuzzy) the training puzzles.
+\begin_inset Newline newline
+\end_inset
+
+In the language of IS,
+ the fact that the entity 
+\begin_inset Formula $g$
+\end_inset
+
+ is found in 
+\begin_inset Formula $\mathcal{I}_{j}$
+\end_inset
+
+ corresponds to activate an interaction 
+\begin_inset Formula $i_{k}:g\xra{v}g$
+\end_inset
+
+ as described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Abstract-entities:"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Abstract-entities:"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+setting 
+\begin_inset Formula $\act_{i_{k}}^{v}(t)=1$
+\end_inset
+
+ (see also below 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:The-lowest-found"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ We must proceed similarly for all the other possible choices:
+ interactions,
+ actions,
+ states,
+ etc.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ evaluates a sufficiently high value of local dopamine,
+ e.g.
+\begin_inset space ~
+\end_inset
+
+if 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ occurs in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ the training IS,
+ then it finds if some 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ of lower abstraction level (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Abstract-entities:"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) occurs in the training puzzle and has the same level of local dopamine,
+ until it founds the lower abstraction level (e.g.
+\begin_inset space ~
+\end_inset
+
+it could happen that the firstly extracted 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ is 
+\family typewriter
+'closed lines'
+\family default
+ whereas at the end the lower abstraction level 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ is 
+\family typewriter
+'rectangles'
+\family default
+).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:The-lowest-found"
+
+\end_inset
+
+The found lowest abstraction level has to correspond to an interaction 
+\begin_inset Formula $i_{j}:g\xra{v}g$
+\end_inset
+
+ as described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Abstract-entities:"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+we can say that 
+\begin_inset Formula $\act_{i_{j}}^{v}(t)=1$
+\end_inset
+
+.
+ Increase its counting goods:
+ 
+\begin_inset Formula $\gamma_{i_{j}}(t+1)=\gamma_{i_{j}}(t)+1$
+\end_inset
+
+ (
+\begin_inset Formula $t$
+\end_inset
+
+ is not actually implemented in the code and intuitively corresponds to 
+\begin_inset Quotes eld
+\end_inset
+
+next step in the algorithm
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Drop 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ from the list 
+\begin_inset Formula $i_{1},\ldots,i_{N}$
+\end_inset
+
+ and restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Extract-a-geometrical-object"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ evaluates that the level of dopamine is under a fixed threshold,
+ e.g.
+ 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ does not occurs in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ training IS,
+ then it searches for occurrences at a higher abstraction level.
+\end_layout
+
+\begin_layout Enumerate
+The higher found abstraction level is one of the 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+.
+ Increase its counting goods:
+ 
+\begin_inset Formula $\gamma_{i_{j}}(t+1)=\gamma_{i_{j}}(t)+1$
+\end_inset
+
+.
+ Drop 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ from the list 
+\begin_inset Formula $i_{1},\ldots,i_{N}$
+\end_inset
+
+ and restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Extract-a-geometrical-object"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If no higher abstraction level occurs in all training puzzles,
+ then drop 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ from the list 
+\begin_inset Formula $i_{1},\ldots,i_{N}$
+\end_inset
+
+ and restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Extract-a-geometrical-object"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+In the language of IS and the GEP,
+ this corresponds to have 
+\begin_inset Formula $Q_{\gamma_{i_{k}}(t+1)}(i_{k})=0$
+\end_inset
+
+ in the diversification probability or deactivation of of the propagator 
+\begin_inset Formula $\pr{i_{k}}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\act_{i_{k}}^{\pr{i_{k}}}(t+1)=0$
+\end_inset
+
+,
+ and setting a maximal value of cost 
+\begin_inset Formula $C_{y(t+1)}^{h}(g)=1$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $i_{k}:g\xra{v}g$
+\end_inset
+
+ and the global state 
+\begin_inset Formula $y(t+1)$
+\end_inset
+
+ contains the new state 
+\begin_inset Formula $\act_{i_{k}}^{\pr{i_{k}}}(t+1)=0$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+With the new counting goods,
+ restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:normalize-counting-goods"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It is possible to prove that,
+ at each step in this synaptic plasticity algorithm,
+ the normalized probability is actually the maximum entropy probability on 
+\begin_inset Formula $i_{1},\ldots,i_{N}$
+\end_inset
+
+ that 
+\begin_inset Quotes eld
+\end_inset
+
+respects the past 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ experience
+\begin_inset Quotes erd
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+the counting goods experienced by 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ in the past.
+ In fact this probability maximize the entropy among all probabilities 
+\begin_inset Formula $p_{1},\ldots,p_{N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $p_{k}(t)\ge\frac{\gamma_{i_{k}}(t)}{\sum_{j=1}^{N}\gamma_{i_{j}}(t)}=:P_{k}(t)$
+\end_inset
+
+ for all the 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ already found in the past,
+ 
+\begin_inset Formula $k=1,\ldots,M\le N$
+\end_inset
+
+.
+ Normalization also corresponds to assign 
+\begin_inset Quotes eld
+\end_inset
+
+the remaining probability
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $p_{j}(t)=\frac{1-\sum_{k=1}^{M}P_{k}(t)}{N-M}$
+\end_inset
+
+ to all not-founded objects 
+\begin_inset Formula $j=M+1,\ldots,N$
+\end_inset
+
+.
+ Therefore,
+ this synaptic plasticity algorithm (is very simple and natural,
+ and) satisfies the GEP (i.e.
+\begin_inset space ~
+\end_inset
+
+it implement synaptic plasticity as a CAS).
+\end_layout
+
+\begin_layout Standard
+However,
+ we have to consider that this synaptic plasticity algorithm improves 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ behavior only with respect to the frequency a choice is used:
+ the more frequently a choice has been used in the pasg,
+ the most probable it will be that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ will firstly make this choice.
+ A different problem is 
+\emph on
+contextualisation
+\emph default
+,
+ i.e.
+ understanding and interpreting data within the specific setting of a given environment.
+ This is considered in the following section.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\emph on
+Contextualisation
+\series default
+\emph default
+ and 
+\series bold
+\emph on
+Object affordance
+\emph default
+ algorithm
+\end_layout
+
+\begin_layout Standard
+For an intuitive first description of 
+\emph on
+object affordance
+\emph default
+,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_ObjAff"
+literal "false"
+
+\end_inset
+
+.
+ This algorithm can also be seen as a more efficient (with respect to a pure brute-force one) way to recognize what actions could be performed on the entities we have just found in the input training puzzles.
+ We describe it for recognition of entities,
+ but in principle it could be applied to any kind of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ choice (see also Situated Conceptualization in Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analogical-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for a very similar algorithm):
+\end_layout
+
+\begin_layout Enumerate
+Recognize occurrences of interacting entities in each training IS 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ using the previous synaptic plasticity algorithm.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Select-only-geometric-relations-patients"
+
+\end_inset
+
+Select only interactions/relations and actions/transformations having these interacting entities as 
+\emph on
+patients
+\emph default
+ or 
+\emph on
+agents
+\emph default
+ (once again,
+ this selection is an application of the GEP,
+ setting to zero the probability to have interactions with other entities;
+ indeed,
+ it is a way to formalize the idea 
+\begin_inset Quotes eld
+\end_inset
+
+consider only interaction and actions that exchange information with the entities 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ recognized in inputs).
+ For this selection,
+ we have to use the abstract interactions described in Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Abstract-interactions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Abstract-actions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Using the counting goods of these interactions/actions and the related synaptic plasticity,
+ recognize what relations and transformations occur in (fuzzy) 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ the training IS.
+\end_layout
+
+\begin_layout Enumerate
+After the previous step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Select-only-geometric-relations-patients"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ we have to consider other 2 or 3 possible compositions of abstract actions 
+\begin_inset Formula $b_{1},\ldots,b_{n}\xra{r}a_{k}$
+\end_inset
+
+ ending up with patients which are agents of transformations 
+\begin_inset Formula $a_{1},\ldots,a_{m}\xra{s}p$
+\end_inset
+
+ considered in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Select-only-geometric-relations-patients"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Because of the nature of synaptic plasticity algorithm,
+ we can state that using this object affordance algorithm 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ is automatically pre-alerted or prepared for potential interactions/actions upon seeing a well-known object,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+it has a greater probability to act on an object if it has seen it several times.
+ Similarly,
+ we have to implement object affordance of other type of choices,
+ such as interactions,
+ actions,
+ states,
+ analogies,
+ etc.
+\end_layout
+
+\begin_layout Subsubsection
+Retrospective study of synaptic plasticity
+\end_layout
+
+\begin_layout Standard
+We can also study the final results of synaptic plasticity after the solution of 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ the training examples:
+ what entities are more probable,
+ what interactions?
+ 
+\end_layout
+
+\begin_layout Standard
+Some effect of synaptic plasticity that we can check a posteriori:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ should prefer 
+\begin_inset Quotes eld
+\end_inset
+
+set of cells of a certain type
+\begin_inset Quotes erd
+\end_inset
+
+ instead of 
+\begin_inset Quotes eld
+\end_inset
+
+single cell
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Columns/rows/diagonals made of cells of the same colors.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Analogical-mappings"
+
+\end_inset
+
+Analogical mappings using Situated Conceptualization (SitCon)
+\end_layout
+
+\begin_layout Standard
+In 
+\emph on
+Analogical Mapping
+\emph default
+,
+ interacting entities are not placed in analogy because they look physically alike,
+ but because the interactions between components in the 
+\emph on
+Source
+\emph default
+ system are identical to the internal relationships in the 
+\emph on
+Target
+\emph default
+ system,
+ see e.g.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_AnalogicalMap1,Gem_AnalogicalMap2"
+literal "false"
+
+\end_inset
+
+.
+ We formalize and implement this type of mappings using 
+\emph on
+Situated Conceptualization
+\emph default
+ (called 
+\begin_inset Quotes eld
+\end_inset
+
+method of the chair
+\begin_inset Quotes erd
+\end_inset
+
+ in the UGM mini-course or workshop).
+ According to Situated Conceptualization,
+ the brain does not retrieve static definitions of objects,
+ but rather prepares for action:
+ an object is recognized by fusing its stable physical properties with the dynamic,
+ interactive scenario in which it is placed.
+ In other words,
+ Situated Conceptualization is the human process where the brain recognizes an object using some properties of its state,
+ but mainly using the CE interactions this object is able to perform as an agent or a patient.
+ Said with a slogan:
+ “A chair is what you can do with a chair + some state properties such as having a seat place where one can sit,
+ and having a seat back”.
+ In our setting,
+ we use the shorter name 
+\emph on
+SitCon
+\emph default
+ instead of 
+\begin_inset Quotes eld
+\end_inset
+
+Situated Conceptualization
+\begin_inset Quotes erd
+\end_inset
+
+.
+ For example,
+ between two rectangles of different form (e.g.
+ height,
+ width and colors) we can construct a map by matching L-forms around vertices and sides of the two rectangles,
+ so that the “touching” geometric interactions are preserved:
+ this is a cognitive mapping (see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Cognitive-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ If we do not care about the preservation of the CE interactions or we are only preserving some properties (in a fuzzy way),
+ we have an 
+\emph on
+analogical mapping
+\emph default
+.
+ For example,
+ if we evaluate in a fuzzy way the L-forms of the aforementioned example with two rectangles,
+ we have a possible analogical mapping.
+\end_layout
+
+\begin_layout Standard
+Some general names:
+\end_layout
+
+\begin_layout Description
+Horizontal
+\begin_inset space ~
+\end_inset
+
+analogical/cognitive
+\begin_inset space ~
+\end_inset
+
+mappings:
+ Are mappings of the type 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Vertical
+\begin_inset space ~
+\end_inset
+
+analogical/cognitive
+\begin_inset space ~
+\end_inset
+
+mappings:
+ Are mappings of the type 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{j}$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathcal{S}_{k}\ra\mathcal{S}_{j}$
+\end_inset
+
+ with 
+\begin_inset Formula $k\ne j$
+\end_inset
+
+.
+ Vertical analogical or cognitive mappings correspond to human's GLOBAL vision of everything in the puzzle.
+\end_layout
+
+\begin_layout Description
+Internal
+\begin_inset space ~
+\end_inset
+
+analogical/cognitive
+\begin_inset space ~
+\end_inset
+
+mappings:
+ Are mappings of the type 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{I}_{k}$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathcal{S}_{k}\ra\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It seems that analogical or cognitive mappings of the form 
+\begin_inset Formula $\mathcal{I}_{k}\ra\mathcal{S}_{j}$
+\end_inset
+
+,
+ with 
+\begin_inset Formula $k\ne j$
+\end_inset
+
+,
+ are not useful in ARC-AGI 1,
+ 2 puzzles.
+\end_layout
+
+\begin_layout Standard
+A first version of the algorithm used to construct analogical mappings is as follows (we describe how to construct horizontal analogical mappings 
+\begin_inset Formula $U_{k}:\mathcal{I}_{k}\xra\mathcal{S}_{k}$
+\end_inset
+
+.
+ Similarly,
+ we can proceed for the other type of mappings):
+\end_layout
+
+\begin_layout Enumerate
+We imagine to have already recognized geometric entities,
+ relations and transformations using the synaptic plasticity algorithm described above in Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Synaptic-plasticity-and"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+For each entity 
+\begin_inset Formula $e\in\mathcal{I}_{k}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Consider the state 
+\begin_inset Formula $x_{e}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Consider all the interactions 
+\begin_inset Formula $a_{1},\ldots,a_{n}\xra{r}e$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ where 
+\begin_inset Formula $e$
+\end_inset
+
+ is a patient.
+\end_layout
+
+\begin_layout Enumerate
+Consider all the interactions 
+\begin_inset Formula $a_{1},\ldots,e,\ldots,a_{n}\xra{r}p$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ where 
+\begin_inset Formula $e$
+\end_inset
+
+ is an agent.
+\end_layout
+
+\begin_layout Enumerate
+Consider all the compositions of 2-3 transformations/actions taking 
+\begin_inset Formula $e$
+\end_inset
+
+ as 
+\emph on
+input
+\emph default
+,
+ e.g.
+ 
+\begin_inset Formula $T:\mathcal{I}_{k}\xra\mathcal{S}_{k}$
+\end_inset
+
+ and the related code 
+\family typewriter
+T(e)
+\family default
+ yields no error.
+\end_layout
+
+\begin_layout Enumerate
+For each entity 
+\begin_inset Formula $\bar{e}\in\mathcal{S}_{k}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Consider the state 
+\begin_inset Formula $x_{\bar{e}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Consider all the interactions 
+\begin_inset Formula $b_{1},\ldots,b_{m}\xra{\bar{r}}\bar{e}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ where 
+\begin_inset Formula $\bar{e}$
+\end_inset
+
+ is a patient.
+\end_layout
+
+\begin_layout Enumerate
+Consider all the interactions 
+\begin_inset Formula $b_{1},\ldots,\bar{e},\ldots,b_{m}\xra{\bar{r}}\bar{p}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ where 
+\begin_inset Formula $\bar{e}$
+\end_inset
+
+ is an agent.
+\end_layout
+
+\begin_layout Enumerate
+Consider all the composition of 2-3 transformations/actions having 
+\begin_inset Formula $\bar{e}$
+\end_inset
+
+ as 
+\emph on
+output
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Compare:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Each 
+\family typewriter
+e.states_description
+\family default
+ with 
+\family typewriter
+bar_e.states_descrition
+\family default
+:
+ crisp comparison
+\end_layout
+
+\begin_layout Enumerate
+Each value 
+\family typewriter
+e.x[c]
+\family default
+ with 
+\family typewriter
+bar_e.x[d]
+\family default
+ for each pairs of 
+\family typewriter
+c
+\family default
+-th and 
+\family typewriter
+d
+\family default
+-th components of the states (they may have different dimensions):
+ fuzzy comparison.
+ In case we do not have a more meaningful way to fix a fuzzy logic based comparison,
+ we can simply set a triangular fuzzy membership function 
+\family typewriter
+comp 
+\family default
+centered at zero and evaluate 
+\family typewriter
+comp(e.x[c] - e.x[d])
+\family default
+ if the states are numbers.
+\end_layout
+
+\begin_layout Enumerate
+The 
+\family typewriter
+type
+\family default
+ of each interaction (its propagator's attribute).
+ We can think this type as an abstract description of the interaction.
+\end_layout
+
+\begin_layout Enumerate
+Determine if the (composition of 2-3) action 
+\begin_inset Formula $T:\mathcal{I}_{k}\xra\mathcal{S}_{k}$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $T(e)=\bar{e}$
+\end_inset
+
+.
+ If the same action 
+\begin_inset Formula $T$
+\end_inset
+
+ is used for entities 
+\begin_inset Formula $e$
+\end_inset
+
+ of different abstract types,
+ then increase the global value of dopamine (depending on the number of different abstract types).
+\end_layout
+
+\begin_layout Enumerate
+Apply the previous comparison to 
+\begin_inset Formula $(a_{1},\ldots,a_{n})$
+\end_inset
+
+ and 
+\begin_inset Formula $(b_{1},\ldots,b_{m})$
+\end_inset
+
+,
+ or 
+\begin_inset Formula $r$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{r}$
+\end_inset
+
+,
+ or 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{p}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+For each one of these comparisons criterion resulting in a high fuzzy value (local dopamine) we define a different analogical mapping by setting 
+\family typewriter
+U(k)[e]=bar_e
+\family default
+ or 
+\family typewriter
+U(k)[a_1,...,a_n]=(b_1,...,b_m)
+\family default
+ or 
+\family typewriter
+U(k)[a_1,...,e,...,a_n]=(b_1,...,bar_e,...,b_m)
+\family default
+ and 
+\family typewriter
+U(k)[r]=bar_r
+\family default
+,
+ etc.
+ depending on the criterion.
+ We always have to think that these mappings are precursors of cognitive mappings (i.e.
+\begin_inset space ~
+\end_inset
+
+CEF),
+ and that the latter transform CE arrows in one IS into CE arrows of another IS.
+\end_layout
+
+\begin_layout Enumerate
+For all the other entities 
+\begin_inset Formula $e'$
+\end_inset
+
+,
+ set 
+\family typewriter
+U(k)[e']=
+\begin_inset Formula $\emptyset$
+\end_inset
+
+:
+
+\family default
+ these entities 
+\begin_inset Formula $e'$
+\end_inset
+
+ are forgotten.
+\end_layout
+
+\begin_layout Enumerate
+The comparison rule used above has to be used in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ the training puzzles.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Cognitive-mappings"
+
+\end_inset
+
+Cognitive mappings
+\end_layout
+
+\begin_layout Standard
+In our setting,
+ 
+\emph on
+cognitive mappings
+\emph default
+ are CEF,
+ but see also 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_CogMap"
+literal "false"
+
+\end_inset
+
+.
+ Usually,
+ they are defined by an analogical mapping,
+ see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analogical-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ by checking that these maps actually preserve CE interactions from one IS (e.g.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+) to another IS (e.g.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ for horizontal cognitive mappings).
+ Therefore,
+ their implementation follows exactly the algorithm described above in Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analogical-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The remaining key point is hence how to implement the verification that the mapping preserves CE interactions.
+\end_layout
+
+\begin_layout Standard
+The mathematical definition of a CEF 
+\begin_inset Formula $U_{k}:\mathcal{I}_{k}\xra\mathcal{S}_{k}$
+\end_inset
+
+ (in a static IS) is:
+ for all interactions 
+\begin_inset Formula $a_{1},\ldots,a_{n}\xra{r}p$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+,
+ we have 
+\begin_inset Formula $U_{k}(a_{1},\ldots,a_{n})\xra{U_{k}(r)}U_{k}(p)$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+.
+ We recall that,
+ in general,
+ 
+\begin_inset Formula $U_{k}$
+\end_inset
+
+ does not preserve arity:
+ i.e.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $U_{k}(a_{1},\ldots,a_{n})=(b_{1},\ldots,b_{m})$
+\end_inset
+
+ but not necessarily 
+\begin_inset Formula $n=m$
+\end_inset
+
+ (but if 
+\begin_inset Formula $n=1$
+\end_inset
+
+,
+ then 
+\begin_inset Formula $m=1$
+\end_inset
+
+,
+ which is implicit in the notations 
+\begin_inset Formula $U_{k}(r)$
+\end_inset
+
+ and 
+\begin_inset Formula $U_{k}(p)$
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+As we mentioned above,
+ the CEF can be implemented as a tuple of dictionaries 
+\family typewriter
+U(k)[a_1,...,a_n]=(b_1,...,b_m)
+\family default
+,
+ 
+\family typewriter
+U(k)[r]=bar_r
+\family default
+,
+ 
+\family typewriter
+U(k)
+\family default
+[p
+\family typewriter
+]=bar_p
+\family default
+.
+ The mathematical definition of CEF can be implemented as follows:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# Cal_I[k] is the IS corresponding to the input training grid cal_I[k] loaded 
+\end_layout
+
+\begin_layout Plain Layout
+
+# with load_json.py
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Put all the interactions of Cal_I[k] in a list
+\end_layout
+
+\begin_layout Plain Layout
+
+Cal_I_k_interactions = list(Cal_I[k].I.values())
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Put all the interactions of Cal_S[k] in a list
+\end_layout
+
+\begin_layout Plain Layout
+
+Cal_S_k_interactions = list(Cal_S[k].I.values())
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# The following is the map U-taking interactions of Cal_I[k] to Cal_S[k]
+\end_layout
+
+\begin_layout Plain Layout
+
+U_interactions_map = {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# for each interaction i in Cal_I[k]
+\end_layout
+
+\begin_layout Plain Layout
+
+for i in Cal_I_k_interactions:
+\end_layout
+
+\begin_layout Plain Layout
+
+	# initialize U_interactions_map at i
+\end_layout
+
+\begin_layout Plain Layout
+
+	U_interactions_map[i] = None
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	# values of the CEF U
+\end_layout
+
+\begin_layout Plain Layout
+
+	agents_U = U(k)[i.agents]
+\end_layout
+
+\begin_layout Plain Layout
+
+	pr_U = U(k)[i.pr]
+\end_layout
+
+\begin_layout Plain Layout
+
+	pa_U = U(k)[i.pa]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	# for each interaction j in Cal_S[k],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	# check if the previous values of U form an interaction in Cal_S[k]
+\end_layout
+
+\begin_layout Plain Layout
+
+	for j in Cal_S_k_interactions:
+\end_layout
+
+\begin_layout Plain Layout
+
+		if j.agents == agents_U and j.pr == pr_U and j.pa == pa_U:
+\end_layout
+
+\begin_layout Plain Layout
+
+			U_interactions_map[i] = j
+\end_layout
+
+\begin_layout Plain Layout
+
+			break
+\end_layout
+
+\begin_layout Plain Layout
+
+	if U_interactions_map[i] == None:
+\end_layout
+
+\begin_layout Plain Layout
+
+		print(f
+\begin_inset Quotes erd
+\end_inset
+
+{U} is not a CEF because it doesn't preserves {i.id}
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+print(f
+\begin_inset Quotes erd
+\end_inset
+
+{U} is a CEF!
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+return U_interactions_map
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Differently to what I stated during the UGM lectures,
+ it seems more natural to consider that from the training pair 
+\begin_inset Formula $\mathcal{I}_{k}-\mathcal{S}_{k}$
+\end_inset
+
+ we are constructing two cognitive mappings for RLE,
+ one of which is a forgetful one (because some interacting entities are not considered at all in the solution).
+ Moreover,
+ in general,
+ some actions to construct 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ from 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ need 
+\emph on
+more than one
+\emph default
+ interacting entity,
+ such as:
+ copy on 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ the rectangle in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ but with a new color taken from the most numerous set of cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+.
+ 
+\emph on
+Since we start from more than one interacting entity
+\emph default
+ (the rectangle and its interior cells),
+ the natural learning is RLE.
+\end_layout
+
+\begin_layout Enumerate
+On the contrary,
+ in transforming the final empty 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+ for the solution,
+ we proceed stepwise starting from one interacting entity to the next one,
+ and aiming to change its state.
+ For example:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Change the dimension of the grid by following the rules used in the training and guessed by the Elementary Arithmetic Unit (EAU,
+ see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Elementary-Arithmetrics-Unit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Change the color of this part of the grid by following the rules founded in the training puzzles.
+\end_layout
+
+\begin_layout Enumerate
+etc.
+\end_layout
+
+\begin_layout Standard
+In this case,
+ the natural learning process is therefore RLS because we start 
+\emph on
+from only one
+\emph default
+ interacting entity and we want to change its state.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+It could be useful to see analogical and cognitive mappings as interacting entities of 
+\begin_inset Formula $\mathcal{A}bst$
+\end_inset
+
+.
+ In this way,
+ we can e.g.
+\begin_inset space ~
+\end_inset
+
+talk of the state of a cognitive mapping,
+ one of whose component could be its 
+\begin_inset Quotes eld
+\end_inset
+
+abstract description
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This state can be used to apply the fuzzy rule of considering the same abstract transformations in all the training pair 
+\begin_inset Formula $\mathcal{I}_{k}-\mathcal{S}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+We can visualize a CEF 
+\begin_inset Formula $U(x)=y$
+\end_inset
+
+ by changing the color of the border (1 pixel width) of each interacting entities:
+ first 
+\begin_inset Formula $x$
+\end_inset
+
+ and after a certain time 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ We can also make disappear all the interacting entities that are forgotten (
+\begin_inset Formula $U(x)=\emptyset$
+\end_inset
+
+) by a cognitive mapping.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Invariance-extraction"
+
+\end_inset
+
+Invariance extraction and Conditional actions
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Invariance Extraction
+\emph default
+ is brain's ability to identify properties that remain equal in different settings,
+ see e.g.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_InvExt"
+literal "false"
+
+\end_inset
+
+.
+ After this identification,
+ we can perfrom 
+\emph on
+Conditional Actions
+\emph default
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+actions of the type 
+\begin_inset Quotes eld
+\end_inset
+
+If the invariant property is 
+\begin_inset Formula $P$
+\end_inset
+
+,
+ then make action 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the examples we considered in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Random_examples"
+literal "false"
+
+\end_inset
+
+,
+ invariant properties are of the following type:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+868de0fa
+\family default
+:
+ Squares have odd (or even) dimensions
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+6d0160f0
+\family default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The complex square has a yellow cell in its interior
+\end_layout
+
+\begin_layout Enumerate
+The position 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ of the yellow cell equals the position of the square in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ taking the unit of measurement 3 cells = 1 unit
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+760b3cac
+\family default
+:
+ 1 + the 
+\begin_inset Formula $x$
+\end_inset
+
+ coordinate of the vertical arm of the yellow L-form equals the abscissa used in the symmetry action
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+995c5fa3
+\family default
+:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+position number
+\begin_inset Quotes erd
+\end_inset
+
+ in the linear patterns 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ are equal
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+5117e062
+\family default
+:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+having a light-blue cell touching other cells of the same color
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+a8c38be5
+\family default
+:
+ the same type of L-form or T-form in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ end up in the same position in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+855e0971
+\family default
+:
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The linear pattern is vertical or horizontal
+\end_layout
+
+\begin_layout Enumerate
+The abscissa of the black cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ equals the abscissa of the black columns in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The ordinate of the black cells in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ equals the ordinate of the black rows in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+cce03e0d
+\family default
+:
+ the coordinate 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ of each red cell in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ equals the coordinate 
+\begin_inset Formula $(\bar{x},\bar{y})$
+\end_inset
+
+ of the copied square in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ in the unit of measurement 3 cells = 1 unit in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+3e980e27
+\family default
+:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+red cell
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+green cell
+\begin_inset Quotes erd
+\end_inset
+
+ are the invariant properties for the conditional actions
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+e8593010
+\family default
+:
+ entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ have the same number of cells
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+d4469b4b
+\family default
+:
+ Here we have conditional actions of type:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+if color = 
+\begin_inset Formula $c$
+\end_inset
+
+,
+ then draw the form 
+\begin_inset Formula $X$
+\end_inset
+
+",
+ so the color is the invariant property.
+\end_layout
+
+\begin_layout Standard
+\noindent
+Therefore,
+ it seems that invariant properties are always of the form:
+\end_layout
+
+\begin_layout Itemize
+Certain state properties of entities 
+\begin_inset Formula $e\in\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $g\in\mathcal{I}_{j}$
+\end_inset
+
+ are equal
+\end_layout
+
+\begin_layout Itemize
+Certain state properties of entities 
+\begin_inset Formula $e\in\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{e}\in\mathcal{S}_{j}$
+\end_inset
+
+ are equal,
+ where 
+\begin_inset Formula $\bar{e}=U_{k}(e)$
+\end_inset
+
+ and 
+\begin_inset Formula $U_{k}$
+\end_inset
+
+ is an analogical/cognitive mapping
+\end_layout
+
+\begin_layout Itemize
+As above,
+ but the equality is between elementary operations starting from numerical states of the considered entities (vertically or horizontally along a mapping).
+\end_layout
+
+\begin_layout Standard
+Therefore,
+ it seems that the following is a first attempt to find invariant properties and hence set the conditions in conditional actions:
+\end_layout
+
+\begin_layout Itemize
+Search equal state properties (possibly between corresponding entities along an analogical mapping).
+\end_layout
+
+\begin_layout Itemize
+The use of the EAU,
+ see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Elementary-Arithmetrics-Unit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ in order to obtain the same result starting from the states of two entities.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Elementary-Arithmetrics-Unit"
+
+\end_inset
+
+Elementary Arithmetic Unit
+\end_layout
+
+\begin_layout Standard
+The EAU is organized as a CAS with the GEP and RLS.
+ Here is a rough algorithmic organization of this unit:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Count-everything"
+
+\end_inset
+
+Count 
+\begin_inset Quotes eld
+\end_inset
+
+everything
+\begin_inset Quotes erd
+\end_inset
+
+ in the training puzzles:
+ number of cells of a certain color (black included),
+ number of cells,
+ number of entities of the same abstract type,
+ number of different colors,
+ number of sub-entities in each given complex entity,
+ number of analogical or cognitive mappings,
+ number of entities having a certain property.
+ Some of these numbers are better inserted in the state of the related entities once they are recognized.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Compute-everything"
+
+\end_inset
+
+Compute 
+\begin_inset Quotes eld
+\end_inset
+
+everything
+\begin_inset Quotes erd
+\end_inset
+
+ related to the entities 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ has recognized in the training puzzles:
+ area of rectangles,
+ length of sides,
+ position of each entity,
+ etc.
+ Also some of these numbers are better inserted in the state of the related entities once they are recognized.
+\end_layout
+
+\begin_layout Enumerate
+For each 
+\begin_inset Quotes eld
+\end_inset
+
+problem
+\begin_inset Quotes erd
+\end_inset
+
+ (e.g.
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ has to decide the final grid's dimensions or the numerical input value of an action),
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ creates a 
+\begin_inset Quotes eld
+\end_inset
+
+correspondence table
+\begin_inset Quotes erd
+\end_inset
+
+:
+ for example,
+ if the problem is 
+\begin_inset Quotes eld
+\end_inset
+
+find the grid's dimension
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\family typewriter
+feca6190
+\family default
+,
+ then the table is 
+\begin_inset Formula $(n,d)$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $n$
+\end_inset
+
+ is a counting number from the previous two steps 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Count-everything"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Compute-everything"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and 
+\begin_inset Formula $d$
+\end_inset
+
+ is the final grid's dimension:
+ in 
+\family typewriter
+feca6190
+\family default
+,
+ we can e.g.
+\begin_inset space ~
+\end_inset
+
+have 
+\begin_inset Formula $n=\text{number of red}$
+\end_inset
+
+,
+ or 
+\begin_inset Formula $\bar{n}=\text{number of non-black}$
+\end_inset
+
+ and hence the tables are
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{n}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate-Resume
+In general,
+ the tables are of the form 
+\begin_inset Formula $((n_{1},\ldots,n_{K}),d)$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $n_{j}$
+\end_inset
+
+ are counting numbers (usually 
+\begin_inset Formula $K\le2$
+\end_inset
+
+) and 
+\begin_inset Formula $d$
+\end_inset
+
+ is the output number we want that the EAU computes.
+ The general problem has to be thought of as 
+\begin_inset Quotes eld
+\end_inset
+
+what kind of interaction between input numbers 
+\begin_inset Formula $(n_{1},\ldots,n_{K})$
+\end_inset
+
+ we have to consider in order to obtain 
+\begin_inset Formula $d$
+\end_inset
+
+ in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ training puzzles (i.e.
+\begin_inset space ~
+\end_inset
+
+in all the rows of the previous tables).
+ We therefore have to find an interaction 
+\begin_inset Formula $n_{1},\ldots,n_{K}\xra{\alpha}d$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is among the core-knowledge of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ elementary operations.
+ Probably,
+ for the EAU there is no need to consider 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ in a fuzzy sense,
+ but only in a crisp sense.
+\end_layout
+
+\begin_layout Enumerate-Resume
+Each pair in the previous table is a 
+\begin_inset Formula $\{0,1\}$
+\end_inset
+
+ cost:
+ the chosen operation 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ works (cost = 0) or not (cost = 1),
+ and the RL is RLS because we have to chose 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ in order to minimize all these costs for each row in the table (GEP).
+\end_layout
+
+\begin_layout Standard
+Examples of elementary operations or properties we can consider in the core-knowledge of 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+The 4 elementary operations
+\end_layout
+
+\begin_layout Enumerate
+The given number is even/odd
+\end_layout
+
+\begin_layout Enumerate
+The linear pattern (or tiling) has a lower/greater number of elements
+\end_layout
+
+\begin_layout Enumerate
+Entity 
+\begin_inset Formula $X$
+\end_inset
+
+ precedes entity 
+\begin_inset Formula $Y$
+\end_inset
+
+ in the linear pattern 
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Set a unit of measurement in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ or in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+decide that 
+\begin_inset Formula $n$
+\end_inset
+
+ cells corresponds to 
+\begin_inset Formula $1$
+\end_inset
+
+ unit.
+ For example,
+ this is the case if all entities in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ have the same width and height 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ If they only have the same width 
+\begin_inset Formula $n$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ can fix a unit of measurement only for abscissas.
+\end_layout
+
+\begin_layout Enumerate
+Find the best linear mapping using the counting numbers appearing in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+:
+ can we find a general numerical algorithm?
+\end_layout
+
+\begin_layout Enumerate
+The middle entity in a linear pattern.
+ The 
+\begin_inset Formula $k$
+\end_inset
+
+-th entity in a linear pattern.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x=y\text{ mod }n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Distance between 
+\begin_inset Quotes eld
+\end_inset
+
+parallel
+\begin_inset Quotes erd
+\end_inset
+
+ entities (e.g.
+\begin_inset space ~
+\end_inset
+
+rectangles one included in another one).
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Hypotheses-testing"
+
+\end_inset
+
+Hypotheses testing and predictive processing
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Hypotheses testing
+\emph default
+ and 
+\emph on
+predictive processing
+\emph default
+ is the process where the brain actively accumulates information from the environment in favor of or against the hypothesis currently "under review." Only when the evidence exceeds a certain critical threshold is the hypothesis accepted or definitively rejected,
+ unlocking executive control to move on to the next candidate.
+\end_layout
+
+\begin_layout Standard
+While our conscious mind (working memory) struggles to handle more than one hypothesis at a time when solving complex problems,
+ the underlying brain is an extraordinary parallel machine.
+ In fact,
+ according to the Bayesian Brain theory,
+ the nervous system never bets on a single explanation from the very beginning.
+ Faced with an ambiguous stimulus,
+ entire populations of neurons simultaneously encode different probability distributions (that is,
+ multiple hypotheses in parallel).
+ These hypotheses compete with each other at a sub-conscious level until one accumulates enough evidence to win,
+ emerging into consciousness.
+ In the brain's neural networks,
+ different hypotheses undergo a process of lateral inhibition.
+ Imagine three hypotheses active at the same time.
+ Each neuronal representation tries to "turn off" the other two.
+ Until the sensory data becomes clear,
+ the brain maintains all three in a state of low-intensity parallel activation.
+ We can hold in memory the names of 2 or 3 hypotheses simultaneously,
+ but when we begin to actively test them by simulating their consequences,
+ the cognitive load almost always forces us to focus internal attention on a single main hypothesis,
+ performing a rapid serial shifting of attention between one and the other.
+\end_layout
+
+\begin_layout Standard
+In examples 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Random_examples"
+literal "false"
+
+\end_inset
+
+,
+ we have seen the following hypotheses testing and predictive processing:
+\end_layout
+
+\begin_layout Enumerate
+a68b268e:
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ constructs an hypothesis for each possible composition of 4 actions (corresponding to 4 analogical mappings);
+ at each step in this composition (e.g.
+ after only the composition of two actions) it evaluates the costs and abandon this hypothesis if the costs are maximal (e.g.
+ orange is not fully preserved);
+ the composition working in all training is the winning hypothesis.
+\end_layout
+
+\begin_layout Enumerate
+91413438:
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ makes an hypothesis about what linearization method it has to use to repeatedly drawing an entity on the output grids.
+\end_layout
+
+\begin_layout Enumerate
+05269061:
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ uses analogical mappings and set several hypotheses for different colors of a pattern 
+\begin_inset Formula $y_{N}$
+\end_inset
+
+ that have a good analogy with other patterns 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+ in the training puzzles.
+ It tests each hypothesis until the 
+\begin_inset Quotes eld
+\end_inset
+
+complete the pattern
+\begin_inset Quotes erd
+\end_inset
+
+ algorithm works.
+\end_layout
+
+\begin_layout Enumerate
+40853293:
+ the hypothesis is about the order of subsequent actions in drawing rows or columns.
+ The correct order is 
+\begin_inset Quotes eld
+\end_inset
+
+first rows,
+ then columns
+\begin_inset Quotes erd
+\end_inset
+
+ that works for the training puzzles.
+ This order has to be applied for the final solution.
+\end_layout
+
+\begin_layout Enumerate
+cce03e0d:
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ has to set several hypotheses because it is not able to get out from a certain step with a unique solution having a high value of local dopamine.
+ For example,
+ it has several different hypotheses for what entities it can recognize in the training puzzles.
+ Some of these hypotheses yield a path having a higher value of global dopamine.
+\end_layout
+
+\begin_layout Enumerate
+4522001f:
+ similar to the previous example.
+\end_layout
+
+\begin_layout Standard
+In general,
+ a first algorithmic approach to hypotheses testing could be as follows:
+\end_layout
+
+\begin_layout Itemize
+At each step of the metacognition algorithm,
+ see below,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ can get as output a set made of several possibilities.
+ Some of them already have a local value of dopamine or probability,
+ e.g.
+\begin_inset space ~
+\end_inset
+
+from the value of analogy in analogical mappings or from synaptic plasticity.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ then sets a certain set of hypotheses to test,
+ clearly starting from those having the best values of dopamine (Bayesian Brain).
+\end_layout
+
+\begin_layout Itemize
+At each subsequent step of the metacognition algorithm,
+ 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ evaluates the global value of dopamine.
+ If this is under a fixed threshold,
+ then it abandons this set of hypotheses and considers a new one having a sufficiently high value of dopamine.
+\end_layout
+
+\begin_layout Itemize
+We have to consider that the number of possible outputs does not seem huge,
+ and hence that a standard laptop can consider this potentially exponential problem of testing all the subsets of hypotheses.
+\end_layout
+
+\begin_layout Itemize
+On the other hand,
+ we can try to organize the choice of subsequent sets of hypotheses by considering those that exchange more information with the best hypotheses that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ evaluated so far,
+ i.e.
+\begin_inset space ~
+\end_inset
+
+organizing the predictive processing as a CAS.
+ In this case,
+ it is important what are the (abstract) interactions 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ has to consider for each object we introduce in the model.
+\end_layout
+
+\begin_layout Itemize
+We can also consider that the global dopamine evaluation of a given set of hypotheses is obtain by simply adding the local dopamine levels and hence inserting them into a sigmoid function.
+ This evaluation for each subset of hypotheses could be sufficiently quick.
+\end_layout
+
+\begin_layout Itemize
+We can also evaluate to execute in parallel different hypotheses on different processor's cores.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Metacognition-algorithm"
+
+\end_inset
+
+Metacognition algorithm 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+the following part will be completed in the next days
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Implement the possibility to enter into a 
+\begin_inset Quotes eld
+\end_inset
+
+verbose mode
+\begin_inset Quotes erd
+\end_inset
+
+ that explain all reasonings and attempts,
+ up to the final correct one.
+\end_layout
+
+\begin_layout Enumerate
+How many times does 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hisarc
+\end_layout
+
+\end_inset
+
+ has to apply an action?
+ General rules (hypotheses to test) are:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Use the 
+\begin_inset Quotes eld
+\end_inset
+
+Elementary arithmetic
+\begin_inset Quotes erd
+\end_inset
+
+ module (see Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Elementary-Arithmetrics-Unit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) to generalize the number of times used for the training examples.
+\end_layout
+
+\begin_layout Enumerate
+Apply the actions every time this is still possible until you get a fixed/no more changeable state of the entire final grid 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Apply the actions until all the other conditions are met:
+ we have high fuzzy value of analogical mappings,
+ we obtain cognitive mappings,
+ RLE and/or RLS holds,
+ etc.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Construction of an explanation in natural language
+\end_layout
+
+\begin_layout Enumerate
+delete the unused entities,
+ interactions,
+ actions,
+ etc.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Buz"
+literal "false"
+
+\end_inset
+
+Buzsáki,
+ G.
+ 
+\emph on
+The Brain from Inside Out
+\emph default
+.
+ Oxford University Press,
+ 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Fle"
+literal "false"
+
+\end_inset
+
+Fleming,
+ Towards an integrative neuroscience of metacognition
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_AnalogicalMap1"
+literal "false"
+
+\end_inset
+
+Gemini - Analogical_mapping_examples
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_AnalogicalMap2"
+literal "false"
+
+\end_inset
+
+Gemini - Analogical_cognition_and_brain_mechanisms
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_brainOrganization"
+literal "false"
+
+\end_inset
+
+Gemini - Brain organization
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_Action"
+literal "false"
+
+\end_inset
+
+Gemini,
+ Buzsaki's "Action".
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_CogMap"
+literal "false"
+
+\end_inset
+
+Gemini - Cognitive mappings
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_CogProc"
+literal "false"
+
+\end_inset
+
+Gemini,
+ Cognitive processes.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_Core-knowledge"
+literal "false"
+
+\end_inset
+
+Gemini,
+ Core-knowledge:
+ Innate cognitive abilities.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_HypTest"
+literal "false"
+
+\end_inset
+
+Gemini - Hypothesis testing
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_InvExt"
+literal "false"
+
+\end_inset
+
+Gemini - Invariance extraction
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_NeuUncProc"
+literal "false"
+
+\end_inset
+
+Gemini,
+ Neuroscience unconscious processes
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_NeuroTransm_fl"
+literal "false"
+
+\end_inset
+
+Gemini,
+ Neurotransmitters and fuzzy logic
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_ObjAff"
+literal "false"
+
+\end_inset
+
+Gemini,
+ Object Affordance & Motor Priming
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_SitCon"
+literal "false"
+
+\end_inset
+
+Gemini,
+ SitCon Situated Conceptualization
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_SitConYoneda"
+literal "false"
+
+\end_inset
+
+Gemini,
+ SitCon and Yoneda lemma
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Gem_SynPlast"
+literal "false"
+
+\end_inset
+
+Gemini,
+ Synaptic plasticity.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "HKSB"
+literal "false"
+
+\end_inset
+
+Hassabis,
+ D.,
+ Kumaran,
+ D.,
+ Summerfield,
+ C.,
+ Botvinick,
+ M.
+ (2017).
+ Neuroscience-Inspired Artificial Intelligence.
+ Neuron,
+ 95(2),
+ 245-258.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Random_examples"
+literal "false"
+
+\end_inset
+
+random quickly tested examples.lyx
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Loev12"
+literal "false"
+
+\end_inset
+
+Lövheim,
+ H.,
+ A new three-dimensional model for emotions and monoamine neurotransmitters.
+ Medical Hypotheses,
+ Volume 78,
+ Issue 2,
+ 2012,
+ Pages 341-348,
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1016/j.mehy.2011.11.016
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Zad97"
+literal "false"
+
+\end_inset
+
+Zadeh,
+ L.A.,
+ Toward a theory of fuzzy information granulation and its centrality in human reasoning and fuzzy logic.
+ Fuzzy Sets and Systems,
+ Volume 90,
+ Issue 2,
+ 1997,
+ Pages 111-127,
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1016/S0165-0114(97)00077-8
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
