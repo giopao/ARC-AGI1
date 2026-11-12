@@ -1,0 +1,4 @@
+- Start from the last version of "Metacognition_algorithm" (pdf)
+- Using the notions introduced in this file, read "random_quickly_tested_examples.pdf"
+- Once the metacognition algorithm will be fixed and intuitively tested against these examples, we can start writing the corresponding code
+- Considering the general remarks written in the "Metacognition_algorithm", start writing the core-knowledge for more and more examples and test the general metacognition algorithm
