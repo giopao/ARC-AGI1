@@ -3488,7 +3488,11 @@ mappings:
 \end_inset
 
 .
- Vertical analogical or cognitive mappings correspond to human's GLOBAL vision of everything in the puzzle.
+ Vertical analogical or cognitive mappings correspond to human's 
+\emph on
+global
+\emph default
+ vision of everything in the puzzle.
 \end_layout
 
 \begin_layout Description
@@ -3830,6 +3834,40 @@ CEF),
 \end_layout
 
 \begin_layout Enumerate
+The comparison rule used above has to be used in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ the training puzzles.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\change_inserted 5381 1794576029
+Evaluate the local dopamine by adding all the previous fuzzy evaluations and inserting the final results into a sigmoid function.
+ We can also consider this idea to summarize some of these criteria,
+ but to create a fuzzy membership function depending on three values:
+ this fuzzy sum,
+ the number of criteria used in SitCom,
+ of number of input training puzzles 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ where these criteria are used.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
 For all the other entities 
 \begin_inset Formula $e'$
 \end_inset
@@ -3851,19 +3889,6 @@ U(k)[e']=
  are forgotten.
 \end_layout
 
-\begin_layout Enumerate
-The comparison rule used above has to be used in 
-\begin_inset Quotes eld
-\end_inset
-
-all
-\begin_inset Quotes erd
-\end_inset
-
- the training puzzles.
-\end_layout
-
-\end_deeper
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -5643,8 +5668,8 @@ organizing the predictive processing as a CAS.
 We can also consider that the global dopamine evaluation of a given set of hypotheses is obtain by simply adding the local dopamine levels and hence inserting them into a sigmoid function.
  This evaluation for each subset of hypotheses could be sufficiently quick.
 
-\change_inserted 5381 1794561845
- We can therefore choose the shortest path in this hypergraph of interactions using Dijkstra's algorithm,
+\change_inserted 5381 1794577911
+ We can therefore choose the shortest path in this (hyper)graph of interactions using Dijkstra's algorithm,
  see 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -5670,18 +5695,516 @@ name "sec:Metacognition-algorithm"
 \end_inset
 
 Metacognition algorithm 
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-the following part will be completed in the next days
 \end_layout
 
+\begin_layout Standard
+
+\change_inserted 5381 1794570103
+
+\emph on
+Metacognition
+\emph default
+ is the capacity to monitor,
+ evaluate,
+ direct,
+ and reflect upon one's own cognitive processes and states of knowledge,
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gem_CogProc"
+literal "false"
+
+\end_inset
+
+.
+ In our point of view,
+ this algorithm concerns 
+\begin_inset Quotes eld
+\end_inset
+
+how we put together all the single cognitive processes and evaluate paths and hypotheses
+\begin_inset Quotes erd
+\end_inset
+
+.
+ In other words,
+ it is the framework algorithm that 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ uses to coordinate all the cognitive processes we presented above:
+ core-knowledge for entities and interactions recognition,
+ abstraction,
+ local and global levels of dopamine using fuzzy logic based indicators,
+ synaptic plasticity,
+ analogical and cognitive mappings,
+ invariance extraction and conditional actions,
+ hypotheses testing and predictive processing,
+ RLE,
+ RLS.
+ Therefore,
+ it seems that 
+\emph on
+metacognition
+\emph default
+ is a possible name for this summarizing general algorithm.
+ 
+\series bold
+Open problem:
+ 
+\series default
+Other possible names are 
+\emph on
+cognitive control
+\emph default
+,
+ 
+\emph on
+fluid reasoning
+\emph default
+,
+ 
+\emph on
+active inference
+\emph default
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 5381 1794584444
+Metacognition algorithm
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794582750
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:entities"
+
+\end_inset
+
+Recognize (all possible!) entities using synaptic plasticity algorithm and their occurrence in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ training puzzles,
+ Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Synaptic-plasticity-and"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794582757
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:interactions"
+
+\end_inset
+
+Recognize interactions using synaptic plasticity algorithm and their occurrence in 
+\begin_inset Quotes eld
+\end_inset
+
+all
+\begin_inset Quotes erd
+\end_inset
+
+ training puzzles,
+ Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Synaptic-plasticity-and"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794576099
+Construct analogical mappings (horizontal,
+ vertical,
+ internal) using the algorithm explained in Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analogical-mappings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794576265
+Find what input parameters are needed by these actions to run.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794577267
+Use the EAU to find some of these input parameters.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794576498
+Find invariant properties using the ideas presented in Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Invariance-extraction"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794577587
+Create conditional action using the previous invariant properties.
+ A conditional action for 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ of the type 
+\begin_inset Quotes eld
+\end_inset
+
+If 
+\begin_inset Formula $P_{jk},\ldots,P_{jk}$
+\end_inset
+
+,
+ then 
+\begin_inset Formula $A_{j}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ for 
+\begin_inset Formula $j=1,\ldots,A$
+\end_inset
+
+ actions has to be applied to all entities 
+\begin_inset Formula $e\in\mathcal{I}_{k}$
+\end_inset
+
+ that share these properties.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794582426
+Find where 
+\begin_inset Formula $\hisarc$
+\end_inset
+
+ can take these parameters considering state of recognized entities or the analog of these through the previous analogical mappings.
+ These input parameters are frequently taken from entities sharing the invariant properties.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794584592
+Set an hypothesis for each permutation of the actions 
+\begin_inset Formula $A_{j}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $j=1,\ldots,A$
+\end_inset
+
+ (unless this order is the same in all the training puzzles).
+ Delete the hypotheses that are not able to reproduce the input training puzzles.
+ If there is no criteria to prefer one hypothesis with respect to the other ones,
+ set an equal dopamine value for all of them.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794577744
+Each analogical mapping has to define a cognitive mapping.
+ Delete analogical mapping that do not preserve CE interactions.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794582783
+Find possible missing entities or interactions in 
+\begin_inset Formula $\mathcal{I}_{k}$
+\end_inset
+
+ starting from entities in 
+\begin_inset Formula $\mathcal{S}_{k}$
+\end_inset
+
+ that do not have a counter-image along any cognitive mapping.
+ Use RLS to find these missing entities or interactions.
+ A first cost to consider in this RLS is that now some cognitive mapping works better,
+ i.e.
+ has a higher value of local dopamine.
+ Restart from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:entities"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ or 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:interactions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794584617
+For each cognitive mapping,
+ define another one in the opposite direction as potential right or left adjoint CEF.
+ If they do not satisfy the RLE or RLS condition,
+ they are deleted.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794584644
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:globalDopDijkstra"
+
+\end_inset
+
+Each one of the previous step (cognitive process) define an interaction/link in a (hyper)graph where entities/nodes are simply 
+\begin_inset Quotes eld
+\end_inset
+
+step 
+\begin_inset Formula $n$
+\end_inset
+
+ in an algorithm considering all these interactions/link
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Use Dijkstra's algorithm to define an order of best hypotheses about how to use these cognitive processes.
+ Evaluate the global dopamine for each one of these hypotheses and use the algorithm presented in Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Neurotransmitters-and-fuzzy"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and Sec.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Hypotheses-testing"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794577587
+Find grid's dimension in 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+using EAU
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794584705
+Construct an abstract characterization of each cognitive process considered under a certain hypothesis (path in the graph mentioned in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:globalDopDijkstra"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+):
+ using SitCon,
+ identify entities,
+ interactions,
+ actions,
+ etc.
+ by their state or by interaction where they are patients or agents.
+ Consider also type of interactions,
+ type of actions.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794584154
+Use RLS and the previous abstract characterization to start changing 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+.
+ Conditional actions can be thought of as a program of actions whose input parameters are found as we specified above.
+ Each abstract characterization has an English verbal description.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794584368
+Reconstruct in 
+\begin_inset Formula $\mathcal{I}_{N}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathcal{S}_{N}$
+\end_inset
+
+ the same number of cognitive mappings we considered in the training puzzles.
+ Check RLE and RLS in the final solution.
+ At the end the final value of global dopamine has to increase by adding the final solution.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 5381 1794584741
+Delete unused entities,
+ interactions,
+ actions,
+ etc.
+ and construct a natural language explanation of the final solution by concatenating the verbal description of each action.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Remark
+\begin_inset space ~
 \end_inset
 
 
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
 Implement the possibility to enter into a 
 \begin_inset Quotes eld
@@ -5691,84 +6214,19 @@ verbose mode
 \begin_inset Quotes erd
 \end_inset
 
- that explain all reasonings and attempts,
- up to the final correct one.
-\end_layout
-
-\begin_layout Enumerate
-How many times does 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hisarc
-\end_layout
-
-\end_inset
-
- has to apply an action?
- General rules (hypotheses to test) are:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Use the 
-\begin_inset Quotes eld
-\end_inset
-
-Elementary arithmetic
-\begin_inset Quotes erd
-\end_inset
-
- module (see Sec.
+ that explain all reasonings and attempts
+\change_inserted 5381 1794584774
+ (e.g.
 \begin_inset space ~
 \end_inset
 
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Elementary-Arithmetrics-Unit"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-) to generalize the number of times used for the training examples.
-\end_layout
-
-\begin_layout Enumerate
-Apply the actions every time this is still possible until you get a fixed/no more changeable state of the entire final grid 
-\begin_inset Formula $\mathcal{S}_{N}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Apply the actions until all the other conditions are met:
- we have high fuzzy value of analogical mappings,
- we obtain cognitive mappings,
- RLE and/or RLS holds,
- etc.
+different path of cognitive processes)
+\change_unchanged
+,
+ up to the final correct one.
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
-Construction of an explanation in natural language
-\end_layout
-
-\begin_layout Enumerate
-delete the unused entities,
- interactions,
- actions,
- etc.
-\end_layout
-
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
