@@ -1,0 +1,283 @@
+<mxfile host="Electron">
+  <diagram name="Pagina-1" id="pn7wYyNQowQ785Y8zWC7">
+    <mxGraphModel dx="1158" dy="747" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Entities" vertex="1">
+          <mxGeometry height="60" width="120" x="61" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Interactions" vertex="1">
+          <mxGeometry height="60" width="120" x="61" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-3" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="344" as="sourcePoint" />
+            <mxPoint x="126" y="294" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Analogical mappings" vertex="1">
+          <mxGeometry height="60" width="120" x="61" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-5" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-2" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="344" as="sourcePoint" />
+            <mxPoint x="126" y="294" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-6" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;" value="Is it a CEF?" vertex="1">
+          <mxGeometry height="80" width="80" x="81" y="334" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NO" vertex="1">
+          <mxGeometry height="30" width="60" x="151" y="344" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Cognitive mapping in opposite direction" vertex="1">
+          <mxGeometry height="60" width="120" x="61" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-10" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-6" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="334" as="sourcePoint" />
+            <mxPoint x="126" y="284" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-11" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;" value="RLE?" vertex="1">
+          <mxGeometry height="80" width="80" x="81" y="544" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-12" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-9" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-11" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="524" as="sourcePoint" />
+            <mxPoint x="126" y="474" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="YES" vertex="1">
+          <mxGeometry height="30" width="60" x="116" y="404" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-15" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-4" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="524" as="sourcePoint" />
+            <mxPoint x="126" y="474" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NO" vertex="1">
+          <mxGeometry height="30" width="60" x="146" y="554" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Find actions corresponding to cog maps" vertex="1">
+          <mxGeometry height="60" width="120" x="61" y="784" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Find inputs of actions" vertex="1">
+          <mxGeometry height="60" width="120" x="61" y="881" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-20" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-17" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-19" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="884" as="sourcePoint" />
+            <mxPoint x="126" y="834" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Invariant properties" vertex="1">
+          <mxGeometry height="60" width="120" x="61" y="974" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-22" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-19" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-21" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="804" as="sourcePoint" />
+            <mxPoint x="126" y="754" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Create possible conditional actions" vertex="1">
+          <mxGeometry height="60" width="120" x="61" y="1074" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-24" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-21" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-23" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="1154" as="sourcePoint" />
+            <mxPoint x="126" y="1104" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Find values of input parameters" vertex="1">
+          <mxGeometry height="60" width="120" x="506" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-26" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-23" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-25" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.2438" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="1104" />
+              <mxPoint x="440" y="1104" />
+              <mxPoint x="440" y="640" />
+              <mxPoint x="440" y="120" />
+              <mxPoint x="566" y="120" />
+            </Array>
+            <mxPoint x="275" y="1166" as="sourcePoint" />
+            <mxPoint x="325" y="1116" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Set hypotheses for the missing input values" vertex="1">
+          <mxGeometry height="60" width="120" x="506" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-29" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-25" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-28" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="521" y="126" as="sourcePoint" />
+            <mxPoint x="571" y="76" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Set hypotheses for each permutation of cond. actions" vertex="1">
+          <mxGeometry height="60" width="120" x="506" y="366" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-31" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-28" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-30" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="521" y="416" as="sourcePoint" />
+            <mxPoint x="571" y="366" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-33" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-30" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-38" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.25" as="geometry">
+            <Array as="points">
+              <mxPoint x="566" y="436" />
+            </Array>
+            <mxPoint x="521" y="416" as="sourcePoint" />
+            <mxPoint x="566" y="456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-34" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-35" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-1" value="">
+          <mxGeometry height="50" relative="1" width="50" x="0.3527" as="geometry">
+            <Array as="points">
+              <mxPoint x="396" y="704" />
+              <mxPoint x="396" y="394" />
+              <mxPoint x="396" y="64" />
+            </Array>
+            <mxPoint x="181" y="1374" as="sourcePoint" />
+            <mxPoint x="316" y="544" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-35" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;" value="Are there missing entities?" vertex="1">
+          <mxGeometry height="80" width="120" x="61" y="664" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-36" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-11" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-35" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="76" y="834" as="sourcePoint" />
+            <mxPoint x="126" y="784" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-37" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-35" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-17" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="86" y="824" as="sourcePoint" />
+            <mxPoint x="136" y="774" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Construct the hypergraph of cognitive processes" vertex="1">
+          <mxGeometry height="60" width="120" x="506" y="466" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Construct abstract instructions corr. to the path with highest dopamine" vertex="1">
+          <mxGeometry height="60" width="120" x="506" y="681" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-42" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;" value="Does the path solve the puzzle?" vertex="1">
+          <mxGeometry height="90" width="120" x="506" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Set zero the lowest dopamine in the path" vertex="1">
+          <mxGeometry height="60" width="120" x="671" y="933" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-45" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-42" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-44" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="531" y="898" as="sourcePoint" />
+            <mxPoint x="581" y="848" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-46" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-44" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.444;exitY=0.05;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-48" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0939" as="geometry">
+            <Array as="points">
+              <mxPoint x="721" y="596" />
+            </Array>
+            <mxPoint x="531" y="646" as="sourcePoint" />
+            <mxPoint x="581" y="596" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="&amp;nbsp;Dijkstra with dopamine" vertex="1">
+          <mxGeometry height="60" width="120" x="506" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-49" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-38" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-48" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="541" y="656" as="sourcePoint" />
+            <mxPoint x="591" y="606" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-50" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-48" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-39" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="541" y="656" as="sourcePoint" />
+            <mxPoint x="591" y="606" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-51" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="NL explanation" vertex="1">
+          <mxGeometry height="60" width="120" x="506" y="1048" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-52" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-42" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-51" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="541" y="1048" as="sourcePoint" />
+            <mxPoint x="591" y="998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-53" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NO" vertex="1">
+          <mxGeometry height="30" width="60" x="611" y="928" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-54" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="YES" vertex="1">
+          <mxGeometry height="30" width="60" x="561" y="1008" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Flag the analogical mapping" vertex="1">
+          <mxGeometry height="60" width="120" x="216" y="344" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-56" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-6" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-55" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="96" y="424" as="sourcePoint" />
+            <mxPoint x="146" y="374" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-57" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-55" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-4" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0286" as="geometry">
+            <Array as="points">
+              <mxPoint x="276" y="264" />
+            </Array>
+            <mxPoint x="96" y="424" as="sourcePoint" />
+            <mxPoint x="196" y="264" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Flag the cognitive mapping" vertex="1">
+          <mxGeometry height="60" width="120" x="216" y="554" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-59" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-58" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0286" as="geometry">
+            <Array as="points">
+              <mxPoint x="276" y="484" />
+            </Array>
+            <mxPoint x="96" y="644" as="sourcePoint" />
+            <mxPoint x="181" y="484" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-60" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-16" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-58" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="96" y="414" as="sourcePoint" />
+            <mxPoint x="146" y="364" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-61" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="YES" vertex="1">
+          <mxGeometry height="30" width="60" x="116" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-62" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="YES" vertex="1">
+          <mxGeometry height="30" width="60" x="181" y="674" as="geometry" />
+        </mxCell>
+        <mxCell id="nu_LQI3UOtzpVeNRl-oQ-63" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NO" vertex="1">
+          <mxGeometry height="30" width="60" x="116" y="744" as="geometry" />
+        </mxCell>
+        <mxCell id="_M2oz9WCD2tkE5u3qTKt-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Find initial entities for the applications of these instructions" vertex="1">
+          <mxGeometry height="60" width="120" x="506" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="_M2oz9WCD2tkE5u3qTKt-2" edge="1" parent="1" source="_M2oz9WCD2tkE5u3qTKt-1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nu_LQI3UOtzpVeNRl-oQ-42" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="290" y="860" as="sourcePoint" />
+            <mxPoint x="340" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_M2oz9WCD2tkE5u3qTKt-3" edge="1" parent="1" source="nu_LQI3UOtzpVeNRl-oQ-39" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="_M2oz9WCD2tkE5u3qTKt-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="290" y="860" as="sourcePoint" />
+            <mxPoint x="340" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
